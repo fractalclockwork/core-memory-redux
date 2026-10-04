@@ -1,0 +1,50 @@
+* dmos_ahc.lib — behavioral AHC decode + DMOS + SS14 for L2 (GATE-L2-E2E)
+* Abstraction: pin-faithful enable polarity / mutex only — not transistor-level.
+* BOM path: 74AHC138 → TBD62783 (HS), 74AHC238 → TBD62083 (LS), SS14, TLV3501
+* REQ-DRV-DMOS; decode_block / DMOS ABI in naming.md (2-line n=2 subset)
+*
+* Active levels:
+*   74AHC138 HS outs: active-low (_n)
+*   74AHC238 LS outs: active-high (_en)
+*   TBD62783: active-low input
+*   TBD62083: active-high input
+* Fail-safe (parent): FWD_EN_n / REV_EN_n pull-up inactive; DEC_EN pull-down off
+
+* --- 2-line LS decode (238), active-high outs; bank_en_n active-low
+.subckt ahc238_2line addr0 bank_en_n dec_en y0_en y1_en
+Ben bank_on 0 V={u(0.5-V(bank_en_n)) * u(V(dec_en)-0.5)}
+By0 y0_en 0 V={V(bank_on) * u(0.5-V(addr0))}
+By1 y1_en 0 V={V(bank_on) * u(V(addr0)-0.5)}
+.ends ahc238_2line
+
+* --- 2-line HS decode (138), active-low outs
+.subckt ahc138_2line addr0 bank_en_n dec_en y0_n y1_n
+Ben bank_on 0 V={u(0.5-V(bank_en_n)) * u(V(dec_en)-0.5)}
+By0 y0_n 0 V={1 - V(bank_on) * u(0.5-V(addr0))}
+By1 y1_n 0 V={1 - V(bank_on) * u(V(addr0)-0.5)}
+.ends ahc138_2line
+
+* --- TBD62783 channel: IN active-low → connect vdrive to out
+.subckt dmos_hs_ch in_n vdrive out
+Bgate gate 0 V={u(0.5-V(in_n))}
+S1 vdrive out gate 0 sw_hs
+.model sw_hs sw(vt=0.5 vh=0.1 ron=0.2 roff=100G)
+.ends dmos_hs_ch
+
+* --- TBD62083 channel: IN active-high → connect out to ccs
+.subckt dmos_ls_ch in_en out ccs
+S1 out ccs in_en 0 sw_ls
+.model sw_ls sw(vt=0.5 vh=0.1 ron=0.2 roff=100G)
+.ends dmos_ls_ch
+
+* --- SS14 steering Schottky
+.subckt ss14 a k
+Dss a k dss14
+.model dss14 D(Is=1u N=1.1 Rs=0.08)
+.ends ss14
+
+* --- TLV3501 behavioral comparator
+.subckt tlv3501 inp inn out
+Ecmp out 0 value={tanh(80*(V(inp)-V(inn)))}
+Rout out 0 10k
+.ends tlv3501

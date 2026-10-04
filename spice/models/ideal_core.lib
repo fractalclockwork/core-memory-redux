@@ -1,0 +1,29 @@
+* ideal_core.lib — behavioral threshold core for L3 SIL (GATE-L3-SIL)
+* Abstraction: threshold-law Ic flip + fixed sense pulse — NOT Chan / coremem.
+* REQ-SCALE-ANTIX: L3 is the only full-matrix sim path; no Chan at n=64.
+*
+* Ports: xp/xn X winding, yp/yn Y, sp/sn sense.
+* State node `state`: +1 stored-1, −1 stored-0.
+* Ith ≈ Ic = 0.6 A (sim assumption Ic=600 mA; Ic/2=300 mA half-select).
+* Sense: fixed pulse amplitude on destructive READ (1→0 under negative MMF).
+
+.subckt ideal_core xp xn yp yn sp sn
+.param Ith=0.6 Phis=1e-7 tau=50n Vsense=1.0
+
+Vx xp x1 0
+Ex x1 xn value={Phis*ddt(V(state))}
+Vy yp y1 0
+Ey y1 yn value={Phis*ddt(V(state))}
+Vs sp s1 0
+Es s1 sn value={Phis*ddt(V(state))+V(pulse)}
+
+Bmmf mmf 0 V=I(Vx)+I(Vy)+I(Vs)
+Cstate state 0 1n IC=-1
+* Soft step toward sign(MMF) when |MMF|≥Ith; hold otherwise
+Gstate 0 state value={u(abs(V(mmf))-{Ith}+1m)*(tanh(40*(V(mmf)/{Ith}))-V(state))/{tau}}
+Rleak state 0 1G
+
+* Fixed sense pulse proxy (edge of destructive flip)
+Bpulse pulse 0 V={Vsense * u(-V(mmf)-{Ith}+1m) * u(V(state)+0.5)}
+
+.ends ideal_core

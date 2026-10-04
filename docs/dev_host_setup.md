@@ -63,7 +63,7 @@ on stderr; PySpice 1.5 treats any non-`Warning:` stderr as fatal
 `scripts/check_pyspice.py` ignores that informational line and verifies a
 real transient.
 
-`uv sync` creates `.venv` from [`pyproject.toml`](../pyproject.toml) and the committed `uv.lock`. Generators and SIL modules are **not present yet**; this env is the host baseline for upcoming work.
+`uv sync` creates `.venv` from [`pyproject.toml`](../pyproject.toml) and the committed `uv.lock`. L0–L3 sim/SIL modules live under `spice/`; generators and KiCad are **not present yet**.
 
 ## 4. Optional later: KiCad
 
@@ -92,4 +92,6 @@ sudo ln -sf /usr/lib/x86_64-linux-gnu/libngspice.so.0 \
 - [ ] `uv run python scripts/check_pyspice.py`
 - [ ] `uv run python scripts/run_gate.py GATE-L0-PHYSICS` (or `uv run pytest tests/test_l0_physics.py`)
 - [ ] `uv run python scripts/run_gate.py GATE-L1-CYCLE` (or `uv run pytest tests/test_l1_cycle.py`)
+- [ ] `uv run python scripts/run_gate.py GATE-L2-E2E` (or `uv run pytest tests/test_l2_e2e.py`)
+- [ ] `uv run python scripts/run_gate.py GATE-L3-SIL` (or `uv run pytest tests/test_l3_sil.py`)
 - [ ] (optional) `kicad-cli --version` or Help → About in the KiCad GUI

@@ -78,6 +78,8 @@ One axis: 74AHC138 HS + 74AHC238 LS. Hierarchical pins:
 
 `line# = 8·HS + LS` (logical 0…63). Control stays at bank level (8+8), never 64 line pins per axis.
 
+**L2 freeze (GATE-L2-E2E):** behavioral n=2 sim confirms this pin polarity and FWD/REV mutex — `FWD_EN_n` / `REV_EN_n` active-low with mutual exclusion, `DEC_EN` active-high, 138 outs active-low into TBD62783, 238 outs active-high into TBD62083. Evidence: [`spice/l2/driver_2x2.cir`](../spice/l2/driver_2x2.cir), [`tests/test_l2_e2e.py`](../tests/test_l2_e2e.py). Full 8-channel sheet pin lists above remain the schematic ABI target.
+
 ### DMOS array block — target drive atom
 
 One 8-channel Toshiba DMOS package (or a small sheet that wraps one): TBD62783 (HS sources) or TBD62083 (LS sinks). This replaces the old per-line TC4427 + discrete MOSFET `drive_block` as the **primary** ABI.

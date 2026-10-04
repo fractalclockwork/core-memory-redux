@@ -51,6 +51,33 @@ A 1:1 pulse-transformer sense front-end was considered and **deferred**: on this
 
 Bench bring-up needs a knob for \(I_c/2\) while probing cores of uncertain coercivity (400–800 mA full-select estimate). A TL431 reference and multi-turn 3296W divider set the OPA192 target without firmware or a DAC. A later digital setpoint (DAC or PWM + filter) can replace the trimpot once the operating current is known; the MOSFET + sense-resistor power stage stays.
 
+## Schematic defaults + bench-tunable bring-up
+
+Bench characterization needs a **highly functional** driver (complete schematic + PCB), not a one-shot fixed setpoint. Therefore:
+
+1. **Do not freeze** exact \(I_c\), \(V_{drive}\), or inhibit-vs-READ polarity as ICD until measured ([system_design_spec.md](system_design_spec.md) §1 non-normative column stays).
+2. **Do freeze schematic intent:** the board must ship with informed *defaults* and explicit *tune points* so bring-up can sweep the ICD band without a respin for every guess.
+3. **L4 / PCB acceptance:** a “complete” fabric is one that exposes the knobs below; claiming bench-ready without them is a gap.
+
+### Informed defaults (start of bring-up, not ICD)
+
+| Parameter | Schematic / sim default | Rationale |
+|-----------|-------------------------|-----------|
+| \(I_c\) / \(I_c/2\) | 600 mA / 300 mA | Mid of ICD 400–800 mA full-select band; matches L0–L3 sim assumption |
+| \(V_{drive}\) | Design for ~12 V class rail with margin (exact value open) | Headroom for DMOS + SS14 + inductive \(L\,di/dt\) on series fold; finalize on bench |
+| Inhibit vs READ | Default: source `YA65`, sink `YB66` into `CCS_INH` at \(-I_c/2\) during WRITE-0 | Matches [design_specification.md](design_specification.md) **REQ-ICD-FOLD** / **REQ-ICD-TIMING** and L1–L3 plants |
+
+### Mandatory tune / select points on the board
+
+| Knob | Mechanism (normative intent) | Band / options |
+|------|------------------------------|----------------|
+| Half-select current | Per-CCS multi-turn trimpot (TL431 divider) on `CCS_X`, `CCS_Y`, `CCS_INH` | Cover ~200–400 mA \(I_c/2\) without BOM change |
+| \(V_{drive}\) | Adjustable bench supply into a dedicated rail (or on-board regulator with set resistor / trimpot) | Sweep until full-select and inhibit stay in regulation under pulse load |
+| Inhibit / sense polarity | Board-level select (jumper, 0 Ω option, or MOSFET H-bridge steer) so `YA65`/`YB66` source–sink roles can reverse if the plane’s weave disagrees | Two discrete orientations; default as above |
+| Timing aperture | PIO (or equivalent) parameters for READ width and SENSE STROBE (~150–300 ns) | Firmware-tunable once packaging is chosen |
+
+Sim and SIL keep using the defaults above as **sim assumptions** until a coverage **Bench** cell records measured values. After characterization, promote the settled numbers into the freeze table / ICD only via the owning docs—not by hard-coding unmeasured setpoints into L4 as if they were frozen.
+
 ## AHC logic and DMOS compatibility
 
 The timing controller is 3.3 V (RP2040). 74AHC138/238 accept 3.3 V inputs with short propagation delay. The DMOS arrays (TBD62083/783) accept these logic levels directly—no dedicated level shifters. Low-side decode uses 74AHC238 (active-high) to match sinks; high-side uses 74AHC138 (active-low) to match sources.
@@ -65,9 +92,9 @@ READ → strobe → inhibit → WRITE needs fixed delays on the order of hundred
 
 | Topic | Notes |
 |-------|--------|
-| Exact \(I_c\) / \(I_c/2\) setpoint | Characterize on the real plane; trimpot covers 200–400 mA half-select for now |
-| \(V_{drive}\) rail voltage | Must satisfy DMOS voltage drops, diode drops, and inductive headroom; value not frozen |
-| Inhibit polarity vs READ | Source is `YA65` and sink is `YB66`; whether that direction matches the core’s read polarity is still a bench question |
+| Exact \(I_c\) / \(I_c/2\) setpoint | **Default 600 / 300 mA** for schematic + sim; **tune** on CCS trimpots across 200–400 mA half-select; freeze only after bench |
+| \(V_{drive}\) rail voltage | **Default ~12 V class** with adjustable supply/regulator; must clear DMOS + diode + inductive headroom; freeze after bench |
+| Inhibit polarity vs READ | **Default** source `YA65` / sink `YB66`; **board select** must allow reverse if weave polarity disagrees |
 | On-board vs off-board RP2040 | Pico header vs soldered MCU vs external timing pod |
 | Final CCS throttle MOSFET | IRLZ44N in CCS; AOD4184 (or similar) remains a thermal/package alternate |
 | Diagnostic LED set | Planned on decoder outputs and DOUT; not yet a frozen schematic requirement |

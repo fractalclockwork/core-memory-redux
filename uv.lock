@@ -325,11 +325,19 @@ dependencies = [
     { name = "pytest" },
 ]
 
+[package.dev-dependencies]
+writeup = [
+    { name = "matplotlib" },
+]
+
 [package.metadata]
 requires-dist = [
     { name = "pyspice" },
     { name = "pytest" },
 ]
+
+[package.metadata.requires-dev]
+writeup = [{ name = "matplotlib" }]
 
 [[package]]
 name = "cycler"

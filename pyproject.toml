@@ -12,6 +12,11 @@ dependencies = [
 [tool.uv]
 package = false
 
+[dependency-groups]
+writeup = [
+    "matplotlib",
+]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["spice/py"]

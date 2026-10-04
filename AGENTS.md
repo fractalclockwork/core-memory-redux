@@ -1,6 +1,6 @@
 # AGENTS.md — agent entry for core-memory-redux
 
-Ground-up magnetic core memory **array driver** + simulation-in-the-loop digital twin. Model project for agentic hardware engineering. Intended host stack: `uv`/Python generators, ngspice/PySpice; KiCad later for L4 fabric. Host install: [docs/dev_host_setup.md](docs/dev_host_setup.md). **Docs + L0/L1 SPICE today**—no `kicad/`, generators, firmware, or L2+ decks yet.
+Ground-up magnetic core memory **array driver** + simulation-in-the-loop digital twin. Model project for agentic hardware engineering. Intended host stack: `uv`/Python generators, ngspice/PySpice; KiCad later for L4 fabric. Host install: [docs/dev_host_setup.md](docs/dev_host_setup.md). **Docs + L0–L2 SPICE + L3 ideal SIL today**—no `kicad/`, generators, or firmware yet.
 
 ## Before you edit design or invent architecture
 
@@ -12,12 +12,13 @@ Human front door: [README.md](README.md). Chat is not authoritative.
 
 ## Hard bans
 
-- Do **not** claim KiCad, generators, firmware, or L2+ SPICE/SIL exist in this repo. L0/L1 SPICE under `spice/l0/` and `spice/l1/` is real; scale claims still require [docs/coverage_matrix.md](docs/coverage_matrix.md).
-- Do **not** use Chan / detailed `coremem` physics as the n=64 proof (**no Chan at n=64**); L0 ≤ 16 instances.
+- Do **not** claim KiCad, generators, or firmware exist in this repo. L0–L2 SPICE under `spice/l0/`…`spice/l2/` and L3 ideal SIL under `spice/l3/` / `spice/py/l3_*.py` are real; scale claims still require [docs/coverage_matrix.md](docs/coverage_matrix.md).
+- Do **not** use Chan / detailed `coremem` physics as the n=64 proof (**no Chan at n=64**); L0 ≤ 16 instances; L3 uses `ideal_core` only.
 - Do **not** treat monolithic 256-end hierarchical sheets as the L4 ABI; target octal steer tiles + buses ([docs/hierarchy_abi.md](docs/hierarchy_abi.md)).
 - L2 drive BOM is **DMOS** (TBD62783 / TBD62083), not TC4427A + FDS8958A.
 - Do **not** assert scale validation except via [docs/coverage_matrix.md](docs/coverage_matrix.md).
 - [docs/implementation_summary.md](docs/implementation_summary.md) is a **sketch**; it must not override owners.
+- Do **not** open, cite, or reconcile [`writeup/`](writeup/) when working on design, SPICE, tests, or `docs/`. A mention in the README is not permission to read it. Edit `writeup/` only when a human asks for a writeup pass; facts still come from owner docs and from re-running the harnesses. Never push a sentence from the essay back into an owner.
 
 ## Where to look
 
@@ -34,5 +35,7 @@ Human front door: [README.md](README.md). Chat is not authoritative.
 | Ubuntu apt + `uv` host setup | [docs/dev_host_setup.md](docs/dev_host_setup.md) |
 | L0 Chan model / GATE-L0 tests | [spice/l0/](spice/l0/), [tests/test_l0_physics.py](tests/test_l0_physics.py) |
 | L1 2×2 oracle / GATE-L1 tests | [spice/l1/](spice/l1/), [tests/test_l1_cycle.py](tests/test_l1_cycle.py) |
+| L2 driver e2e / GATE-L2 tests | [spice/l2/](spice/l2/), [tests/test_l2_e2e.py](tests/test_l2_e2e.py) |
+| L3 ideal N×N SIL / GATE-L3 tests | [spice/l3/](spice/l3/), [spice/py/l3_plant.py](spice/py/l3_plant.py), [tests/test_l3_sil.py](tests/test_l3_sil.py) |
 
 If a requirement is ambiguous or two owners seem to conflict, **stop and ask**—do not invent a third answer.

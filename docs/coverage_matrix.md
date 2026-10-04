@@ -11,13 +11,17 @@ Legend: `—` not claimed; `stub` planned; `pass` gated green; `fail` known red.
 | Scale \(N\) | Schematic | SPICE (L0/L1/L2) | SIL (L3) | Bench |
 |-------------|:---------:|:----------------:|:--------:|:-----:|
 | 1 (single core) | — | pass (**GATE-L0-PHYSICS**) | — | — |
-| 2×2 | stub | pass (**GATE-L1-CYCLE**) | — | stub |
-| 8×8 | — | — | stub | — |
-| 64×64 | stub (L4 tiled) | — (no Chan at n=64) | stub | — |
+| 2×2 | stub | pass (**GATE-L1-CYCLE**, **GATE-L2-E2E**) | — | stub |
+| 8×8 | — | — | pass (**GATE-L3-SIL**) | — |
+| 64×64 | stub (L4 tiled) | — (no Chan at n=64) | pass (**GATE-L3-SIL**) | — |
 
 L0 evidence: `uv run pytest tests/test_l0_physics.py` (or `uv run python scripts/run_gate.py GATE-L0-PHYSICS`); model [`spice/models/chan_core.lib`](../spice/models/chan_core.lib), deck [`spice/l0/single_core.cir`](../spice/l0/single_core.cir).
 
 L1 evidence: `uv run pytest tests/test_l1_cycle.py` (or `uv run python scripts/run_gate.py GATE-L1-CYCLE`); deck [`spice/l1/oracle_2x2.cir`](../spice/l1/oracle_2x2.cir); includes CCS-failure regression.
+
+L2 evidence: `uv run pytest tests/test_l2_e2e.py` (or `uv run python scripts/run_gate.py GATE-L2-E2E`); deck [`spice/l2/driver_2x2.cir`](../spice/l2/driver_2x2.cir); behavioral AHC/DMOS polarity + mutex (`spice/models/dmos_ahc.lib`).
+
+L3 evidence: `uv run pytest tests/test_l3_sil.py` (or `uv run python scripts/run_gate.py GATE-L3-SIL`); behavioral `ideal_core` + line R/L/C plant [`spice/py/l3_plant.py`](../spice/py/l3_plant.py); synthetic PIO harness [`spice/py/l3_harness.py`](../spice/py/l3_harness.py); diagonal + random sparse at n=8 and n=64 (no Chan).
 
 Surfaces mean:
 
