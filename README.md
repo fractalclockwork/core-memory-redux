@@ -77,3 +77,4 @@ To be documented in a later pass. Expected stack: Python (`uv`), KiCad, SPICE (n
 - **Upstream:** [fractalclockwork/core-memory](https://github.com/fractalclockwork/core-memory) — history only, not SSOT for this tree.
 - **Not carrying over:** discrete MOSFET + TC4427 primary architecture; monolithic 256-end L4 ABI; as-built claims until regenerated from AST / phased loop.
 # core-memory-redux
+# core-memory-redux
