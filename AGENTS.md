@@ -1,6 +1,6 @@
 # AGENTS.md — agent entry for core-memory-redux
 
-Ground-up magnetic core memory **array driver** + simulation-in-the-loop digital twin. Model project for agentic hardware engineering. Intended stack later: `uv`/Python generators, KiCad, ngspice/PySpice, RP2040 PIO. **This tree is docs-bootstrap today**—no `kicad/`, SPICE, or firmware yet.
+Ground-up magnetic core memory **array driver** + simulation-in-the-loop digital twin. Model project for agentic hardware engineering. Intended host stack: `uv`/Python generators, ngspice/PySpice; KiCad later for L4 fabric. Host install: [docs/dev_host_setup.md](docs/dev_host_setup.md). **Docs + L0/L1 SPICE today**—no `kicad/`, generators, firmware, or L2+ decks yet.
 
 ## Before you edit design or invent architecture
 
@@ -12,7 +12,7 @@ Human front door: [README.md](README.md). Chat is not authoritative.
 
 ## Hard bans
 
-- Do **not** claim KiCad, SPICE decks, firmware, or generators exist in this repo.
+- Do **not** claim KiCad, generators, firmware, or L2+ SPICE/SIL exist in this repo. L0/L1 SPICE under `spice/l0/` and `spice/l1/` is real; scale claims still require [docs/coverage_matrix.md](docs/coverage_matrix.md).
 - Do **not** use Chan / detailed `coremem` physics as the n=64 proof (**no Chan at n=64**); L0 ≤ 16 instances.
 - Do **not** treat monolithic 256-end hierarchical sheets as the L4 ABI; target octal steer tiles + buses ([docs/hierarchy_abi.md](docs/hierarchy_abi.md)).
 - L2 drive BOM is **DMOS** (TBD62783 / TBD62083), not TC4427A + FDS8958A.
@@ -31,5 +31,8 @@ Human front door: [README.md](README.md). Chat is not authoritative.
 | BOM | [docs/component_selection.md](docs/component_selection.md) |
 | Open decisions | [docs/design_choices.md](docs/design_choices.md) |
 | Scale × surface claims | [docs/coverage_matrix.md](docs/coverage_matrix.md) |
+| Ubuntu apt + `uv` host setup | [docs/dev_host_setup.md](docs/dev_host_setup.md) |
+| L0 Chan model / GATE-L0 tests | [spice/l0/](spice/l0/), [tests/test_l0_physics.py](tests/test_l0_physics.py) |
+| L1 2×2 oracle / GATE-L1 tests | [spice/l1/](spice/l1/), [tests/test_l1_cycle.py](tests/test_l1_cycle.py) |
 
 If a requirement is ambiguous or two owners seem to conflict, **stop and ask**—do not invent a third answer.

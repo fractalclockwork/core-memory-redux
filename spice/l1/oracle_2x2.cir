@@ -1,0 +1,48 @@
+* oracle_2x2.cir — L1 2×2 oracle array
+* Gate: GATE-L1-CYCLE
+* Fold: REQ-ICD-FOLD (YA66═YB65, 10k→AGND)
+* Sim assumption: Ic=600 mA, Ic/2=300 mA (does not freeze design_choices)
+* Chan instances: 4 (MCE00/01/10/11) — REQ-SCALE-ANTIX
+* Drive: ideal_drive_switch + ideal_ccs (not DMOS — Phase 3)
+
+.title GATE-L1-CYCLE oracle 2x2
+
+.include ../models/chan_core.lib
+.include ../models/ideal_ccs.lib
+
+xm00 xa0_d xa0_m ya0_d ya0_m sa_m00 sa_m00n chan_core
+xm10 xa0_m xa0_r ya1_d ya1_m sb_m10 sb_m10n chan_core
+xm01 xa1_d xa1_m ya0_m ya0_r sb_m01 sb_m01n chan_core
+xm11 xa1_m xa1_r ya1_m ya1_r sa_m11 sa_m11n chan_core
+
+Rsa1 ya65 sa_m11 1m
+Rsa2 sa_m11n sa_m00 1m
+Rsa3 sa_m00n ya66 1m
+Rsb1 yb65 sb_m10 1m
+Rsb2 sb_m10n sb_m01 1m
+Rsb3 sb_m01n yb66 1m
+Rfold ya66 yb65 1m
+Rsoft ya66 0 10k
+
+Rpark_x1d xa1_d 0 100Meg
+Rpark_x1r xa1_r 0 100Meg
+Rpark_y1d ya1_d 0 100Meg
+Rpark_y1r ya1_r 0 100Meg
+
+xsw_xd xa0_d 0 en_x ideal_drive_switch
+xsw_yd ya0_d 0 en_y ideal_drive_switch
+xccs_x xa0_r 0 en_x pol_xy ideal_ccs
+xccs_y ya0_r 0 en_y pol_xy ideal_ccs
+xsw_inh ya65 0 en_i ideal_drive_switch
+xccs_i yb66 0 en_i pol_i ideal_ccs
+
+Venx en_x 0 PWL(0 0 50n 0 100n 1 800n 1 850n 0 1.5u 0 1.55u 1 2.3u 1 2.35u 0)
+Veny en_y 0 PWL(0 0 50n 0 100n 1 800n 1 850n 0 1.5u 0 1.55u 1 2.3u 1 2.35u 0)
+Veni en_i 0 PWL(0 0)
+Vpolxy pol_xy 0 PWL(0 1 1.4u 1 1.45u -1 2.5u -1)
+Vpoli pol_i 0 PWL(0 1)
+
+.ic v(xm00.state)=-1 v(xm01.state)=-1 v(xm10.state)=-1 v(xm11.state)=-1
+.tran 5n 3u uic
+.print tran v(xm00.state) v(xm01.state) v(xm10.state) v(xm11.state) v(ya65,yb66)
+.end

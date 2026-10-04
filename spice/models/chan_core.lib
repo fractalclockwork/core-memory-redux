@@ -1,0 +1,39 @@
+* chan_core.lib — 3-wire hysteretic ferrite for L0 calibration
+* Gate: GATE-L0-PHYSICS (docs/system_design_spec.md)
+*
+* Owner params (GATE-L0-PHYSICS):
+*   Lm ≈ 0.00314 m
+*   Ac ≈ 0.097 µm²  (documented; Phis scales numerical sense peaks)
+*   Hc ≈ 150 A/m
+*   Parallel damping τ ≈ 200 ns (∼1 µs-class peaking)
+*
+* Threshold: Ith = Hc*Lm ≈ 0.471 A·turn (N=1).
+*   half-select Ic/2 = 0.3 A (one axis) → hold
+*   full-select 2*(Ic/2) = 0.6 A          → flip
+*
+* Ngspice 42's XSPICE core(mode=2) requires H_array (hysteresis-only mode
+* fails). This subcircuit is a Chan-threshold behavioral core: one shared
+* flux state couples X/Y/sense windings (mutual path ≡ K≈1 Chan coupling).
+* Instance count must stay ≤16 (REQ-SCALE-ANTIX).
+*
+* Sim assumption for drive currents lives in the calling deck (Ic=600 mA).
+
+.subckt chan_core xp xn yp yn sp sn
+.param Lm=3.14m Hc=150 Ith={Hc*Lm} Phis=1e-7 tau=200n
+
+* Series windings: ammeter → back-EMF from shared flux (Chan mutual ≡ K≈1)
+Vx xp x1 0
+Ex x1 xn value={Phis*ddt(V(state))}
+Vy yp y1 0
+Ey y1 yn value={Phis*ddt(V(state))}
+Vs sp s1 0
+Es s1 sn value={Phis*ddt(V(state))}
+
+* Ampere-turn MMF and hysteretic remanence (±1 state)
+Bmmf mmf 0 V=I(Vx)+I(Vy)+I(Vs)
+Cstate state 0 1n IC=1
+Gstate 0 state value={(tanh(25*(V(mmf)/{Ith} + 0.85*V(state))) - V(state))/{tau}}
+Rleak state 0 1G
+Rdamp state 0 500k
+
+.ends chan_core

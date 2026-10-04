@@ -10,10 +10,14 @@ Legend: `—` not claimed; `stub` planned; `pass` gated green; `fail` known red.
 
 | Scale \(N\) | Schematic | SPICE (L0/L1/L2) | SIL (L3) | Bench |
 |-------------|:---------:|:----------------:|:--------:|:-----:|
-| 1 (single core) | — | stub | — | — |
-| 2×2 | stub | stub | — | stub |
+| 1 (single core) | — | pass (**GATE-L0-PHYSICS**) | — | — |
+| 2×2 | stub | pass (**GATE-L1-CYCLE**) | — | stub |
 | 8×8 | — | — | stub | — |
 | 64×64 | stub (L4 tiled) | — (no Chan at n=64) | stub | — |
+
+L0 evidence: `uv run pytest tests/test_l0_physics.py` (or `uv run python scripts/run_gate.py GATE-L0-PHYSICS`); model [`spice/models/chan_core.lib`](../spice/models/chan_core.lib), deck [`spice/l0/single_core.cir`](../spice/l0/single_core.cir).
+
+L1 evidence: `uv run pytest tests/test_l1_cycle.py` (or `uv run python scripts/run_gate.py GATE-L1-CYCLE`); deck [`spice/l1/oracle_2x2.cir`](../spice/l1/oracle_2x2.cir); includes CCS-failure regression.
 
 Surfaces mean:
 

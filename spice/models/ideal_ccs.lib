@@ -1,0 +1,22 @@
+* ideal_ccs.lib — ideal CCS + drive switches for L1 oracle (GATE-L1-CYCLE)
+* Abstraction: behavioral only — not silicon (TL431/OPA192/DMOS).
+* Sim assumption (not a frozen ICD value): Ic=600 mA, Ic/2=300 mA
+*
+* ideal_ccs: gated half-select sink/source between plus and minus.
+*   V(en)>0.5 → |I|=ihalf; V(pol)≈+1 WRITE (plus→minus), V(pol)≈-1 READ (reverse).
+* ideal_drive_switch: connects a selected line end to the drive rail (oracle: AGND).
+
+.subckt ideal_ccs plus minus en pol
+.param ihalf=0.3
+Gcs plus minus value={ihalf * u(V(en)-0.5) * V(pol)}
+.ends ideal_ccs
+
+.subckt ideal_drive_switch a b ctrl
+Ssw a b ctrl 0 sw1
+.model sw1 sw(vt=0.5 vh=0.1 ron=0.05 roff=100G)
+.ends ideal_drive_switch
+
+.subckt ideal_ccs_dc plus minus
+.param ihalf=0.3
+Gccs plus minus DC {ihalf}
+.ends ideal_ccs_dc

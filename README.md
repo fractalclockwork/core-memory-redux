@@ -16,7 +16,7 @@ This is a rewrite of [`fractalclockwork/core-memory`](https://github.com/fractal
 
 ## Status
 
-**Docs bootstrap (Phase 0).** Design contracts live under [`docs/`](docs/). There is no KiCad, SPICE, firmware, or host SIL tree yet. Claims are *normative target* / `baseline`, not as-built hardware.
+**Docs + L0/L1 SPICE (Phase 2).** Design contracts live under [`docs/`](docs/). L0/L1 SPICE and gate tests live under [`spice/`](spice/) / [`tests/`](tests/) (`GATE-L0-PHYSICS`, `GATE-L1-CYCLE` → [coverage_matrix.md](docs/coverage_matrix.md)). No KiCad, generators, firmware, or L2+ decks yet. Claims outside the coverage matrix are *normative target* / `baseline`, not as-built hardware.
 
 **SSOT:** layered authority — one owner per fact category ([docs/AUTHORITY.md](docs/AUTHORITY.md)). Normative definition: [docs/system_design_spec.md](docs/system_design_spec.md) §1. Machine geometry SSOT (weave AST) is planned, not present.
 
@@ -35,7 +35,7 @@ Non-authoritative summary — edit owners, not this list:
 
 **Open technical decisions** (`open`): [docs/design_choices.md](docs/design_choices.md) — exact \(I_c\) / \(I_c/2\); \(V_{drive}\); inhibit polarity vs READ; Pico packaging; CCS MOSFET alternate; diagnostic LEDs.
 
-**Deferred:** datasheet/appnote PDF tree; full evidence pack; generators and KiCad/SPICE trees.
+**Deferred:** datasheet/appnote PDF tree; full evidence pack; generators; KiCad; L2+ SPICE / SIL trees.
 
 ## Phased implementation / simulation / validation loop
 
@@ -44,8 +44,8 @@ Detail and gate IDs: [docs/system_design_spec.md](docs/system_design_spec.md). L
 | Phase | Focus | Gate (summary) |
 |-------|--------|----------------|
 | **0** | Authority, ICD, naming | [AUTHORITY.md](docs/AUTHORITY.md); owners tagged `baseline` |
-| **1** | L0 — single-core physics | `GATE-L0-PHYSICS` (≤16 Chan instances) |
-| **2** | L1 — 2×2 oracle array | `GATE-L1-CYCLE` + CCS failure regression |
+| **1** | L0 — single-core physics | `GATE-L0-PHYSICS` — [coverage pass](docs/coverage_matrix.md); `uv run python scripts/run_gate.py GATE-L0-PHYSICS` |
+| **2** | L1 — 2×2 oracle array | `GATE-L1-CYCLE` — [coverage pass](docs/coverage_matrix.md); `uv run python scripts/run_gate.py GATE-L1-CYCLE` |
 | **3** | L2 — driver fidelity | `GATE-L2-E2E`; freeze decode/DMOS ABI |
 | **4** | L3 — ideal \(N \times N\) SIL | `GATE-L3-SIL` |
 | **5** | L4 — hardware fabric | `GATE-L4-FABRIC`; octal tiles + buses |
@@ -63,18 +63,17 @@ Detail and gate IDs: [docs/system_design_spec.md](docs/system_design_spec.md). L
 | [docs/component_selection.md](docs/component_selection.md) | BOM (DMOS pivot) | `baseline` |
 | [docs/naming.md](docs/naming.md) | Net grammar, hierarchy-as-call | `baseline` |
 | [docs/hierarchy_abi.md](docs/hierarchy_abi.md) | Steer/magnetic pin budgets | `baseline` |
-| [docs/coverage_matrix.md](docs/coverage_matrix.md) | Scale × surface claims | `baseline` (cells stub) |
+| [docs/coverage_matrix.md](docs/coverage_matrix.md) | Scale × surface claims | `baseline` (L0/L1 SPICE `pass`) |
 | [docs/implementation_summary.md](docs/implementation_summary.md) | Block architecture sketch | `sketch` |
 | [docs/theory_of_operation.md](docs/theory_of_operation.md) | Teaching summary | `sketch` |
 | [docs/references.md](docs/references.md) | Citation placeholders | `sketch` |
+| [docs/dev_host_setup.md](docs/dev_host_setup.md) | Ubuntu apt + `uv` host install | `sketch` |
 
 ## Dev-host tooling
 
-To be documented in a later pass. Expected stack: Python (`uv`), KiCad, SPICE (ngspice / PySpice), RP2040 SDK.
+Ubuntu apt packages and the `uv` Python environment: [docs/dev_host_setup.md](docs/dev_host_setup.md). Host stack: Python (`uv`), ngspice / PySpice; KiCad optional later. RP2040 SDK is deferred (not current host setup).
 
 ## Upstream and non-goals
 
 - **Upstream:** [fractalclockwork/core-memory](https://github.com/fractalclockwork/core-memory) — history only, not SSOT for this tree.
 - **Not carrying over:** discrete MOSFET + TC4427 primary architecture; monolithic 256-end L4 ABI; as-built claims until regenerated from AST / phased loop.
-# core-memory-redux
-# core-memory-redux

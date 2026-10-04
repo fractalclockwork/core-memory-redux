@@ -1,0 +1,22 @@
+* single_core.cir — L0 single-core Chan calibration deck
+* Gate: GATE-L0-PHYSICS
+* Sim assumption: Ic=600 mA, Ic/2=300 mA (does not freeze design_choices)
+* Instance count: 1 (calibration only)
+
+.title GATE-L0-PHYSICS single core
+
+.include ../models/chan_core.lib
+
+xcore xp 0 yp 0 sp 0 chan_core
+rsense sp 0 1k
+
+* Standalone smoke: WRITE-1 (+Ic/2 both) then READ (-Ic/2 both)
+ix 0 xp PWL(0 0 50n 0 100n 0.3 800n 0.3 850n 0
++  1.5u 0 1.55u -0.3 2.3u -0.3 2.35u 0)
+iy 0 yp PWL(0 0 50n 0 100n 0.3 800n 0.3 850n 0
++  1.5u 0 1.55u -0.3 2.3u -0.3 2.35u 0)
+
+.ic v(xcore.state)=1
+.tran 5n 3u uic
+.print tran v(xcore.state) v(sp)
+.end

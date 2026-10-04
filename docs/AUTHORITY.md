@@ -51,6 +51,7 @@ Normative facts have **one editable home**. Downstream docs must **link** to the
 | [implementation_summary.md](implementation_summary.md) | Target block **sketch** only |
 | [theory_of_operation.md](theory_of_operation.md) | Teaching summary |
 | [references.md](references.md) | Evidence / citation pointers |
+| [dev_host_setup.md](dev_host_setup.md) | Ubuntu apt + `uv` host procedure |
 | [../README.md](../README.md) | Human front door; architecture snapshot defers to owners |
 | [../AGENTS.md](../AGENTS.md) | Agent entry; points here; does not define ICD |
 
