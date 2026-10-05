@@ -1,6 +1,6 @@
 {
   "rendered_on": "2026-10-04",
-  "rendered_at": "2026-10-04T17:05:53+00:00",
+  "rendered_at": "2026-10-04T17:11:18+00:00",
   "host": "hellway",
   "ic_a": 0.6,
   "i_half_a": 0.3,
@@ -8,15 +8,15 @@
   "l0": {
     "half_select": {
       "figure": "l0_half_select.png",
-      "elapsed_s": 0.0066525309812277555,
+      "elapsed_s": 0.006689516012556851,
       "state_after_write": 0.9999999999995999,
       "mmf_during_half_a": 0.30000000000000004,
       "state_after_half": 0.9999999999995999
     },
     "read_discrimination": {
       "figure": "l0_read_discrimination.png",
-      "elapsed_read1_s": 0.006004096998367459,
-      "elapsed_read0_s": 0.0050612470076885074,
+      "elapsed_read1_s": 0.006166926003061235,
+      "elapsed_read0_s": 0.005275275005260482,
       "sense_peak_read1_v": 39.97604739448151,
       "sense_peak_read0_v": 4.440892098500669e-15,
       "state_after_read1": -0.9999999999995999,
@@ -24,7 +24,7 @@
     },
     "restore": {
       "figure": "l0_restore.png",
-      "elapsed_s": 0.00802893697982654,
+      "elapsed_s": 0.00712432901491411,
       "state_after_write": 0.9999999999995999,
       "state_after_read": -0.9999999999995999,
       "state_after_restore": 0.9999999999995999
@@ -33,7 +33,7 @@
   "l1": {
     "cycle": {
       "figure": "l1_cycle.png",
-      "elapsed_s": 0.024400905007496476,
+      "elapsed_s": 0.027374891011277214,
       "state_00_after_write": 0.9999999999995999,
       "state_01_after_write": -0.9999999999995999,
       "state_10_after_write": -0.9999999999995999,
@@ -44,14 +44,14 @@
     },
     "ccs_failure": {
       "figure": "l1_ccs_failure.png",
-      "elapsed_s": 0.010066514019854367,
+      "elapsed_s": 0.01020962098846212,
       "state_00_after": 0.9999999999995999
     }
   },
   "l2": {
     "address_path": {
       "figure": "l2_address_path.png",
-      "elapsed_s": 0.029843430005712435,
+      "elapsed_s": 0.029333376995055005,
       "state_00_after_write": 0.9999999999995999,
       "state_01_after_write": -0.9999999999995999,
       "state_10_after_write": -0.9999999999995999,
@@ -63,7 +63,7 @@
     },
     "mutex": {
       "figure": "l2_mutex.png",
-      "elapsed_s": 0.013579876016592607,
+      "elapsed_s": 0.013779992994386703,
       "en_x_mid": 0.0,
       "state_00_late": 0.9999999999995999
     }
@@ -80,11 +80,11 @@
     "runtimes": {
       "figure": "l3_runtimes.png",
       "host": "hellway",
-      "diagonal_n8_s": 0.002690122026251629,
-      "sparse_n8_s": 0.000481863011373207,
-      "diagonal_n64_s": 3.6848848529916722,
-      "sparse_n64_s": 0.03199902499909513,
-      "continuous_n64_s": 0.18206675900728442
+      "diagonal_n8_s": 0.0026836750039365143,
+      "sparse_n8_s": 0.0005030660249758512,
+      "diagonal_n64_s": 3.6353840389929246,
+      "sparse_n64_s": 0.031422781001310796,
+      "continuous_n64_s": 0.18621214799350128
     }
   }
 }
