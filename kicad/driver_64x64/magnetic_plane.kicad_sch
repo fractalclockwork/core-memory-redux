@@ -10,7 +10,7 @@
 	)
 	(lib_symbols
 		(symbol
-			"Device:R"
+			"CMR:R"
 			(pin_numbers (hide yes))
 			(pin_names (offset 0))
 			(exclude_from_sim no)
@@ -75,832 +75,1392 @@
 				)
 			)
 		)
+		(symbol
+			"CMR:Stub"
+			(pin_numbers (hide yes))
+			(pin_names (offset 0) (hide yes))
+			(exclude_from_sim yes)
+			(in_bom no)
+			(on_board no)
+			(property
+				"Reference"
+				"TP"
+				(at 1.27 0 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property
+				"Value"
+				"Stub"
+				(at 0 0 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property
+				"Footprint"
+				""
+				(at 0 0 0)
+				(effects (font (size 1.27 1.27)) (hide yes))
+			)
+			(property
+				"Datasheet"
+				"~"
+				(at 0 0 0)
+				(effects (font (size 1.27 1.27)) (hide yes))
+			)
+			(property
+				"Description"
+				"ERC stub terminator"
+				(at 0 0 0)
+				(effects (font (size 1.27 1.27)) (hide yes))
+			)
+			(symbol
+				"Stub_0_1"
+				(circle (center 0 0) (radius 0.635) (stroke (width 0.254) (type default)) (fill (type none)))
+			)
+			(symbol
+				"Stub_1_1"
+				(pin
+					passive
+					line
+					(at -2.54 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 1.27 1.27))))
+					(number "1" (effects (font (size 1.27 1.27))))
+				)
+			)
+		)
 	)
 	(text
 		"Interface only — no 4096 core symbols. Weave proven by AST + L3 SIL."
 		(exclude_from_sim no)
-		(at 10 10 0)
+		(at 10.16 10.16 0)
 		(effects (font (size 1 1)))
 		(uuid "9bc19cb1-2482-596f-83c1-bd6fc3674c2a")
 	)
 	(text
 		"REQ-ICD-FOLD: YA66=YB65=SENSE_FOLD; 10k soft bias to AGND"
 		(exclude_from_sim no)
-		(at 10 15 0)
+		(at 10.16 15.24 0)
 		(effects (font (size 1 1)))
 		(uuid "817a6bd8-d554-5f81-954b-bf1ad7a9e210")
 	)
 	(text
 		"XA[0..63]"
 		(exclude_from_sim no)
-		(at 20 30 0)
+		(at 20.32 30.48 0)
 		(effects (font (size 1 1)))
 		(uuid "1eb35934-9575-559c-acd3-7d704a385294")
 	)
 	(hierarchical_label
 		"XA0"
 		(shape bidirectional)
-		(at 40 30 0)
+		(at 39.37 30.48 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "99c13248-c767-56a5-b495-7396c2268a6a")
+		(uuid "826dd4fe-893b-50b8-a28a-19418094837c")
 	)
 	(wire
-		(pts (xy 40 30) (xy 52.7 30))
+		(pts (xy 39.37 30.48) (xy 52.07 30.48))
 		(stroke (width 0) (type default))
-		(uuid "20d77fbe-56b0-5903-b7e8-cec99c3b9a11")
-	)
-	(wire
-		(pts (xy 52.7 30) (xy 52.7 33.81))
-		(stroke (width 0) (type default))
-		(uuid "97e35993-2930-5ba0-bf83-77a2dc0e4aa4")
+		(uuid "1938ea44-b6df-5e0d-a718-4ce5b81ed55a")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 52.7 30 0)
+		(lib_id "CMR:Stub")
+		(at 54.61 30.48 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "33f27e88-8496-518c-b559-2f03555c04f1")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "bfb02593-82a4-53a7-b6e8-cc7bc08f4a14")
 		(property
 			"Reference"
-			"Rt_XA0"
-			(at 55.24 28.73 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_XA0"
+			(at 55.88 29.21 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 55.24 31.27 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 55.88 31.75 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 52.7 30 0)
+			(at 54.61 30.48 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 52.7 30 0)
+			(at 54.61 30.48 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "037f8958-8364-5ac7-ba4b-f0676adda52d"))
-		(pin "2" (uuid "61bbb424-003e-5c28-88c5-0e0795d88b74"))
+		(pin "1" (uuid "fcd51377-bff3-5f6c-8997-b21031942cc9"))
 		(instances
 			(project
 				""
-				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "Rt_XA0") (unit 1))
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_XA0") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 52.7 26.19) (uuid "29f46a3a-e5b2-5d4e-bac8-d229350fdea8"))
+	(wire
+		(pts (xy 52.07 30.48) (xy 54.61 30.48))
+		(stroke (width 0) (type default))
+		(uuid "c64fbf3e-a14f-5f25-9f5f-eb105605a642")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 57.15 30.48 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "ff3a8727-a254-54ea-837b-28b778f9a971")
+		(property
+			"Reference"
+			"TP_XA0b"
+			(at 58.42 29.21 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 58.42 31.75 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 57.15 30.48 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 57.15 30.48 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "ca35cd5f-b28d-5fde-8cf5-887552acae13"))
+		(instances
+			(project
+				""
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_XA0b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"XA63"
 		(shape bidirectional)
-		(at 40 32.54 0)
+		(at 39.37 33.02 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "110af99b-cad3-5279-8fa0-4f331ba41b80")
+		(uuid "b638f30e-e730-5766-909d-efed9eb4b35f")
 	)
 	(wire
-		(pts (xy 40 32.54) (xy 52.7 32.54))
+		(pts (xy 39.37 33.02) (xy 52.07 33.02))
 		(stroke (width 0) (type default))
-		(uuid "442fd09f-fb8d-5933-9e97-fcea053f8165")
-	)
-	(wire
-		(pts (xy 52.7 32.54) (xy 52.7 36.35))
-		(stroke (width 0) (type default))
-		(uuid "eece7d52-5a4c-598c-abd2-2515c3e7b8e9")
+		(uuid "3ed79554-8633-5fb1-8186-6d576edbc743")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 52.7 32.54 0)
+		(lib_id "CMR:Stub")
+		(at 54.61 33.02 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c34102a8-c8b6-5c5a-aa21-7b47f28a8c44")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "0b4f46da-66b1-50ef-9104-5cadfdb67152")
 		(property
 			"Reference"
-			"Rt_XA63"
-			(at 55.24 31.27 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_XA63"
+			(at 55.88 31.75 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 55.24 33.81 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 55.88 34.29 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 52.7 32.54 0)
+			(at 54.61 33.02 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 52.7 32.54 0)
+			(at 54.61 33.02 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "ac2ef81f-9b40-586e-8ad2-f28c9853f34c"))
-		(pin "2" (uuid "aa1c819e-65c0-5269-8c0a-184bbc0fe4e4"))
+		(pin "1" (uuid "832683ff-e94f-521b-a543-ad1400049fe4"))
 		(instances
 			(project
 				""
-				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "Rt_XA63") (unit 1))
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_XA63") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 52.7 28.73) (uuid "2a30f8fa-1340-58a3-955e-eed7588c6d4b"))
+	(wire
+		(pts (xy 52.07 33.02) (xy 54.61 33.02))
+		(stroke (width 0) (type default))
+		(uuid "f61243e8-f727-571c-afdc-de524eec097a")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 57.15 33.02 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "0427a610-3b97-577f-88e4-e1f56c747d72")
+		(property
+			"Reference"
+			"TP_XA63b"
+			(at 58.42 31.75 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 58.42 34.29 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 57.15 33.02 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 57.15 33.02 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "78653b7c-db46-5bda-bef0-8e88a48b65d3"))
+		(instances
+			(project
+				""
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_XA63b") (unit 1))
+			)
+		)
+	)
 	(text
 		"XB[0..63]"
 		(exclude_from_sim no)
-		(at 20 37.62 0)
+		(at 20.32 38.1 0)
 		(effects (font (size 1 1)))
 		(uuid "fdba9ccf-d170-58ba-815b-7b24e5fcaf66")
 	)
 	(hierarchical_label
 		"XB0"
 		(shape bidirectional)
-		(at 40 37.62 0)
+		(at 39.37 38.1 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "203f8c64-3436-5220-827f-e6ce5beb50d2")
+		(uuid "0bda6815-ff72-585c-86ab-7aba3aee6a3a")
 	)
 	(wire
-		(pts (xy 40 37.62) (xy 52.7 37.62))
+		(pts (xy 39.37 38.1) (xy 52.07 38.1))
 		(stroke (width 0) (type default))
-		(uuid "fe2c9e2f-77da-5669-958f-beb2035cd324")
-	)
-	(wire
-		(pts (xy 52.7 37.62) (xy 52.7 41.43))
-		(stroke (width 0) (type default))
-		(uuid "24e46cc2-1687-530a-a0d3-1cea79e402c4")
+		(uuid "f4b0a288-43ad-5e5a-bbd2-f9bd99b5003e")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 52.7 37.62 0)
+		(lib_id "CMR:Stub")
+		(at 54.61 38.1 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e762d7b9-f14e-5475-a9e2-d89a510e4409")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "ee481eb7-49d9-5f0f-9270-ffcbe69be622")
 		(property
 			"Reference"
-			"Rt_XB0"
-			(at 55.24 36.35 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_XB0"
+			(at 55.88 36.83 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 55.24 38.89 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 55.88 39.37 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 52.7 37.62 0)
+			(at 54.61 38.1 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 52.7 37.62 0)
+			(at 54.61 38.1 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "c25c71b0-9db5-5c9a-80d5-d954be2f678e"))
-		(pin "2" (uuid "d08d3e4c-8e94-575d-b91f-e11edac1dde9"))
+		(pin "1" (uuid "2f0aaf98-9d70-554e-b053-e9d05170c250"))
 		(instances
 			(project
 				""
-				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "Rt_XB0") (unit 1))
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_XB0") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 52.7 33.81) (uuid "1f656a66-ff0b-56bf-bec9-da69e25af443"))
+	(wire
+		(pts (xy 52.07 38.1) (xy 54.61 38.1))
+		(stroke (width 0) (type default))
+		(uuid "544bcf61-7c64-5504-a707-f4d54f3991f1")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 57.15 38.1 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "789e49c1-fec8-5de5-bc2b-1bc5283ec19c")
+		(property
+			"Reference"
+			"TP_XB0b"
+			(at 58.42 36.83 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 58.42 39.37 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 57.15 38.1 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 57.15 38.1 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "abacc2be-462e-5555-bd02-eb61549ca138"))
+		(instances
+			(project
+				""
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_XB0b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"XB63"
 		(shape bidirectional)
-		(at 40 40.16 0)
+		(at 39.37 40.64 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "306094d0-f54b-56a0-8c10-9801d96449a8")
+		(uuid "ac6d4cf8-b202-5ec9-bf6b-b3c96a772774")
 	)
 	(wire
-		(pts (xy 40 40.16) (xy 52.7 40.16))
+		(pts (xy 39.37 40.64) (xy 52.07 40.64))
 		(stroke (width 0) (type default))
-		(uuid "63012d77-d9f2-5c44-8d20-7b1a381d5637")
-	)
-	(wire
-		(pts (xy 52.7 40.16) (xy 52.7 43.97))
-		(stroke (width 0) (type default))
-		(uuid "7c4c712d-76e2-552f-ad8d-379f3bcc5a60")
+		(uuid "d220b363-eb4e-53e2-920d-51734ee49302")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 52.7 40.16 0)
+		(lib_id "CMR:Stub")
+		(at 54.61 40.64 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "da89904d-afda-557f-9d73-985e9bd71311")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "4c1a6235-057b-587a-a112-65f2da902858")
 		(property
 			"Reference"
-			"Rt_XB63"
-			(at 55.24 38.89 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_XB63"
+			(at 55.88 39.37 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 55.24 41.43 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 55.88 41.91 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 52.7 40.16 0)
+			(at 54.61 40.64 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 52.7 40.16 0)
+			(at 54.61 40.64 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "30fb73ae-86e5-5739-adb6-9ba27c64eebd"))
-		(pin "2" (uuid "245cc506-6c6d-5707-96fd-4685f441d229"))
+		(pin "1" (uuid "4d570fa9-eec9-5490-a3a9-1effa51ca9d6"))
 		(instances
 			(project
 				""
-				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "Rt_XB63") (unit 1))
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_XB63") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 52.7 36.35) (uuid "3b28cd58-1f2a-5200-9227-a37abd40a52a"))
+	(wire
+		(pts (xy 52.07 40.64) (xy 54.61 40.64))
+		(stroke (width 0) (type default))
+		(uuid "9f873832-2616-5978-830e-6e11f07f9a88")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 57.15 40.64 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "fa9b1a6d-626e-5679-843f-ed64a4db6082")
+		(property
+			"Reference"
+			"TP_XB63b"
+			(at 58.42 39.37 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 58.42 41.91 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 57.15 40.64 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 57.15 40.64 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "fc70130b-5dc6-580e-b390-7d62985fdd41"))
+		(instances
+			(project
+				""
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_XB63b") (unit 1))
+			)
+		)
+	)
 	(text
 		"YA[0..63]"
 		(exclude_from_sim no)
-		(at 20 45.24 0)
+		(at 20.32 45.72 0)
 		(effects (font (size 1 1)))
 		(uuid "a362e6e5-22b1-5a87-8352-d6512c86e3d5")
 	)
 	(hierarchical_label
 		"YA0"
 		(shape bidirectional)
-		(at 40 45.24 0)
+		(at 39.37 45.72 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "8ac885e4-c48c-5e5c-8db1-463035ffbabf")
+		(uuid "1f8804ca-1b38-5aef-a549-df84edecd1ef")
 	)
 	(wire
-		(pts (xy 40 45.24) (xy 52.7 45.24))
+		(pts (xy 39.37 45.72) (xy 52.07 45.72))
 		(stroke (width 0) (type default))
-		(uuid "607cc1bc-ffe2-5e0a-bf3d-cf0d146551f0")
-	)
-	(wire
-		(pts (xy 52.7 45.24) (xy 52.7 49.05))
-		(stroke (width 0) (type default))
-		(uuid "47fcd9d8-2d54-5241-baaf-e00da7789146")
+		(uuid "6b47dd8e-b90d-55a9-a79f-50f93a368064")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 52.7 45.24 0)
+		(lib_id "CMR:Stub")
+		(at 54.61 45.72 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "a1fe6f4b-394d-5ac5-85ea-653c8842ac4b")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "2ee979fb-d6b8-59c8-8c43-f58b84c66fdd")
 		(property
 			"Reference"
-			"Rt_YA0"
-			(at 55.24 43.97 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YA0"
+			(at 55.88 44.45 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 55.24 46.51 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 55.88 46.99 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 52.7 45.24 0)
+			(at 54.61 45.72 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 52.7 45.24 0)
+			(at 54.61 45.72 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "6af418f8-539e-5ff2-9c34-988f440dec5e"))
-		(pin "2" (uuid "c16c90bd-c17b-5834-b5d2-41fa6a7bf863"))
+		(pin "1" (uuid "0cfb5493-4cc0-5fe4-ab0c-26eb3edbe33d"))
 		(instances
 			(project
 				""
-				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "Rt_YA0") (unit 1))
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_YA0") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 52.7 41.43) (uuid "4f576417-f0da-5219-87e1-f883708dfa6e"))
+	(wire
+		(pts (xy 52.07 45.72) (xy 54.61 45.72))
+		(stroke (width 0) (type default))
+		(uuid "9d018b2a-c21b-552b-a4d1-b6f04ad27e59")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 57.15 45.72 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "01b5d138-a8fe-5b84-9db7-f7993d62d3fa")
+		(property
+			"Reference"
+			"TP_YA0b"
+			(at 58.42 44.45 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 58.42 46.99 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 57.15 45.72 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 57.15 45.72 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "0729c258-00de-5879-a661-2ccdb4ad2abe"))
+		(instances
+			(project
+				""
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_YA0b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YA63"
 		(shape bidirectional)
-		(at 40 47.78 0)
+		(at 39.37 48.26 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "81fe161a-b14b-5b64-b7a7-d5cf3c8e531e")
+		(uuid "c1a71d2d-ba33-5449-a3c3-280a76f95e22")
 	)
 	(wire
-		(pts (xy 40 47.78) (xy 52.7 47.78))
+		(pts (xy 39.37 48.26) (xy 52.07 48.26))
 		(stroke (width 0) (type default))
-		(uuid "babea496-7d55-5d4b-87a0-0f54444ec901")
-	)
-	(wire
-		(pts (xy 52.7 47.78) (xy 52.7 51.59))
-		(stroke (width 0) (type default))
-		(uuid "05ca2994-d91f-508f-a487-1dc91567d72c")
+		(uuid "8532de3b-4261-5520-94ff-b1b03f510755")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 52.7 47.78 0)
+		(lib_id "CMR:Stub")
+		(at 54.61 48.26 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "a536a5ea-14fe-584b-8c18-95f81bda78b8")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "6a9cdf0a-a9c8-5b18-aef2-8be43b829e39")
 		(property
 			"Reference"
-			"Rt_YA63"
-			(at 55.24 46.51 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YA63"
+			(at 55.88 46.99 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 55.24 49.05 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 55.88 49.53 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 52.7 47.78 0)
+			(at 54.61 48.26 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 52.7 47.78 0)
+			(at 54.61 48.26 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "c05f8c71-6aa1-5f6c-b031-cd32be283aa1"))
-		(pin "2" (uuid "823b4b7d-47b5-5ffc-8d02-067bf0bebc5e"))
+		(pin "1" (uuid "f82b3453-a866-5b1a-bbbc-cd14ecbf88f7"))
 		(instances
 			(project
 				""
-				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "Rt_YA63") (unit 1))
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_YA63") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 52.7 43.97) (uuid "aba949c2-be32-557e-915f-56ebce7652d4"))
+	(wire
+		(pts (xy 52.07 48.26) (xy 54.61 48.26))
+		(stroke (width 0) (type default))
+		(uuid "44f3244f-0775-500e-bc06-272230b3b7af")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 57.15 48.26 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "0baf41d8-aa99-5fe5-8a48-7a30e141a3e7")
+		(property
+			"Reference"
+			"TP_YA63b"
+			(at 58.42 46.99 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 58.42 49.53 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 57.15 48.26 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 57.15 48.26 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "29ea2b88-b896-5f44-819c-ac0b01e591b8"))
+		(instances
+			(project
+				""
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_YA63b") (unit 1))
+			)
+		)
+	)
 	(text
 		"YB[0..63]"
 		(exclude_from_sim no)
-		(at 20 52.86 0)
+		(at 20.32 53.34 0)
 		(effects (font (size 1 1)))
 		(uuid "07fcde9f-75af-5010-8267-f686f6aaf5ab")
 	)
 	(hierarchical_label
 		"YB0"
 		(shape bidirectional)
-		(at 40 52.86 0)
+		(at 39.37 53.34 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "7202b678-663d-538c-9af3-43dd09b85c98")
+		(uuid "7287c002-0676-50a8-b901-d90ae4fa8d9e")
 	)
 	(wire
-		(pts (xy 40 52.86) (xy 52.7 52.86))
+		(pts (xy 39.37 53.34) (xy 52.07 53.34))
 		(stroke (width 0) (type default))
-		(uuid "33eb5a0b-7de4-5e13-93e4-39542bf0e9a2")
-	)
-	(wire
-		(pts (xy 52.7 52.86) (xy 52.7 56.67))
-		(stroke (width 0) (type default))
-		(uuid "80901383-6a95-5377-a958-47cdd665842b")
+		(uuid "808ed469-68c7-5040-8d70-e3c77c4a6e4f")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 52.7 52.86 0)
+		(lib_id "CMR:Stub")
+		(at 54.61 53.34 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3707e713-beb8-5551-939a-b834430cf692")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "c49293b0-db10-5634-bf25-4a1864b68bbf")
 		(property
 			"Reference"
-			"Rt_YB0"
-			(at 55.24 51.59 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YB0"
+			(at 55.88 52.07 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 55.24 54.13 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 55.88 54.61 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 52.7 52.86 0)
+			(at 54.61 53.34 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 52.7 52.86 0)
+			(at 54.61 53.34 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "7d4f1d67-beee-55b4-b79a-15e715921036"))
-		(pin "2" (uuid "fa1db9e3-643d-54db-98e6-47f5d11a812d"))
+		(pin "1" (uuid "c96163c1-18e3-51c6-8e7d-d4e4b16dec11"))
 		(instances
 			(project
 				""
-				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "Rt_YB0") (unit 1))
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_YB0") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 52.7 49.05) (uuid "935fdfea-5452-5c7d-ad9b-006dd2534083"))
+	(wire
+		(pts (xy 52.07 53.34) (xy 54.61 53.34))
+		(stroke (width 0) (type default))
+		(uuid "0f83869c-48a7-50b4-b35c-b108facf1e56")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 57.15 53.34 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "43a4a5b7-c124-52a0-a9e0-306ef6c953aa")
+		(property
+			"Reference"
+			"TP_YB0b"
+			(at 58.42 52.07 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 58.42 54.61 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 57.15 53.34 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 57.15 53.34 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "eff44210-71a2-5f64-84a1-718cdc67b2d3"))
+		(instances
+			(project
+				""
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_YB0b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YB63"
 		(shape bidirectional)
-		(at 40 55.4 0)
+		(at 39.37 55.88 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "a6897a83-54e8-5daa-b592-d88604037525")
+		(uuid "707c3ed6-36d6-524b-bf87-4bdf926fb043")
 	)
 	(wire
-		(pts (xy 40 55.4) (xy 52.7 55.4))
+		(pts (xy 39.37 55.88) (xy 52.07 55.88))
 		(stroke (width 0) (type default))
-		(uuid "0c774969-5334-5d59-b857-e1bfa085e2ab")
-	)
-	(wire
-		(pts (xy 52.7 55.4) (xy 52.7 59.21))
-		(stroke (width 0) (type default))
-		(uuid "71efe3fc-2de4-5cb0-a85d-495a05e901f7")
+		(uuid "c0bbe533-84eb-52f0-a95b-d4a6a4fc9b57")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 52.7 55.4 0)
+		(lib_id "CMR:Stub")
+		(at 54.61 55.88 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ac148ef7-dc7a-529c-a19e-6971f9237c31")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "9e917941-f476-57b4-8d0f-05362cad505c")
 		(property
 			"Reference"
-			"Rt_YB63"
-			(at 55.24 54.13 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YB63"
+			(at 55.88 54.61 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 55.24 56.67 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 55.88 57.15 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 52.7 55.4 0)
+			(at 54.61 55.88 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 52.7 55.4 0)
+			(at 54.61 55.88 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "4a87cad9-9f74-560e-a623-ae63c1bd6124"))
-		(pin "2" (uuid "bf9a7f03-0a24-50fb-be3a-cfe3b900a937"))
+		(pin "1" (uuid "c3b0a223-2255-549b-8e59-d1f99d27df89"))
 		(instances
 			(project
 				""
-				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "Rt_YB63") (unit 1))
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_YB63") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 52.7 51.59) (uuid "df1123ee-1609-5f47-a487-29bc613e7590"))
+	(wire
+		(pts (xy 52.07 55.88) (xy 54.61 55.88))
+		(stroke (width 0) (type default))
+		(uuid "e84ff056-47de-5d78-872f-6aa763d8926d")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 57.15 55.88 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "e229cdfd-4e3a-5e23-8ace-1cd16fe56050")
+		(property
+			"Reference"
+			"TP_YB63b"
+			(at 58.42 54.61 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 58.42 57.15 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 57.15 55.88 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 57.15 55.88 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "316664a2-8b50-5c4b-99d1-5e4990cb3d97"))
+		(instances
+			(project
+				""
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_YB63b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YA65"
 		(shape bidirectional)
-		(at 40 60.48 0)
+		(at 39.37 60.96 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "3530cfc2-3d7f-5cd5-9fee-55a68e38a065")
+		(uuid "cf593066-f005-5168-bb02-b0cef7388579")
 	)
 	(wire
-		(pts (xy 40 60.48) (xy 52.7 60.48))
+		(pts (xy 39.37 60.96) (xy 52.07 60.96))
 		(stroke (width 0) (type default))
-		(uuid "bc03c231-c1fa-5ece-bb9f-97e8e961f54b")
-	)
-	(wire
-		(pts (xy 52.7 60.48) (xy 52.7 64.29))
-		(stroke (width 0) (type default))
-		(uuid "16418d9e-e1a5-52d0-b986-81c50d4f4da2")
+		(uuid "48c1ec19-c968-5d89-812c-c93840bc0044")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 52.7 60.48 0)
+		(lib_id "CMR:Stub")
+		(at 54.61 60.96 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "fa34d7a9-2544-5dd6-bf18-e5f4f87ea817")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "b0f8e8f9-4b5e-5a38-a8fc-43892691b7c9")
 		(property
 			"Reference"
-			"Rt_YA65"
-			(at 55.24 59.21 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YA65"
+			(at 55.88 59.69 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 55.24 61.75 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 55.88 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 52.7 60.48 0)
+			(at 54.61 60.96 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 52.7 60.48 0)
+			(at 54.61 60.96 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "355daae1-fcbc-5ca9-b8da-789f0c156c88"))
-		(pin "2" (uuid "ebc6a4ac-1cfc-5d5c-b4b7-19ea7435ffa1"))
+		(pin "1" (uuid "35c1e701-dc72-54ea-970a-86e47a4e00b2"))
 		(instances
 			(project
 				""
-				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "Rt_YA65") (unit 1))
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_YA65") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 52.7 56.67) (uuid "194e0e09-f998-57ac-96b2-67a18b7e8177"))
+	(wire
+		(pts (xy 52.07 60.96) (xy 54.61 60.96))
+		(stroke (width 0) (type default))
+		(uuid "dbfa9bc8-a677-52da-bc2c-d4481b0dadb3")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 57.15 60.96 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "e23515fa-0119-5193-86ef-44165fb1204a")
+		(property
+			"Reference"
+			"TP_YA65b"
+			(at 58.42 59.69 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 58.42 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 57.15 60.96 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 57.15 60.96 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "052a6881-a355-5800-a5a3-62dd04a14991"))
+		(instances
+			(project
+				""
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_YA65b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YB66"
 		(shape bidirectional)
-		(at 40 63.02 0)
+		(at 39.37 63.5 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "7ecd8e6c-0a38-5594-b777-d432752f8425")
+		(uuid "af208dea-1bb3-52fb-92cc-dc46012122d3")
 	)
 	(wire
-		(pts (xy 40 63.02) (xy 52.7 63.02))
+		(pts (xy 39.37 63.5) (xy 52.07 63.5))
 		(stroke (width 0) (type default))
-		(uuid "e212d652-7ad8-595d-980b-b4c24d35fb3e")
-	)
-	(wire
-		(pts (xy 52.7 63.02) (xy 52.7 66.83))
-		(stroke (width 0) (type default))
-		(uuid "67670927-4a74-5cbf-b6ad-09639d6fbdbd")
+		(uuid "9ab22081-7c9a-5f66-bc68-9371ec35faf3")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 52.7 63.02 0)
+		(lib_id "CMR:Stub")
+		(at 54.61 63.5 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "9c6c63d0-b55f-5d32-ad3b-264e74f17511")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "9bad3fc8-3bb5-5501-b10c-16cbfe741d86")
 		(property
 			"Reference"
-			"Rt_YB66"
-			(at 55.24 61.75 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YB66"
+			(at 55.88 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 55.24 64.29 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 55.88 64.77 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 52.7 63.02 0)
+			(at 54.61 63.5 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 52.7 63.02 0)
+			(at 54.61 63.5 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "e29bf118-ab52-5982-b61a-4b01760ef941"))
-		(pin "2" (uuid "c9e3cd5a-68da-5acf-8fca-64a2e9cff1fd"))
+		(pin "1" (uuid "07dfc668-a967-5657-ae32-46251f9735ed"))
 		(instances
 			(project
 				""
-				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "Rt_YB66") (unit 1))
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_YB66") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 52.7 59.21) (uuid "a0ae98bc-88d9-53dc-8ca0-ebf5823408ac"))
+	(wire
+		(pts (xy 52.07 63.5) (xy 54.61 63.5))
+		(stroke (width 0) (type default))
+		(uuid "92ca1ed8-b474-5133-a97d-672fa364eb7d")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 57.15 63.5 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "22dda406-110c-5b75-a58d-6c6ab946dcaf")
+		(property
+			"Reference"
+			"TP_YB66b"
+			(at 58.42 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 58.42 64.77 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 57.15 63.5 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 57.15 63.5 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "6a03fe12-e59a-5dec-9998-d90eb0794de3"))
+		(instances
+			(project
+				""
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_YB66b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YA66"
 		(shape bidirectional)
-		(at 40 65.56 0)
+		(at 39.37 66.04 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "33d6e50a-e405-5267-b145-e1ccc8cfae31")
+		(uuid "18b20113-7a93-5447-b232-5029bef981aa")
 	)
 	(wire
-		(pts (xy 40 65.56) (xy 52.7 65.56))
+		(pts (xy 39.37 66.04) (xy 52.07 66.04))
 		(stroke (width 0) (type default))
-		(uuid "2c281cc7-e9b3-5a2f-b89f-1feee4fe9501")
-	)
-	(wire
-		(pts (xy 52.7 65.56) (xy 52.7 69.37))
-		(stroke (width 0) (type default))
-		(uuid "ec4e2c10-9b2c-54e1-a357-08b03c886872")
+		(uuid "f9d38cde-3a28-577b-b2ba-7319d7632b81")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 52.7 65.56 0)
+		(lib_id "CMR:Stub")
+		(at 54.61 66.04 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "29356a0c-734c-5d05-9ab1-52064e8aa716")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "76cadb5e-802f-5ca5-b473-3ee72d9d2cbe")
 		(property
 			"Reference"
-			"Rt_YA66"
-			(at 55.24 64.29 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YA66"
+			(at 55.88 64.77 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 55.24 66.83 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 55.88 67.31 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 52.7 65.56 0)
+			(at 54.61 66.04 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 52.7 65.56 0)
+			(at 54.61 66.04 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "83d0aee5-d3ef-5273-979d-b857131e8d71"))
-		(pin "2" (uuid "21f8c308-059b-50c4-b972-e564b3239bc4"))
+		(pin "1" (uuid "0e500ce7-a414-5731-974b-26effea12216"))
 		(instances
 			(project
 				""
-				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "Rt_YA66") (unit 1))
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_YA66") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 52.7 61.75) (uuid "2d78a4bb-bd78-521e-adc8-0c77898cd7ab"))
+	(wire
+		(pts (xy 52.07 66.04) (xy 54.61 66.04))
+		(stroke (width 0) (type default))
+		(uuid "05fbc70f-443e-53ce-b86d-b43f20b82e7b")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 57.15 66.04 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "9a2be18d-eba8-5462-9a47-ad8d36491aae")
+		(property
+			"Reference"
+			"TP_YA66b"
+			(at 58.42 64.77 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 58.42 67.31 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 57.15 66.04 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 57.15 66.04 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "61771b9e-84f7-5e5e-a3c7-8dfa892627ac"))
+		(instances
+			(project
+				""
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_YA66b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YB65"
 		(shape bidirectional)
-		(at 40 68.1 0)
+		(at 39.37 68.58 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "8c24bd23-48b8-511c-8a27-d145ef950558")
+		(uuid "dfe4ab4d-8716-52ec-acfe-962203c76148")
 	)
 	(wire
-		(pts (xy 40 68.1) (xy 52.7 68.1))
+		(pts (xy 39.37 68.58) (xy 52.07 68.58))
 		(stroke (width 0) (type default))
-		(uuid "ec453f44-c83b-5b8d-98af-a97bf083c7ec")
-	)
-	(wire
-		(pts (xy 52.7 68.1) (xy 52.7 71.91))
-		(stroke (width 0) (type default))
-		(uuid "45e17090-c20d-5d0e-9012-4aedb986dc71")
+		(uuid "f279bfe5-7cbf-527e-aaf4-3b0372e211d4")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 52.7 68.1 0)
+		(lib_id "CMR:Stub")
+		(at 54.61 68.58 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0a865ce8-3972-52cc-9126-b3758e23aaee")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "7250e779-136e-5988-bcfd-d81858017abb")
 		(property
 			"Reference"
-			"Rt_YB65"
-			(at 55.24 66.83 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YB65"
+			(at 55.88 67.31 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 55.24 69.37 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 55.88 69.85 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 52.7 68.1 0)
+			(at 54.61 68.58 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 52.7 68.1 0)
+			(at 54.61 68.58 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "67321350-cb59-59f7-ba8f-884d106e06d5"))
-		(pin "2" (uuid "60b21d44-0249-5c72-bb4a-f5bafdac484a"))
+		(pin "1" (uuid "1951c21a-e5f6-50f6-9b17-852256089434"))
 		(instances
 			(project
 				""
-				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "Rt_YB65") (unit 1))
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_YB65") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 52.7 64.29) (uuid "4dac7c05-7e1b-5c77-a85e-0bf85b626d8c"))
+	(wire
+		(pts (xy 52.07 68.58) (xy 54.61 68.58))
+		(stroke (width 0) (type default))
+		(uuid "855021d5-f1d4-5daf-83e4-278af5046991")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 57.15 68.58 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "81a611ab-e836-5a27-b62e-4b9acfdf3995")
+		(property
+			"Reference"
+			"TP_YB65b"
+			(at 58.42 67.31 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 58.42 69.85 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 57.15 68.58 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 57.15 68.58 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "7bb22075-3c23-5440-9a05-e8d2081abcf1"))
+		(instances
+			(project
+				""
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_YB65b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"SENSE_FOLD"
 		(shape bidirectional)
-		(at 40 70.64 0)
+		(at 39.37 71.12 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "327e9fa1-c099-5414-bd62-ef1b9e66d400")
+		(uuid "6b6e882b-4261-58f6-97f4-266cee8868dc")
 	)
 	(wire
-		(pts (xy 40 70.64) (xy 52.7 70.64))
+		(pts (xy 39.37 71.12) (xy 52.07 71.12))
 		(stroke (width 0) (type default))
-		(uuid "cab3c834-2633-5f0a-a5fa-5e4a5b1ca11e")
-	)
-	(wire
-		(pts (xy 52.7 70.64) (xy 52.7 74.45))
-		(stroke (width 0) (type default))
-		(uuid "3263d09b-d95b-574f-b6c0-f47a17fdd859")
+		(uuid "f2b60295-e67c-5eb6-94f7-81aaaa865708")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 52.7 70.64 0)
+		(lib_id "CMR:Stub")
+		(at 54.61 71.12 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "d7c259e8-2e65-5996-8f17-d5a5335adeb5")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "8c77d222-134c-5e94-ba7a-1c4d544603ea")
 		(property
 			"Reference"
-			"Rt_SENSE_FOLD"
-			(at 55.24 69.37 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_SENSE_FOLD"
+			(at 55.88 69.85 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 55.24 71.91 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 55.88 72.39 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 52.7 70.64 0)
+			(at 54.61 71.12 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 52.7 70.64 0)
+			(at 54.61 71.12 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "b1bde10e-8d3f-5593-94a5-ac0b4e404b44"))
-		(pin "2" (uuid "92797d62-3a12-5d92-b416-fbe9a24e1770"))
+		(pin "1" (uuid "b628168b-1cce-556e-8b83-393373b85d19"))
 		(instances
 			(project
 				""
-				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "Rt_SENSE_FOLD") (unit 1))
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_SENSE_FOLD") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 52.7 66.83) (uuid "e6970ca9-978e-55f7-808d-5e4567cb7f88"))
+	(wire
+		(pts (xy 52.07 71.12) (xy 54.61 71.12))
+		(stroke (width 0) (type default))
+		(uuid "a8c42af7-a2b7-55de-be52-83b111c1a705")
+	)
 	(symbol
-		(lib_id "Device:R")
-		(at 120 50 0)
+		(lib_id "CMR:Stub")
+		(at 57.15 71.12 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "ed2cb18a-2d23-53a9-98f8-533b19c22478")
+		(property
+			"Reference"
+			"TP_SENSE_FOLDb"
+			(at 58.42 69.85 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 58.42 72.39 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 57.15 71.12 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 57.15 71.12 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "45f1902c-debb-5bac-af8c-af571af81113"))
+		(instances
+			(project
+				""
+				(path "/e6a1a78f-197e-5b34-b512-41f6513e5326" (reference "TP_SENSE_FOLDb") (unit 1))
+			)
+		)
+	)
+	(symbol
+		(lib_id "CMR:R")
+		(at 119.38 49.53 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -910,25 +1470,25 @@
 		(property
 			"Reference"
 			"Rfold"
-			(at 122.54 48.73 0)
+			(at 121.92 48.26 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"10k"
-			(at 122.54 51.27 0)
+			(at 121.92 50.8 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			""
-			(at 120 50 0)
+			(at 119.38 49.53 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 50 0)
+			(at 119.38 49.53 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "a66b8d74-96e0-5e1c-ba0d-3ce6e5429ac4"))
@@ -943,21 +1503,21 @@
 	(global_label
 		"SENSE_FOLD"
 		(shape bidirectional)
-		(at 120 46.19 90)
+		(at 119.38 45.72 90)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "224868fc-8a4b-5890-b889-0d6779dc12cf")
+		(uuid "7252dbce-310f-58d8-bb1a-b366f140cfef")
 	)
 	(global_label
 		"AGND"
 		(shape bidirectional)
-		(at 120 53.81 270)
+		(at 119.38 53.34 270)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "8f07e633-942e-55f6-8375-ee60a7f20190")
+		(uuid "fc71f579-58a8-5fe2-bb12-4a2c54348abc")
 	)
 	(text
 		"YA66 ≡ YB65 ≡ SENSE_FOLD (external jumper)"
 		(exclude_from_sim no)
-		(at 140 40 0)
+		(at 139.7 39.37 0)
 		(effects (font (size 1 1)))
 		(uuid "fb8bbeee-4f8e-5b29-8fb0-cc665a38ed89")
 	)

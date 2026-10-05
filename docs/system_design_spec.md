@@ -19,7 +19,7 @@ Anything that contradicts the left column below is a **doc bug** until formally 
 | Drive topology: AHC decode → TBD62783/TBD62083 → SS14 → CCS×3 | Inhibit polarity vs READ |
 | Timing contract: READ → STROBE → INHIBIT → WRITE; RP2040 PIO requirement | Pico packaging, LED set, CCS MOSFET alternate |
 | Naming layers + hierarchical ABI (bank-level control; sense outside Drive/Decode) | Parallel-loop sense alternative (deferred) |
-| Fidelity ladder gates L0–L4 and coverage-before-scale rule | Implementation file paths until generators exist |
+| Fidelity ladder gates L0–L4 and coverage-before-scale rule | Generator/board paths: see [AUTHORITY.md](AUTHORITY.md) Layer D |
 
 ## 2. Architectural strategy & core principles
 
@@ -32,7 +32,7 @@ The architecture abandons monolithic, transient-heavy full-matrix SPICE in favor
 **Governing principles:**
 
 * **Fidelity is a dial.** Simulation fidelity scales from nonlinear ODEs (single core) to \(O(1)\) behavioral logic (full matrix).
-* **Unified AST (planned).** A single weave-geography AST will generate SPICE netlists, KiCad schematics, and SIL plants. Generators are not in this tree yet; until they are, contract docs are the baseline and geometry claims stay coverage-gated ([AUTHORITY.md](AUTHORITY.md) Layer D).
+* **Weave AST → KiCad.** [`generators/mce_array.py`](../generators/mce_array.py) is the fabric geometry SSOT and emits hierarchical KiCad ([AUTHORITY.md](AUTHORITY.md) Layer D). SPICE decks and L3 SIL plants remain separate harnesses (not cross-emitted from the weave AST). Scale claims stay coverage-gated.
 * **Manufacturing-aligned boundaries.** Hierarchical blocks match plane pinouts and scaling constraints; they do not expose 256 drive ends through decode/drive sheets.
 * **Performance as a gate.** No simulation layer advances without a runtime budget.
 
@@ -131,12 +131,12 @@ Still at **n=2**. Substitutes ideal L1 switches with the finalized silicon BOM:
 <a id="GATE-L4-FABRIC"></a>
 **GATE-L4-FABRIC**
 
-* **Implementation (planned):** Unified AST Python generator emits KiCad schematics. Steer as octal (or equivalent) bus tiles; root uses plane buses—see [hierarchy_abi.md](hierarchy_abi.md).
-* **Gates:** Clean ERC. Zero hand-edits on generated sheets; topological fixes flow from the AST script.
+* **Implementation:** Weave AST ([`generators/mce_array.py`](../generators/mce_array.py)) + emitter ([`generators/emit_kicad.py`](../generators/emit_kicad.py)) produce octal steer tiles and bus-rooted fabric (`bringup_2x2`, `driver_64x64`). Multi-board PCBs: [`generators/emit_boards.py`](../generators/emit_boards.py) → [board_icd.md](board_icd.md). Pin budgets: [hierarchy_abi.md](hierarchy_abi.md).
+* **Gates:** Clean ERC. Zero hand-edits on generated sheets; topological fixes flow from the AST/emitter scripts.
 
 ## 6. Generator pipeline & documentation
 
-A single deterministic build pipeline is the planned geometry source of truth (`mce_array.py` or equivalent AST). Documentation is an active test surface: scale claims require a [coverage_matrix.md](coverage_matrix.md) row showing which surfaces (Schematic, SPICE, SIL, Bench) are validated at a given \(N \times N\). Hardware commitments must not outpace simulation capability.
+Fabric geometry SSOT is the weave AST (`generators/mce_array.py` → `emit_kicad.py`). Board packaging SSOT is `generators/board_abi.py` + `emit_boards.py` ([board_icd.md](board_icd.md)). Documentation is an active test surface: scale claims require a [coverage_matrix.md](coverage_matrix.md) row showing which surfaces (Schematic, PCB, SPICE, SIL, Bench) are validated at a given \(N \times N\). Hardware commitments must not outpace simulation capability.
 
 ## 7. Phase map (process)
 

@@ -17,7 +17,7 @@
 |----------|------|------|
 | Preferred steer fabric | `steer_octal_{X,Y}_g{0..7}.kicad_sch` | One HS group × one axis (FWD+REV) |
 | Optional finer grain | `steer_line` | One line, 4 diodes, 6 pins |
-| Magnetic fabric | `magnetic_core_64x64.kicad_sch` (generated) | Weave from AST; bus pins on root |
+| Magnetic fabric | `magnetic_plane.kicad_sch` (generated) | Weave from AST; bus pins on root |
 | Not the long-term ABI | Monolithic `steer_64` | Acceptable only as a temporary experiment; not the L4 target |
 
 ## Pin budgets
@@ -48,7 +48,7 @@ REV:  HSR → diode → A{line}
       B{line} → diode → LSR{ls}
 ```
 
-Tile emitters will be part of the planned generator pipeline; they are not in this tree yet.
+Octal tile emitters live in [`generators/emit_kicad.py`](../generators/emit_kicad.py) (AST: [`generators/mce_array.py`](../generators/mce_array.py)). Do not hand-edit generated sheets.
 
 ### Line tile pin list (optional finer grain)
 
@@ -71,7 +71,7 @@ Do **not** resurrect per-line TC4427 + discrete MOSFET `drive_block` × 32 as th
 
 ## Magnetic plane
 
-1. **Layout / net semantics:** generated 64×64 MCE sheet from the weave AST (planned `mce_array.py` or equivalent).
+1. **Layout / net semantics:** generated 64×64 magnetic sheet from the weave AST ([`generators/mce_array.py`](../generators/mce_array.py) → `magnetic_plane.kicad_sch`).
 2. **SPICE scale proof:** L3 behavioral `ideal_core`, not 4,096 detailed Chan/`coremem` instances.
 3. **Root ABI:** prefer KiCad buses `XA[0..63]`, `XB[0..63]`, `YA[0..63]`, `YB[0..63]` plus `YA65` / `YB66`. Do not duplicate 256 hierarchical stubs on both Steer and Magnetic if a single bus vector can feed both.
 
@@ -93,4 +93,4 @@ Fold `YA66`═`YB65` stays **local** on the magnetic sheet (`SENSE_FOLD`); it is
 
 ## Multi-board packaging
 
-Physical split: **one** CCS/sense host (ADDR + `VDRIVE` distribution, CCS, sense, write-back) plus repeated **axis-octal** PCBs — bring-up 2 boards (`g=0`), full array **2×8** with unique group address. Connector pinouts: [board_icd.md](board_icd.md). Do not invent a second electrical pin list here.
+Physical split: **one** CCS/sense host (ADDR + `VDRIVE` distribution, CCS, sense, write-back) plus repeated **axis-octal** PCBs — bring-up 2 boards (`g=0`), full array **2×8** with unique group address. Connector pinouts and 1+16 roster: [board_icd.md](board_icd.md) §7. Do not invent a second electrical pin list here.

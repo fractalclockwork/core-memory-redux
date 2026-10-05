@@ -21,6 +21,14 @@ GENERATED_BANNER = (
     "uv run python -m generators.cli --n {n}"
 )
 
+# KiCad schematic connection grid (50 mil).
+GRID_MM = 1.27
+
+
+def snap(v: float) -> float:
+    """Snap to the schematic connection grid (avoids endpoint_off_grid)."""
+    return round(v / GRID_MM) * GRID_MM
+
 
 def _effects(size: float = 1.27, hide: bool = False, justify: str | None = None) -> list:
     eff: list = ["effects", ["font", ["size", size, size]]]
@@ -42,9 +50,10 @@ def _property(name: str, value: str, x: float, y: float, *, hide: bool = False) 
 
 
 def _lib_r() -> list:
+    """Embedded resistor — CMR: prefix avoids Device library mismatch warnings."""
     return [
         "symbol",
-        "Device:R",
+        "CMR:R",
         ["pin_numbers", ["hide", True]],
         ["pin_names", ["offset", 0]],
         ["exclude_from_sim", False],
@@ -91,10 +100,52 @@ def _lib_r() -> list:
     ]
 
 
+def _lib_stub() -> list:
+    """One-pin passive stub — terminates labels/ports without NC-on-connected-pin."""
+    return [
+        "symbol",
+        "CMR:Stub",
+        ["pin_numbers", ["hide", True]],
+        ["pin_names", ["offset", 0], ["hide", True]],
+        ["exclude_from_sim", True],
+        ["in_bom", False],
+        ["on_board", False],
+        _property("Reference", "TP", 1.27, 0),
+        _property("Value", "Stub", 0, 0),
+        _property("Footprint", "", 0, 0, hide=True),
+        _property("Datasheet", "~", 0, 0, hide=True),
+        _property("Description", "ERC stub terminator", 0, 0, hide=True),
+        [
+            "symbol",
+            "Stub_0_1",
+            [
+                "circle",
+                ["center", 0, 0],
+                ["radius", 0.635],
+                ["stroke", ["width", 0.254], ["type", "default"]],
+                ["fill", ["type", "none"]],
+            ],
+        ],
+        [
+            "symbol",
+            "Stub_1_1",
+            [
+                "pin",
+                "passive",
+                "line",
+                ["at", -2.54, 0, 0],
+                ["length", 2.54],
+                ["name", "~", _effects()],
+                ["number", "1", _effects()],
+            ],
+        ],
+    ]
+
+
 def _lib_diode() -> list:
     return [
         "symbol",
-        "Device:D_Schottky",
+        "CMR:D_Schottky",
         ["pin_numbers", ["hide", True]],
         ["pin_names", ["offset", 1.016], ["hide", True]],
         ["exclude_from_sim", False],
@@ -147,6 +198,7 @@ def _lib_diode() -> list:
 
 
 def _text(key: str, body: str, x: float, y: float) -> list:
+    x, y = snap(x), snap(y)
     return [
         "text",
         body,
@@ -158,6 +210,7 @@ def _text(key: str, body: str, x: float, y: float) -> list:
 
 
 def _global_label(name: str, x: float, y: float, angle: int = 0) -> list:
+    x, y = snap(x), snap(y)
     return [
         "global_label",
         name,
@@ -168,7 +221,26 @@ def _global_label(name: str, x: float, y: float, angle: int = 0) -> list:
     ]
 
 
+def _global_label_terminated(
+    name: str, x: float, y: float, sheet_uuid: str, angle: int = 0
+) -> list[list]:
+    """Global label plus dual stubs so ERC does not flag isolated_pin_label."""
+    x, y = snap(x), snap(y)
+    # Offset stubs away from the component pin along +X.
+    rx = snap(x + 5.08)
+    rx2 = snap(x + 7.62)
+    ref = "TP_" + re.sub(r"[^A-Za-z0-9]", "_", f"{name}_{x:g}_{y:g}")[:18]
+    return [
+        _global_label(name, x, y, angle),
+        _wire(f"glabw/{name}@{x},{y}", x, y, rx, y),
+        _place_stub(f"glabStub/{name}@{x},{y}", ref, rx, y, sheet_uuid),
+        _wire(f"glabw2/{name}@{x},{y}", rx, y, rx2, y),
+        _place_stub(f"glabStub2/{name}@{x},{y}", ref + "b", rx2, y, sheet_uuid),
+    ]
+
+
 def _hier_label(name: str, x: float, y: float, shape: str = "bidirectional") -> list:
+    x, y = snap(x), snap(y)
     return [
         "hierarchical_label",
         name,
@@ -180,6 +252,7 @@ def _hier_label(name: str, x: float, y: float, shape: str = "bidirectional") -> 
 
 
 def _wire(key: str, x1: float, y1: float, x2: float, y2: float) -> list:
+    x1, y1, x2, y2 = snap(x1), snap(y1), snap(x2), snap(y2)
     return [
         "wire",
         ["pts", ["xy", x1, y1], ["xy", x2, y2]],
@@ -189,6 +262,7 @@ def _wire(key: str, x1: float, y1: float, x2: float, y2: float) -> list:
 
 
 def _no_connect(key: str, x: float, y: float) -> list:
+    x, y = snap(x), snap(y)
     return [
         "no_connect",
         ["at", x, y],
@@ -196,25 +270,65 @@ def _no_connect(key: str, x: float, y: float) -> list:
     ]
 
 
-def _hier_port(name: str, x: float, y: float, sheet_uuid: str, shape: str = "bidirectional") -> list[list]:
-    """Hierarchical label terminated on a DNP resistor (ERC-clean stub port)."""
-    rx = x + 12.7
-    ref = "Rt_" + re.sub(r"[^A-Za-z0-9]", "_", name)
+def _place_stub(key: str, ref: str, x: float, y: float, sheet_uuid: str) -> list:
+    """Place one-pin CMR:Stub; pin hotspot is at (x, y) (pin approaches from the left)."""
+    x, y = snap(x), snap(y)
+    # Symbol origin is 2.54 mm right of the pin tip.
+    at_x = snap(x + 2.54)
     return [
-        _hier_label(name, x, y, shape),
-        _wire(f"port/{name}@{x},{y}", x, y, rx, y),
-        _wire(f"portv/{name}@{x},{y}", rx, y, rx, y + 3.81),
-        _place_r(f"portR/{name}@{x},{y}", ref, "DNP_10k", rx, y, sheet_uuid),
-        _no_connect(f"portRnc/{name}@{x},{y}", rx, y - 3.81),
+        "symbol",
+        ["lib_id", "CMR:Stub"],
+        ["at", at_x, y, 0],
+        ["unit", 1],
+        ["exclude_from_sim", True],
+        ["in_bom", False],
+        ["on_board", False],
+        ["dnp", True],
+        ["uuid", det_uuid(f"sym/{key}")],
+        _property("Reference", ref, at_x + 1.27, y - 1.27, hide=True),
+        _property("Value", "Stub", at_x + 1.27, y + 1.27, hide=True),
+        _property("Footprint", "", at_x, y, hide=True),
+        _property("Datasheet", "~", at_x, y, hide=True),
+        ["pin", "1", ["uuid", det_uuid(f"pin/{key}/1")]],
+        [
+            "instances",
+            [
+                "project",
+                "",
+                [
+                    "path",
+                    f"/{sheet_uuid}",
+                    ["reference", ref],
+                    ["unit", 1],
+                ],
+            ],
+        ],
     ]
 
 
-def _sheet_pin_nc(key: str, x: float, y: float) -> list[list]:
-    """Wire a root hierarchical sheet pin out to a no_connect."""
-    x2 = x - 2.54
+def _hier_port(name: str, x: float, y: float, sheet_uuid: str, shape: str = "bidirectional") -> list[list]:
+    """Hierarchical label terminated on two stubs (avoids isolated_pin_label)."""
+    x, y = snap(x), snap(y)
+    rx = snap(x + 12.7)
+    rx2 = snap(x + 15.24)
+    ref = "TP_" + re.sub(r"[^A-Za-z0-9]", "_", name)[:18]
+    return [
+        _hier_label(name, x, y, shape),
+        _wire(f"port/{name}@{x},{y}", x, y, rx, y),
+        _place_stub(f"portStub/{name}@{x},{y}", ref, rx, y, sheet_uuid),
+        _wire(f"porth/{name}@{x},{y}", rx, y, rx2, y),
+        _place_stub(f"portStub2/{name}@{x},{y}", ref + "b", rx2, y, sheet_uuid),
+    ]
+
+
+def _sheet_pin_nc(key: str, x: float, y: float, sheet_uuid: str) -> list[list]:
+    """Wire a root hierarchical sheet pin out to a stub terminator."""
+    x, y = snap(x), snap(y)
+    x2 = snap(x - 12.7)
+    ref = "TP_" + re.sub(r"[^A-Za-z0-9]", "_", key)[:20]
     return [
         _wire(f"spnc/{key}", x, y, x2, y),
-        _no_connect(f"spnc/{key}", x2, y),
+        _place_stub(f"spStub/{key}", ref, x2, y, sheet_uuid),
     ]
 
 
@@ -226,9 +340,10 @@ def _place_r(
     y: float,
     sheet_uuid: str,
 ) -> list:
+    x, y = snap(x), snap(y)
     return [
         "symbol",
-        ["lib_id", "Device:R"],
+        ["lib_id", "CMR:R"],
         ["at", x, y, 0],
         ["unit", 1],
         ["exclude_from_sim", False],
@@ -265,9 +380,10 @@ def _place_diode(
     y: float,
     sheet_uuid: str,
 ) -> list:
+    x, y = snap(x), snap(y)
     return [
         "symbol",
-        ["lib_id", "Device:D_Schottky"],
+        ["lib_id", "CMR:D_Schottky"],
         ["at", x, y, 0],
         ["unit", 1],
         ["exclude_from_sim", False],
@@ -319,7 +435,7 @@ def _sheet_base(key: str, title: str, n: int, lib_symbols: list | None = None) -
 def emit_steer_tile(fabric: FabricAST, tile: OctalTile, out_dir: Path) -> str:
     """Emit one octal steer sheet with SS14 diodes for populated lines."""
     key = tile.sheet_name
-    body, suuid = _sheet_base(key, key, fabric.n, [_lib_diode(), _lib_r()])
+    body, suuid = _sheet_base(key, key, fabric.n, [_lib_diode(), _lib_r(), _lib_stub()])
     items: list = [
         _text(f"{key}/banner", f"REQ-HIER-OCTAL {key} pins={len(tile.pins)}", 10, 10),
         _text(f"{key}/lines", f"lines={list(tile.lines)}", 10, 15),
@@ -357,7 +473,7 @@ def emit_decode_block(fabric: FabricAST, out_dir: Path) -> str:
         key,
         "decode_block (74AHC138 HS + 74AHC238 LS)",
         fabric.n,
-        [_lib_r()],
+        [_lib_r(), _lib_stub()],
     )
     items: list = [
         _text(f"{key}/mpn", "MPN: 74AHC138 + 74AHC238 (lib_id 74xx; Value=AHC)", 10, 10),
@@ -383,10 +499,10 @@ def emit_decode_block(fabric: FabricAST, out_dir: Path) -> str:
         y += 2.54
     # Pull resistors on bank enables (tune/fail-safe presence)
     items.append(_place_r(f"{key}/Rpu", "Rpu_BANK", "10k", 100, 40, suuid))
-    items.append(_global_label("BANK_EN", 100, 40 - 3.81, 90))
-    items.append(_global_label("+3V3", 100, 40 + 3.81, 270))
+    items.extend(_global_label_terminated("BANK_EN", 100, 40 - 3.81, suuid, 90))
+    items.extend(_global_label_terminated("+3V3", 100, 40 + 3.81, suuid, 270))
     items.append(_place_r(f"{key}/Rpd", "Rpd_DEC", "10k", 120, 40, suuid))
-    items.append(_global_label("DEC_EN", 120, 40 - 3.81, 90))
+    items.extend(_global_label_terminated("DEC_EN", 120, 40 - 3.81, suuid, 90))
     items.append(_global_label("AGND", 120, 40 + 3.81, 270))
     body.extend(items)
     body.append(["sheet_instances", ["path", "/", ["page", "1"]]])
@@ -398,7 +514,7 @@ def emit_dmos(fabric: FabricAST, out_dir: Path, kind: str) -> str:
     """kind: hs -> TBD62783, ls -> TBD62083."""
     key = f"dmos_{kind}_array"
     mpn = "TBD62783" if kind == "hs" else "TBD62083"
-    body, suuid = _sheet_base(key, f"{key} ({mpn})", fabric.n, [_lib_r()])
+    body, suuid = _sheet_base(key, f"{key} ({mpn})", fabric.n, [_lib_r(), _lib_stub()])
     items: list = [
         _text(f"{key}/mpn", f"REQ-DRV-DMOS MPN={mpn} — pin-faithful sheet; not transistor-level", 10, 10),
         *_hier_port("VDRIVE", 25, 25, suuid, "input"),
@@ -425,7 +541,7 @@ def emit_ccs(fabric: FabricAST, out_dir: Path) -> str:
         key,
         "ccs_channel (TL431 + 3296W + OPA192 + IRLZ44N)",
         fabric.n,
-        [_lib_r()],
+        [_lib_r(), _lib_stub()],
     )
     items: list = [
         _text(f"{key}/tune", "Tune: multi-turn trimpot sets Ic/2 (200–400 mA band)", 10, 10),
@@ -433,7 +549,7 @@ def emit_ccs(fabric: FabricAST, out_dir: Path) -> str:
         *_hier_port("ISENSE", 25, 35, suuid, "output"),
         *_hier_port("VDRIVE", 25, 40, suuid, "input"),
         _place_r(f"{key}/trim", "RTRIM", "3296W_10k", 80, 40, suuid),
-        _global_label("CCS_TRIM", 80, 40 - 3.81, 90),
+        *_global_label_terminated("CCS_TRIM", 80, 40 - 3.81, suuid, 90),
         _global_label("AGND", 80, 40 + 3.81, 270),
     ]
     body.extend(items)
@@ -448,7 +564,7 @@ def emit_sense(fabric: FabricAST, out_dir: Path) -> str:
         key,
         "sense_front_end (BAT54S + TLV3501 + 74AHC74 + INH_POL_SEL)",
         fabric.n,
-        [_lib_r()],
+        [_lib_r(), _lib_stub()],
     )
     items: list = [
         _text(f"{key}/pol", "INH_POL_SEL: default YA65 source / YB66 sink; jumper reverses", 10, 10),
@@ -460,7 +576,7 @@ def emit_sense(fabric: FabricAST, out_dir: Path) -> str:
         *_hier_port("PIO_STROBE", 25, 55, suuid, "input"),
         _place_r(f"{key}/iso", "Riso", "1k", 90, 40, suuid),
         _global_label("YA65", 90, 40 - 3.81, 90),
-        _global_label("SENSE_MID", 90, 40 + 3.81, 270),
+        *_global_label_terminated("SENSE_MID", 90, 40 + 3.81, suuid, 270),
     ]
     body.extend(items)
     body.append(["sheet_instances", ["path", "/", ["page", "1"]]])
@@ -474,7 +590,7 @@ def emit_magnetic(fabric: FabricAST, out_dir: Path) -> str:
         key,
         f"magnetic_plane n={fabric.n} (bus/connector/fold interface)",
         fabric.n,
-        [_lib_r()],
+        [_lib_r(), _lib_stub()],
     )
     items: list = [
         _text(
@@ -521,9 +637,10 @@ def _sheet_instance(
     Returns (sheet_node, tie_items) where tie_items wire each sheet pin to a
     same-named global label so ERC sees a connection.
     """
+    x, y, w = snap(x), snap(y), snap(w)
     pins = []
     ties: list = []
-    py = 2.54
+    py = GRID_MM * 2
     for pn in pin_names:
         # KiCad: (pin "NAME" <electrical> (at x y rot) (uuid ...) (effects ...))
         pins.append(
@@ -536,9 +653,9 @@ def _sheet_instance(
                 _effects(justify="left"),
             ]
         )
-        ties.extend(_sheet_pin_nc(f"{key}/{pn}", x, y + py))
-        py += 2.54
-    h = max(25.0, py + 2.54)
+        ties.extend(_sheet_pin_nc(f"{key}/{pn}", x, y + py, det_uuid("sheet/driver")))
+        py = snap(py + GRID_MM * 2)
+    h = snap(max(25.4, py + GRID_MM * 2))
     sheet = [
         "sheet",
         ["at", x, y],
@@ -572,7 +689,12 @@ def _sheet_instance(
 
 def emit_root(fabric: FabricAST, out_dir: Path, sheet_files: dict[str, str]) -> None:
     key = "driver"
-    body, _suuid = _sheet_base(key, f"{fabric.project_name()} root n={fabric.n}", fabric.n)
+    body, _suuid = _sheet_base(
+        key,
+        f"{fabric.project_name()} root n={fabric.n}",
+        fabric.n,
+        [_lib_stub()],
+    )
     items: list = [
         _text(
             f"{key}/tune",
@@ -617,17 +739,17 @@ def emit_root(fabric: FabricAST, out_dir: Path, sheet_files: dict[str, str]) -> 
         ("dmos_ls_array", sheet_files["dmos_ls_array"], dmos_ls_pins),
     ]
 
-    x, y = 100.0, 20.0
+    x, y = snap(101.6), snap(25.4)
     for name, fname, pins in layout:
-        sheet, ties = _sheet_instance(name, fname, x, y, 45.0, pins)
+        sheet, ties = _sheet_instance(name, fname, x, y, snap(45.72), pins)
         items.append(sheet)
         items.extend(ties)
-        x += 55.0
-        if x > 350:
-            x = 100.0
-            y += 120.0
+        x = snap(x + 55.88)
+        if x > 355.6:
+            x = snap(101.6)
+            y = snap(y + 121.92)
 
-    x, y = 100.0, y + 130.0
+    x, y = snap(101.6), snap(y + 129.54)
     for tile in fabric.tiles:
         fname = sheet_files[tile.sheet_name]
         sheet, ties = _sheet_instance(
@@ -635,27 +757,27 @@ def emit_root(fabric: FabricAST, out_dir: Path, sheet_files: dict[str, str]) -> 
             fname,
             x,
             y,
-            40.0,
+            snap(40.64),
             list(tile.pins),
         )
         items.append(sheet)
         items.extend(ties)
-        x += 50.0
-        if x > 380:
-            x = 100.0
-            y += 110.0
+        x = snap(x + 50.8)
+        if x > 381.0:
+            x = snap(101.6)
+            y = snap(y + 111.76)
 
-    dy = y + 120.0
+    dy = snap(y + 121.92)
     for call in fabric.decode_calls:
         items.append(
             _text(
                 f"{key}/{call.instance}",
                 f"{call.instance} -> decode_block.kicad_sch ({call.axis} {call.direction})",
-                100,
+                snap(101.6),
                 dy,
             )
         )
-        dy += 5.0
+        dy = snap(dy + 5.08)
 
     body.extend(items)
     body.append(["sheet_instances", ["path", "/", ["page", "1"]]])

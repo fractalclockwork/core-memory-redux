@@ -30,7 +30,7 @@ Human front door: [README.md](README.md). Chat is not authoritative.
 | Plane ICD, sense/inhibit, timing | [docs/design_specification.md](docs/design_specification.md) |
 | Net names, decode/DMOS call model | [docs/naming.md](docs/naming.md) |
 | Steer/magnetic pin budgets | [docs/hierarchy_abi.md](docs/hierarchy_abi.md) |
-| BOM | [docs/component_selection.md](docs/component_selection.md) |
+| BOM / multi-board qty | [docs/component_selection.md](docs/component_selection.md) §6, [docs/bom_multiboard.csv](docs/bom_multiboard.csv) |
 | Open decisions | [docs/design_choices.md](docs/design_choices.md) |
 | Scale × surface claims | [docs/coverage_matrix.md](docs/coverage_matrix.md) |
 | Ubuntu apt + `uv` host setup | [docs/dev_host_setup.md](docs/dev_host_setup.md) |

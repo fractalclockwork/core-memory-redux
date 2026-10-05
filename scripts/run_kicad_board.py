@@ -16,8 +16,8 @@ CONFIG_HOME = ROOT / ".kicad-config"
 
 # (project_dir, root_sch_stem)
 PROJECTS = (
-    ("pcb_ccs_sense", "ccs_sense"),
-    ("pcb_axis_octal", "axis_octal"),
+    ("pcb_ccs_sense", "pcb_ccs_sense"),
+    ("pcb_axis_octal", "pcb_axis_octal"),
 )
 
 
@@ -25,6 +25,8 @@ def _env() -> dict[str, str]:
     env = os.environ.copy()
     CONFIG_HOME.mkdir(parents=True, exist_ok=True)
     env["XDG_CONFIG_HOME"] = str(CONFIG_HOME)
+    env.setdefault("KICAD7_SYMBOL_DIR", "/usr/share/kicad/symbols")
+    env.setdefault("KICAD7_FOOTPRINT_DIR", "/usr/share/kicad/footprints")
     return env
 
 

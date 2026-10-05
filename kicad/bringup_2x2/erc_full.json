@@ -1,0 +1,77 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-04T17:52:39",
+    "ignored_checks": [
+        {
+            "description": "Global label only appears once in the schematic",
+            "key": "single_global_label"
+        },
+        {
+            "description": "Four connection points are joined together",
+            "key": "four_way_junction"
+        },
+        {
+            "description": "SPICE model issue",
+            "key": "simulation_model_issue"
+        },
+        {
+            "description": "Assigned footprint doesn't match footprint filters",
+            "key": "footprint_filter"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.6",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3",
+            "violations": []
+        },
+        {
+            "path": "/magnetic_plane/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/429197c0-5649-52d0-a20a-53d9c7787696",
+            "violations": []
+        },
+        {
+            "path": "/dmos_ls_array/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/7d3f1ea6-6ebb-58e8-9172-430cded2386a",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_X_g0/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/6bb91898-b8c4-5f7e-8aad-996ca59cbc85",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_Y_g0/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/cf44cf88-66ab-56f9-be8b-6573a921bd57",
+            "violations": []
+        },
+        {
+            "path": "/sense_front_end/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/ca531758-4c87-5a30-8839-7db4f455b59c",
+            "violations": []
+        },
+        {
+            "path": "/ccs_channel/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/c9384543-34dd-5cdd-bab3-5895936e59c1",
+            "violations": []
+        },
+        {
+            "path": "/decode_block/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/b4752c73-3fc4-5ead-988e-ad5e6d722eeb",
+            "violations": []
+        },
+        {
+            "path": "/dmos_hs_array/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/7bfaaf97-bf66-56cc-b80e-5b896071993e",
+            "violations": []
+        }
+    ],
+    "source": "driver.kicad_sch"
+}

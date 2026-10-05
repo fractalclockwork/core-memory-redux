@@ -38,7 +38,7 @@
     "B6",
     "B7"
   ],
-  "root_sch": "axis_octal.kicad_sch",
+  "root_sch": "pcb_axis_octal.kicad_sch",
   "sense_nets_forbidden": [
     "SENSE_FOLD",
     "YA65",

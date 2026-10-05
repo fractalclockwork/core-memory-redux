@@ -10,7 +10,7 @@
 	)
 	(lib_symbols
 		(symbol
-			"Device:D_Schottky"
+			"CMR:D_Schottky"
 			(pin_numbers (hide yes))
 			(pin_names (offset 1.016) (hide yes))
 			(exclude_from_sim no)
@@ -80,7 +80,7 @@
 			)
 		)
 		(symbol
-			"Device:R"
+			"CMR:R"
 			(pin_numbers (hide yes))
 			(pin_names (offset 0))
 			(exclude_from_sim no)
@@ -145,2064 +145,3443 @@
 				)
 			)
 		)
+		(symbol
+			"CMR:Stub"
+			(pin_numbers (hide yes))
+			(pin_names (offset 0) (hide yes))
+			(exclude_from_sim yes)
+			(in_bom no)
+			(on_board no)
+			(property
+				"Reference"
+				"TP"
+				(at 1.27 0 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property
+				"Value"
+				"Stub"
+				(at 0 0 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property
+				"Footprint"
+				""
+				(at 0 0 0)
+				(effects (font (size 1.27 1.27)) (hide yes))
+			)
+			(property
+				"Datasheet"
+				"~"
+				(at 0 0 0)
+				(effects (font (size 1.27 1.27)) (hide yes))
+			)
+			(property
+				"Description"
+				"ERC stub terminator"
+				(at 0 0 0)
+				(effects (font (size 1.27 1.27)) (hide yes))
+			)
+			(symbol
+				"Stub_0_1"
+				(circle (center 0 0) (radius 0.635) (stroke (width 0.254) (type default)) (fill (type none)))
+			)
+			(symbol
+				"Stub_1_1"
+				(pin
+					passive
+					line
+					(at -2.54 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 1.27 1.27))))
+					(number "1" (effects (font (size 1.27 1.27))))
+				)
+			)
+		)
 	)
 	(text
 		"REQ-HIER-OCTAL steer_octal_Y_g1 pins=34"
 		(exclude_from_sim no)
-		(at 10 10 0)
+		(at 10.16 10.16 0)
 		(effects (font (size 1 1)))
 		(uuid "13ba29a9-7677-54d8-82dd-e737b5f94791")
 	)
 	(text
 		"lines=[8, 9, 10, 11, 12, 13, 14, 15]"
 		(exclude_from_sim no)
-		(at 10 15 0)
+		(at 10.16 15.24 0)
 		(effects (font (size 1 1)))
 		(uuid "fcdc567a-6f7c-5120-a793-582e196b9952")
 	)
 	(hierarchical_label
 		"YHS1"
 		(shape bidirectional)
-		(at 20 25 0)
+		(at 20.32 25.4 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "d96e822b-d9f3-5a1f-b5c1-75a335dfac36")
+		(uuid "1b2cb81a-4e01-56db-89ba-9f93545b1dce")
 	)
 	(wire
-		(pts (xy 20 25) (xy 32.7 25))
+		(pts (xy 20.32 25.4) (xy 33.02 25.4))
 		(stroke (width 0) (type default))
-		(uuid "d439e8ab-65e4-5027-a849-e00060fd8ff7")
-	)
-	(wire
-		(pts (xy 32.7 25) (xy 32.7 28.81))
-		(stroke (width 0) (type default))
-		(uuid "ecf671a1-352c-593b-a63f-eeaee008c9e5")
+		(uuid "323941a0-f182-54f8-9840-1f1d9a289a5b")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 25 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 25.4 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "49e8faf7-f2b7-5f48-88a8-0536cbef9d58")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "e26830e7-b50a-517c-8596-82beeb1d6fc6")
 		(property
 			"Reference"
-			"Rt_YHS1"
-			(at 35.24 23.73 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YHS1"
+			(at 36.83 24.13 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 26.27 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 26.67 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 25 0)
+			(at 35.56 25.4 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 25 0)
+			(at 35.56 25.4 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "0cf79d88-4720-5551-a3e8-7c23972f6dea"))
-		(pin "2" (uuid "ced425f1-a72c-5457-8a11-d2f98c0a1f20"))
+		(pin "1" (uuid "3e263f6e-109d-5a77-b77c-32494cd16992"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YHS1") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YHS1") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 21.19) (uuid "d202bf72-2ae6-5b32-8dce-b7e06b601446"))
+	(wire
+		(pts (xy 33.02 25.4) (xy 35.56 25.4))
+		(stroke (width 0) (type default))
+		(uuid "7b0c5026-647e-558d-a0cb-e569dc983b1c")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 25.4 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "4643748c-fa30-5581-9fa6-d2b7e7b5fd19")
+		(property
+			"Reference"
+			"TP_YHS1b"
+			(at 39.37 24.13 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 26.67 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 25.4 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 25.4 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "c5a56b8a-5fa0-5a85-961d-b496fe2e4c2b"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YHS1b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YHS1R"
 		(shape bidirectional)
-		(at 20 27.54 0)
+		(at 20.32 27.94 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "285151a6-64b2-5edb-8e30-51b7694aa84f")
+		(uuid "917ed476-7c69-540b-9c57-9fcc2a2e55e9")
 	)
 	(wire
-		(pts (xy 20 27.54) (xy 32.7 27.54))
+		(pts (xy 20.32 27.94) (xy 33.02 27.94))
 		(stroke (width 0) (type default))
-		(uuid "f7a11b76-d90f-5ed5-a93e-a49f0c9dd9d6")
-	)
-	(wire
-		(pts (xy 32.7 27.54) (xy 32.7 31.35))
-		(stroke (width 0) (type default))
-		(uuid "300c4820-276e-5bf3-8edb-41dbdcf5c076")
+		(uuid "eaac9e91-1d10-5cf1-bd8b-f92279452ab0")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 27.54 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 27.94 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "a4c230ab-f22e-580d-bea8-488d2100d95d")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "9779db60-45c4-50de-992b-6ddf268e6383")
 		(property
 			"Reference"
-			"Rt_YHS1R"
-			(at 35.24 26.27 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YHS1R"
+			(at 36.83 26.67 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 28.81 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 29.21 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 27.54 0)
+			(at 35.56 27.94 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 27.54 0)
+			(at 35.56 27.94 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "d93c5907-423f-58f1-a123-4c83606712e8"))
-		(pin "2" (uuid "eb0749c8-02f9-5aac-8fcc-244b72d63b82"))
+		(pin "1" (uuid "309f46e2-60ea-593e-ac3e-b945b982646c"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YHS1R") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YHS1R") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 23.73) (uuid "edfd61d6-015d-5d80-ac4d-01d70439619f"))
+	(wire
+		(pts (xy 33.02 27.94) (xy 35.56 27.94))
+		(stroke (width 0) (type default))
+		(uuid "f0590dda-d51b-5efd-bed6-ea27826bd9a7")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 27.94 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "eaeeea23-f83d-5265-8e4b-e05aa0609554")
+		(property
+			"Reference"
+			"TP_YHS1Rb"
+			(at 39.37 26.67 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 29.21 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 27.94 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 27.94 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "f2ccd24f-34e8-5560-b8d0-32a9ac086cd7"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YHS1Rb") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YLS0"
 		(shape bidirectional)
-		(at 20 30.08 0)
+		(at 20.32 30.48 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "0015e4b0-abdc-55f1-b6e7-d1f7b31c23ad")
+		(uuid "8ca8633a-fbe3-5005-8686-318d564f914c")
 	)
 	(wire
-		(pts (xy 20 30.08) (xy 32.7 30.08))
+		(pts (xy 20.32 30.48) (xy 33.02 30.48))
 		(stroke (width 0) (type default))
-		(uuid "46e3f770-8d83-5bb4-a883-8b4381241e4e")
-	)
-	(wire
-		(pts (xy 32.7 30.08) (xy 32.7 33.89))
-		(stroke (width 0) (type default))
-		(uuid "bae7d359-ef9d-50a6-b08d-642fe95de562")
+		(uuid "c00fa506-ba3a-51f4-815f-a3475138a450")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 30.08 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 30.48 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0e380fe3-af5b-5877-83ad-0b4ef0699766")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "48db812f-05ec-5b9e-a45c-74aca37f2794")
 		(property
 			"Reference"
-			"Rt_YLS0"
-			(at 35.24 28.81 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YLS0"
+			(at 36.83 29.21 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 31.35 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 31.75 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 30.08 0)
+			(at 35.56 30.48 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 30.08 0)
+			(at 35.56 30.48 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "4b928926-742e-5111-8a73-1d3c5f38b5db"))
-		(pin "2" (uuid "e987f4d8-9ebc-59a8-ab3d-e65afd904d53"))
+		(pin "1" (uuid "b3e22153-4266-5fd9-9356-6b52252ebff5"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YLS0") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS0") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 26.27) (uuid "beb86d74-d8bb-5f43-b294-6f722576bd29"))
+	(wire
+		(pts (xy 33.02 30.48) (xy 35.56 30.48))
+		(stroke (width 0) (type default))
+		(uuid "121ffe20-71dd-5672-a245-7e88def44bfa")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 30.48 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "32b484dd-0ac8-5eb9-8a00-43d3df846a69")
+		(property
+			"Reference"
+			"TP_YLS0b"
+			(at 39.37 29.21 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 31.75 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 30.48 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 30.48 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "bd206d38-fd23-5834-88ef-53ed8d893a87"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS0b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YLS1"
 		(shape bidirectional)
-		(at 20 32.62 0)
+		(at 20.32 33.02 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "165cb820-5487-5e4c-ab71-093ed64473d7")
+		(uuid "7fbd4ed3-4b03-5c8d-8dce-ee1b711203e2")
 	)
 	(wire
-		(pts (xy 20 32.62) (xy 32.7 32.62))
+		(pts (xy 20.32 33.02) (xy 33.02 33.02))
 		(stroke (width 0) (type default))
-		(uuid "fede5c54-21e2-5a52-9edf-e609f80c3a7d")
-	)
-	(wire
-		(pts (xy 32.7 32.62) (xy 32.7 36.43))
-		(stroke (width 0) (type default))
-		(uuid "87c9b50a-5089-52b6-bba0-b3e79dc35ab3")
+		(uuid "0e2fbb10-9cf8-55bb-aac0-da5366599626")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 32.62 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 33.02 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "97679eb4-7508-5af1-8654-bd913ddfcec7")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "3161a2e9-b1b2-5f83-9aef-4dd8150c753b")
 		(property
 			"Reference"
-			"Rt_YLS1"
-			(at 35.24 31.35 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YLS1"
+			(at 36.83 31.75 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 33.89 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 34.29 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 32.62 0)
+			(at 35.56 33.02 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 32.62 0)
+			(at 35.56 33.02 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "a9ddf101-f88e-5ec7-843f-d66e0179aeb1"))
-		(pin "2" (uuid "881e3cd7-1db8-518f-9850-0ba357848061"))
+		(pin "1" (uuid "aa1110ce-aa6d-5905-adf0-3178e39b662f"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YLS1") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS1") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 28.81) (uuid "b4a2d7c6-6af5-51f6-b424-cd2764c69f63"))
+	(wire
+		(pts (xy 33.02 33.02) (xy 35.56 33.02))
+		(stroke (width 0) (type default))
+		(uuid "4ed8b42c-c3f3-5207-be9b-40a8ecb3750e")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 33.02 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "6e2b2a82-17e6-509c-bcfa-841e6fbae138")
+		(property
+			"Reference"
+			"TP_YLS1b"
+			(at 39.37 31.75 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 34.29 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 33.02 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 33.02 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "5b97912d-cfb9-5f57-a91c-f4f8176b2283"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS1b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YLS2"
 		(shape bidirectional)
-		(at 20 35.16 0)
+		(at 20.32 35.56 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "2eefbf18-05e7-5455-9553-80c35ff1a056")
+		(uuid "398ef3a3-2f9e-502a-9058-f56c59ebf577")
 	)
 	(wire
-		(pts (xy 20 35.16) (xy 32.7 35.16))
+		(pts (xy 20.32 35.56) (xy 33.02 35.56))
 		(stroke (width 0) (type default))
-		(uuid "f0775e44-2d03-5f5f-affe-7a104356290c")
-	)
-	(wire
-		(pts (xy 32.7 35.16) (xy 32.7 38.97))
-		(stroke (width 0) (type default))
-		(uuid "734e6980-561d-54e6-aaba-b7c01f8a2c75")
+		(uuid "db894be0-5d92-5fa1-a39e-5d21260d2a83")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 35.16 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 35.56 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "09c41362-fdc0-5d60-a24d-0c190da923c0")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "8ca6eb87-874c-5b92-8d46-e7103ebe8202")
 		(property
 			"Reference"
-			"Rt_YLS2"
-			(at 35.24 33.89 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YLS2"
+			(at 36.83 34.29 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 36.43 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 36.83 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 35.16 0)
+			(at 35.56 35.56 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 35.16 0)
+			(at 35.56 35.56 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "a7fc46c7-a51f-5c8a-9f32-aeecf888bd36"))
-		(pin "2" (uuid "3bf4438d-bc50-5eb3-af84-c8a92fb608b1"))
+		(pin "1" (uuid "a62103d4-bb56-5288-be5f-db6f4ce453e8"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YLS2") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS2") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 31.35) (uuid "961dc649-c543-5c74-8c94-eeca100df86d"))
+	(wire
+		(pts (xy 33.02 35.56) (xy 35.56 35.56))
+		(stroke (width 0) (type default))
+		(uuid "6eab63f8-8594-5bff-9602-a87c031ea6a4")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 35.56 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "a43bb2ad-b495-5e4f-bcbb-843968261baa")
+		(property
+			"Reference"
+			"TP_YLS2b"
+			(at 39.37 34.29 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 36.83 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 35.56 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 35.56 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "7a945415-6492-5c2d-bab9-79216f792840"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS2b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YLS3"
 		(shape bidirectional)
-		(at 20 37.7 0)
+		(at 20.32 38.1 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "52ec578a-3976-5bd5-9a0e-d087f6c88560")
+		(uuid "f08b0947-8eca-5042-8feb-25c920345323")
 	)
 	(wire
-		(pts (xy 20 37.7) (xy 32.7 37.7))
+		(pts (xy 20.32 38.1) (xy 33.02 38.1))
 		(stroke (width 0) (type default))
-		(uuid "8fb0ffb5-a0e3-5763-b1fd-4bdbf7cdbc66")
-	)
-	(wire
-		(pts (xy 32.7 37.7) (xy 32.7 41.51))
-		(stroke (width 0) (type default))
-		(uuid "1c0e49ac-ed75-5fc3-80d2-64d9ddbe07c4")
+		(uuid "f457b271-a1d5-50e3-8570-9f5071413238")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 37.7 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 38.1 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "23eee5a7-0fbd-5af4-b5ff-62fdb9b1f911")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "8fdda6f3-c140-5db2-a90d-041e2a8845ee")
 		(property
 			"Reference"
-			"Rt_YLS3"
-			(at 35.24 36.43 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YLS3"
+			(at 36.83 36.83 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 38.97 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 39.37 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 37.7 0)
+			(at 35.56 38.1 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 37.7 0)
+			(at 35.56 38.1 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "a465c1d0-4aa5-55ca-bf2b-ba28b79c9b62"))
-		(pin "2" (uuid "288ad62a-5980-5ec1-99e4-c1c9f598d7f6"))
+		(pin "1" (uuid "5dee1f45-f83a-57d1-aa81-31da193ce382"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YLS3") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS3") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 33.89) (uuid "4f21e5c8-6f41-5eb7-8495-85c9a7e082d6"))
+	(wire
+		(pts (xy 33.02 38.1) (xy 35.56 38.1))
+		(stroke (width 0) (type default))
+		(uuid "613a46c0-be73-5acb-98cb-db5d03d8e8ed")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 38.1 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "f52e1877-efad-54fc-84b5-be3c25f64d13")
+		(property
+			"Reference"
+			"TP_YLS3b"
+			(at 39.37 36.83 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 39.37 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 38.1 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 38.1 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "bdb5a095-5f90-524c-b362-e61cbee86099"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS3b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YLS4"
 		(shape bidirectional)
-		(at 20 40.24 0)
+		(at 20.32 40.64 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "f55bc2fa-20eb-5165-8593-e3819a611735")
+		(uuid "eab5e5a7-5411-5523-a892-110d080a4b8c")
 	)
 	(wire
-		(pts (xy 20 40.24) (xy 32.7 40.24))
+		(pts (xy 20.32 40.64) (xy 33.02 40.64))
 		(stroke (width 0) (type default))
-		(uuid "b03980ee-f839-5399-a9d1-170ccd7aee7b")
-	)
-	(wire
-		(pts (xy 32.7 40.24) (xy 32.7 44.05))
-		(stroke (width 0) (type default))
-		(uuid "1521cf20-f071-5b29-bc0c-6b1a14013ec3")
+		(uuid "6a542548-1d44-51bc-877e-64cbc39abdb6")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 40.24 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 40.64 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "47cf738f-dab6-5c3b-b527-a5b642cac75f")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "b7a86608-9e65-5ba2-88f7-6cd137ce7407")
 		(property
 			"Reference"
-			"Rt_YLS4"
-			(at 35.24 38.97 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YLS4"
+			(at 36.83 39.37 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 41.51 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 41.91 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 40.24 0)
+			(at 35.56 40.64 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 40.24 0)
+			(at 35.56 40.64 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "bf23d3b6-ab93-5742-baf7-1a2f8bbda35f"))
-		(pin "2" (uuid "12381b20-a7b5-5ba2-b2fa-cfb04c449854"))
+		(pin "1" (uuid "ebd66ef4-9314-54d5-af64-d0aeeab156c6"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YLS4") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS4") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 36.43) (uuid "a9922181-264f-55c4-a1a2-9a67d12e2f06"))
+	(wire
+		(pts (xy 33.02 40.64) (xy 35.56 40.64))
+		(stroke (width 0) (type default))
+		(uuid "3cb17f20-48ba-5467-ae85-b2f53a33e11c")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 40.64 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "b194af29-58f1-5381-a47e-abfa5f56b281")
+		(property
+			"Reference"
+			"TP_YLS4b"
+			(at 39.37 39.37 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 41.91 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 40.64 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 40.64 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "63541679-cd93-5af8-a882-d7815ebcddf7"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS4b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YLS5"
 		(shape bidirectional)
-		(at 20 42.78 0)
+		(at 20.32 43.18 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "b776e488-0fbb-5216-8908-5babf9df3e83")
+		(uuid "160c4741-09d9-5038-a0a0-a6aaac48942f")
 	)
 	(wire
-		(pts (xy 20 42.78) (xy 32.7 42.78))
+		(pts (xy 20.32 43.18) (xy 33.02 43.18))
 		(stroke (width 0) (type default))
-		(uuid "15de99a2-9857-57e6-96e6-9a253a01001d")
-	)
-	(wire
-		(pts (xy 32.7 42.78) (xy 32.7 46.59))
-		(stroke (width 0) (type default))
-		(uuid "a3de32b9-2992-5150-8305-05b5e44346cd")
+		(uuid "a0694696-ab47-5ee3-bad6-674d0b24bbf3")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 42.78 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 43.18 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "cf8f5ce8-f91f-567b-8f92-5c46f1006f61")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "cb04698e-c6b7-5dd8-97b7-048e085b4c7f")
 		(property
 			"Reference"
-			"Rt_YLS5"
-			(at 35.24 41.51 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YLS5"
+			(at 36.83 41.91 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 44.05 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 44.45 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 42.78 0)
+			(at 35.56 43.18 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 42.78 0)
+			(at 35.56 43.18 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "f9adb029-0b3b-57e5-a326-b8e5430fb9e9"))
-		(pin "2" (uuid "9560d2e8-3305-5c83-bcf5-09c57ba047b4"))
+		(pin "1" (uuid "f7f4b1e9-1c74-5dc4-b79e-32e1d96c5b94"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YLS5") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS5") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 38.97) (uuid "f06017eb-262f-5713-b53e-af2c5afa6b92"))
+	(wire
+		(pts (xy 33.02 43.18) (xy 35.56 43.18))
+		(stroke (width 0) (type default))
+		(uuid "c73e3ff6-1cd5-5f22-94a1-fdf89421df40")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 43.18 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "387aac26-0353-57b0-8420-5ce14ba47beb")
+		(property
+			"Reference"
+			"TP_YLS5b"
+			(at 39.37 41.91 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 44.45 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 43.18 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 43.18 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "f6facb9d-ee7e-5ee4-90b9-90de6face61c"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS5b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YLS6"
 		(shape bidirectional)
-		(at 20 45.32 0)
+		(at 20.32 45.72 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "aa32909c-3117-5e19-bf40-11c89505f8de")
+		(uuid "44c136b6-e54a-5235-8e23-f498cca1c19a")
 	)
 	(wire
-		(pts (xy 20 45.32) (xy 32.7 45.32))
+		(pts (xy 20.32 45.72) (xy 33.02 45.72))
 		(stroke (width 0) (type default))
-		(uuid "db7ae7cc-7762-578b-8701-92f5f4d249ad")
-	)
-	(wire
-		(pts (xy 32.7 45.32) (xy 32.7 49.13))
-		(stroke (width 0) (type default))
-		(uuid "aa201399-8740-566a-8bf7-b002d1dc2b61")
+		(uuid "cce12a4f-c9eb-580a-9bea-58548c5e7ae0")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 45.32 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 45.72 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "eed62bda-1b05-5c8f-84a1-aa7f40e32efd")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "a6d27a17-6c5e-5ca3-81e7-b04c927b783e")
 		(property
 			"Reference"
-			"Rt_YLS6"
-			(at 35.24 44.05 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YLS6"
+			(at 36.83 44.45 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 46.59 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 46.99 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 45.32 0)
+			(at 35.56 45.72 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 45.32 0)
+			(at 35.56 45.72 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "96346d2d-767d-5ca6-8524-b99475ecff9a"))
-		(pin "2" (uuid "c1704e41-7ee9-576e-b87b-731771309e87"))
+		(pin "1" (uuid "e5af04a3-3c73-5122-a352-81424af09c0b"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YLS6") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS6") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 41.51) (uuid "ecd75c77-6420-575a-97e2-73c36fcb6bcf"))
+	(wire
+		(pts (xy 33.02 45.72) (xy 35.56 45.72))
+		(stroke (width 0) (type default))
+		(uuid "59d5683a-cde6-5718-88a3-26092e6f1283")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 45.72 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "59215e5d-51a4-57a3-865e-dbe938146b21")
+		(property
+			"Reference"
+			"TP_YLS6b"
+			(at 39.37 44.45 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 46.99 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 45.72 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 45.72 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "94f88a30-5bcc-55d4-95aa-57446586365c"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS6b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YLS7"
 		(shape bidirectional)
-		(at 20 47.86 0)
+		(at 20.32 48.26 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "f7c35be9-ac64-5ced-a5c2-db020775b1c9")
+		(uuid "25905312-d462-5905-a92c-73225bf5654f")
 	)
 	(wire
-		(pts (xy 20 47.86) (xy 32.7 47.86))
+		(pts (xy 20.32 48.26) (xy 33.02 48.26))
 		(stroke (width 0) (type default))
-		(uuid "a0ac2ff8-dd5f-594e-b4c4-06badf59b4e9")
-	)
-	(wire
-		(pts (xy 32.7 47.86) (xy 32.7 51.67))
-		(stroke (width 0) (type default))
-		(uuid "c6f6a638-04a9-54b7-aeb7-d32fe15cd5e5")
+		(uuid "c1470360-03ef-5230-9961-2830ff589268")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 47.86 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 48.26 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3a6f5ca3-170a-564c-bb1e-f5cb68439fe7")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "0b23c0f2-0514-5a74-8af7-a8c77165e06e")
 		(property
 			"Reference"
-			"Rt_YLS7"
-			(at 35.24 46.59 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YLS7"
+			(at 36.83 46.99 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 49.13 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 49.53 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 47.86 0)
+			(at 35.56 48.26 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 47.86 0)
+			(at 35.56 48.26 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "b9b82483-fd22-54de-b82f-73f10c3e1d74"))
-		(pin "2" (uuid "4b868b17-68e1-5102-9a28-bb2fda0b7c59"))
+		(pin "1" (uuid "759570bc-78b0-5e19-b70c-4f691ba7bd53"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YLS7") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS7") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 44.05) (uuid "58e5edf5-c79f-5ff3-8934-484998d1f3f6"))
+	(wire
+		(pts (xy 33.02 48.26) (xy 35.56 48.26))
+		(stroke (width 0) (type default))
+		(uuid "2d226075-2599-52f0-9e05-e089dc56d4ed")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 48.26 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "a8ff24ec-6948-5d71-ac33-a04e95d0e624")
+		(property
+			"Reference"
+			"TP_YLS7b"
+			(at 39.37 46.99 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 49.53 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 48.26 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 48.26 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "b4597a24-4b6b-551f-8770-11c0a7ce22cb"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS7b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YLS0R"
 		(shape bidirectional)
-		(at 20 50.4 0)
+		(at 20.32 50.8 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "04552c62-73c9-5753-bc35-a5178cd43297")
+		(uuid "fff61130-2d87-54e1-9d24-92e03c31315b")
 	)
 	(wire
-		(pts (xy 20 50.4) (xy 32.7 50.4))
+		(pts (xy 20.32 50.8) (xy 33.02 50.8))
 		(stroke (width 0) (type default))
-		(uuid "2969f3fb-b5c0-582f-b6b1-d0ac986f6398")
-	)
-	(wire
-		(pts (xy 32.7 50.4) (xy 32.7 54.21))
-		(stroke (width 0) (type default))
-		(uuid "cd3d2166-e18e-5c8c-9325-006e9f654481")
+		(uuid "9fbb4f8a-1be7-5279-a0eb-bfa52c01f376")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 50.4 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 50.8 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "fae225c8-4687-5f6e-94a6-b76c513c3737")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "2765d2a3-3707-5e69-85f1-a9487116d3f9")
 		(property
 			"Reference"
-			"Rt_YLS0R"
-			(at 35.24 49.13 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YLS0R"
+			(at 36.83 49.53 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 51.67 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 52.07 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 50.4 0)
+			(at 35.56 50.8 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 50.4 0)
+			(at 35.56 50.8 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "ee0af193-7778-512c-8c24-2df629d6a428"))
-		(pin "2" (uuid "fe8b2844-3fbd-5044-a70b-c340ec2486f6"))
+		(pin "1" (uuid "dd762dfb-013f-5554-bbbf-2c9bb379761f"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YLS0R") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS0R") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 46.59) (uuid "78919dec-2c59-58ab-b82c-c4f42983b1b0"))
+	(wire
+		(pts (xy 33.02 50.8) (xy 35.56 50.8))
+		(stroke (width 0) (type default))
+		(uuid "cb38563f-71e1-54e3-aefa-ec7f025d1a7d")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 50.8 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "1f1c6bf4-aa4d-5825-bfa0-20afe08b1c5d")
+		(property
+			"Reference"
+			"TP_YLS0Rb"
+			(at 39.37 49.53 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 52.07 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 50.8 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 50.8 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "4904ca9c-7a3d-588d-942c-9b0f1e8b4685"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS0Rb") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YLS1R"
 		(shape bidirectional)
-		(at 20 52.94 0)
+		(at 20.32 53.34 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "d7f19577-4773-5440-95af-eaac2adc6321")
+		(uuid "cac01343-f769-59b9-b591-f62362f3bcf2")
 	)
 	(wire
-		(pts (xy 20 52.94) (xy 32.7 52.94))
+		(pts (xy 20.32 53.34) (xy 33.02 53.34))
 		(stroke (width 0) (type default))
-		(uuid "524fae2b-7b52-58df-80a5-3bc3e535c780")
-	)
-	(wire
-		(pts (xy 32.7 52.94) (xy 32.7 56.75))
-		(stroke (width 0) (type default))
-		(uuid "cbb50826-2892-5f67-b251-be1066b56d6f")
+		(uuid "6f76e70e-7d2d-5920-900d-23359f3e3861")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 52.94 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 53.34 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "a5880e31-8420-5011-9cec-a523a6e2f47a")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "0010aa61-431b-5b8a-a0ae-50c498be7990")
 		(property
 			"Reference"
-			"Rt_YLS1R"
-			(at 35.24 51.67 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YLS1R"
+			(at 36.83 52.07 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 54.21 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 54.61 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 52.94 0)
+			(at 35.56 53.34 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 52.94 0)
+			(at 35.56 53.34 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "bb20ecea-9452-5b61-9954-b5a0802ae9ee"))
-		(pin "2" (uuid "9a8501a6-e642-5e56-8dfe-cc71365b820a"))
+		(pin "1" (uuid "decfc517-f5c5-5f71-a811-8b1b136840f9"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YLS1R") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS1R") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 49.13) (uuid "09cc8555-3a09-5760-accb-42bae60cb6a5"))
+	(wire
+		(pts (xy 33.02 53.34) (xy 35.56 53.34))
+		(stroke (width 0) (type default))
+		(uuid "e1e4248e-aa43-5d75-a830-129ab6960620")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 53.34 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "cb7f591e-87df-50fb-b9de-0379a5685ffa")
+		(property
+			"Reference"
+			"TP_YLS1Rb"
+			(at 39.37 52.07 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 54.61 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 53.34 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 53.34 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "95bfead7-0069-5b7a-b759-019c93a0dc90"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS1Rb") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YLS2R"
 		(shape bidirectional)
-		(at 20 55.48 0)
+		(at 20.32 55.88 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "a8a1601d-e9fd-5f07-87ce-66fd49fdd63d")
+		(uuid "375bdca9-641c-5e2e-ba09-1784d61b1a3e")
 	)
 	(wire
-		(pts (xy 20 55.48) (xy 32.7 55.48))
+		(pts (xy 20.32 55.88) (xy 33.02 55.88))
 		(stroke (width 0) (type default))
-		(uuid "bc80a343-e69e-5444-9d89-2f6d7fabfc6d")
-	)
-	(wire
-		(pts (xy 32.7 55.48) (xy 32.7 59.29))
-		(stroke (width 0) (type default))
-		(uuid "49a560d2-d96e-5558-8c5b-671a5ee8cb6f")
+		(uuid "3de5a235-68fe-5fc5-b1df-10d4e1939007")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 55.48 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 55.88 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ea9c9fe2-3b19-5fdf-aa7c-6f2c50cebd6c")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "86d5cc8f-db59-536b-968d-c027c6c55cf3")
 		(property
 			"Reference"
-			"Rt_YLS2R"
-			(at 35.24 54.21 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YLS2R"
+			(at 36.83 54.61 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 56.75 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 57.15 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 55.48 0)
+			(at 35.56 55.88 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 55.48 0)
+			(at 35.56 55.88 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "bd154e15-46a5-571b-a0d9-4bd8910dd998"))
-		(pin "2" (uuid "09c8e716-c0d7-5979-ac10-3ec2f4695c8d"))
+		(pin "1" (uuid "c53c5caa-f611-5fe6-9050-9b8fb734bebd"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YLS2R") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS2R") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 51.67) (uuid "8fc28633-6442-5262-9baa-01126f50acf0"))
+	(wire
+		(pts (xy 33.02 55.88) (xy 35.56 55.88))
+		(stroke (width 0) (type default))
+		(uuid "4d063741-8725-5758-a93a-03685318a6f4")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 55.88 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "ffab41c5-925e-5ec8-8fca-6fb000f683a5")
+		(property
+			"Reference"
+			"TP_YLS2Rb"
+			(at 39.37 54.61 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 57.15 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 55.88 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 55.88 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "03a0eb37-db3f-546c-b5e6-b2dee9c4ba9f"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS2Rb") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YLS3R"
 		(shape bidirectional)
-		(at 20 58.02 0)
+		(at 20.32 58.42 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "5c5089b0-0f21-5b64-b586-4a5bf6245b3b")
+		(uuid "219b2409-9f1b-50fb-b3c3-24c923f73671")
 	)
 	(wire
-		(pts (xy 20 58.02) (xy 32.7 58.02))
+		(pts (xy 20.32 58.42) (xy 33.02 58.42))
 		(stroke (width 0) (type default))
-		(uuid "b11a5fcc-5466-5fec-97df-eb2ae98858b7")
-	)
-	(wire
-		(pts (xy 32.7 58.02) (xy 32.7 61.83))
-		(stroke (width 0) (type default))
-		(uuid "8d4d7c2f-fd21-5980-baf0-031176216eb7")
+		(uuid "e77b3c28-a4cb-5129-858a-6017a782848e")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 58.02 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 58.42 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "18e5a220-5c7e-5509-97b3-068612545d25")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "dbcf7e94-0e0e-54a5-af21-b01478b9f5d4")
 		(property
 			"Reference"
-			"Rt_YLS3R"
-			(at 35.24 56.75 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YLS3R"
+			(at 36.83 57.15 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 59.29 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 59.69 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 58.02 0)
+			(at 35.56 58.42 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 58.02 0)
+			(at 35.56 58.42 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "dca93393-922c-54b6-84af-1ff591dd0206"))
-		(pin "2" (uuid "ef0e04ae-1e71-5fc2-925f-201690dc032a"))
+		(pin "1" (uuid "681a5f71-968d-5ba0-95e7-4b6c8807a546"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YLS3R") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS3R") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 54.21) (uuid "25e3a77d-0f64-5b86-837d-06550a1e560a"))
+	(wire
+		(pts (xy 33.02 58.42) (xy 35.56 58.42))
+		(stroke (width 0) (type default))
+		(uuid "07fcfc67-89c6-58a5-bc3d-190da78193b3")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 58.42 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "3691ea8b-1886-5023-8df8-7f2ca80d92b8")
+		(property
+			"Reference"
+			"TP_YLS3Rb"
+			(at 39.37 57.15 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 59.69 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 58.42 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 58.42 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "0f32b18f-8e69-55cd-a6ea-6cd78d0fdde2"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS3Rb") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YLS4R"
 		(shape bidirectional)
-		(at 20 60.56 0)
+		(at 20.32 60.96 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "e7e236c7-9f5d-551d-9b31-c77e30229b0e")
+		(uuid "dc214e81-cb3d-55ec-b0df-aa9902c4a445")
 	)
 	(wire
-		(pts (xy 20 60.56) (xy 32.7 60.56))
+		(pts (xy 20.32 60.96) (xy 33.02 60.96))
 		(stroke (width 0) (type default))
-		(uuid "3a06b7a3-6baf-5239-aa27-7d0030a3e5b4")
-	)
-	(wire
-		(pts (xy 32.7 60.56) (xy 32.7 64.37))
-		(stroke (width 0) (type default))
-		(uuid "5165e21a-bf49-5ac8-9fc5-2f03265916c4")
+		(uuid "27be6e37-2f76-5f4e-b6e0-7e96d85848cb")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 60.56 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 60.96 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f780f306-5617-522b-965f-b9ca4fbeca11")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "f42c536d-cec8-5d78-b0d5-e3807d530d6e")
 		(property
 			"Reference"
-			"Rt_YLS4R"
-			(at 35.24 59.29 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YLS4R"
+			(at 36.83 59.69 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 61.83 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 60.56 0)
+			(at 35.56 60.96 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 60.56 0)
+			(at 35.56 60.96 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "848e3159-0e45-5269-8180-709725053e67"))
-		(pin "2" (uuid "18a11b36-df39-5c98-9ed2-790d23a26715"))
+		(pin "1" (uuid "e132405d-bb1f-5e4d-9fd7-77f2f16afd1f"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YLS4R") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS4R") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 56.75) (uuid "f4d81c11-60a6-5987-aee7-7a64faa1976b"))
+	(wire
+		(pts (xy 33.02 60.96) (xy 35.56 60.96))
+		(stroke (width 0) (type default))
+		(uuid "c855f69a-8203-59b0-9707-540e6a400363")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 60.96 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "9b078eab-de29-501b-9e8a-ce95cad1d243")
+		(property
+			"Reference"
+			"TP_YLS4Rb"
+			(at 39.37 59.69 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 60.96 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 60.96 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "1c5f2343-4e7c-5f9b-9058-a4952070b9c1"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS4Rb") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YLS5R"
 		(shape bidirectional)
-		(at 20 63.1 0)
+		(at 20.32 63.5 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "ba897b73-5158-50b6-b0c4-8438ca716cf0")
+		(uuid "acffb38e-97fb-5da6-ba96-c467849f37f6")
 	)
 	(wire
-		(pts (xy 20 63.1) (xy 32.7 63.1))
+		(pts (xy 20.32 63.5) (xy 33.02 63.5))
 		(stroke (width 0) (type default))
-		(uuid "35e5e58e-200c-5829-91d9-ed47661e8f03")
-	)
-	(wire
-		(pts (xy 32.7 63.1) (xy 32.7 66.91))
-		(stroke (width 0) (type default))
-		(uuid "5ea51d5c-e948-5b58-998d-c8c5cd111843")
+		(uuid "b908d64c-2d43-5444-b563-7c9138a14da8")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 63.1 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 63.5 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c315dd55-fc6a-59da-ad2f-894a4e029d4e")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "212c6341-564e-5b8e-adfc-b47bbca171e5")
 		(property
 			"Reference"
-			"Rt_YLS5R"
-			(at 35.24 61.83 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YLS5R"
+			(at 36.83 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 64.37 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 64.77 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 63.1 0)
+			(at 35.56 63.5 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 63.1 0)
+			(at 35.56 63.5 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "5006e3da-26ab-551a-99ed-5c4f6d9080b6"))
-		(pin "2" (uuid "8537cb1e-aaaa-5f9e-a85f-0c615f031c60"))
+		(pin "1" (uuid "0158079b-0be5-545f-81f0-b0f44c431385"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YLS5R") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS5R") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 59.29) (uuid "2718de45-de59-5b28-a402-672c5c3d79b2"))
+	(wire
+		(pts (xy 33.02 63.5) (xy 35.56 63.5))
+		(stroke (width 0) (type default))
+		(uuid "df5e4443-63f5-53bf-8644-c678beda3ce6")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 63.5 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "286307f1-9c3b-522d-8962-ffeadd6f6d85")
+		(property
+			"Reference"
+			"TP_YLS5Rb"
+			(at 39.37 62.23 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 64.77 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 63.5 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 63.5 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "9071bb9a-6ff5-5ea8-b237-9c90a7e1c4d8"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS5Rb") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YLS6R"
 		(shape bidirectional)
-		(at 20 65.64 0)
+		(at 20.32 66.04 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "e61ad533-08ff-5ad8-9c96-6df893e1f873")
+		(uuid "9bc8e7db-74b0-5b0e-96ea-1786188c601f")
 	)
 	(wire
-		(pts (xy 20 65.64) (xy 32.7 65.64))
+		(pts (xy 20.32 66.04) (xy 33.02 66.04))
 		(stroke (width 0) (type default))
-		(uuid "45c3e3bc-fcd7-5f97-aada-f23a3331029a")
-	)
-	(wire
-		(pts (xy 32.7 65.64) (xy 32.7 69.45))
-		(stroke (width 0) (type default))
-		(uuid "f15cdb45-5528-5610-a472-2d3044dcb273")
+		(uuid "3186f5c7-0e1a-548d-8aa9-b5d18317e2ba")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 65.64 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 66.04 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "db6bdcb2-938f-5662-8f05-f821bd008040")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "eb6d2068-9ca8-5a06-b5c4-11385691da18")
 		(property
 			"Reference"
-			"Rt_YLS6R"
-			(at 35.24 64.37 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YLS6R"
+			(at 36.83 64.77 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 66.91 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 67.31 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 65.64 0)
+			(at 35.56 66.04 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 65.64 0)
+			(at 35.56 66.04 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "9faa54f5-9bae-533f-bea8-c4c1f50ae3c9"))
-		(pin "2" (uuid "d95dcbd8-a4bf-564b-8e19-5469850fe107"))
+		(pin "1" (uuid "f65ab4d4-8b91-5c24-a772-9c74d08103d9"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YLS6R") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS6R") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 61.83) (uuid "cd148be4-6a7a-5644-bd12-858352da6fe2"))
+	(wire
+		(pts (xy 33.02 66.04) (xy 35.56 66.04))
+		(stroke (width 0) (type default))
+		(uuid "c3b76d04-b18d-52a1-ab09-644c7122aa48")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 66.04 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "76c8df1c-504d-50d5-987f-a73d05b4a735")
+		(property
+			"Reference"
+			"TP_YLS6Rb"
+			(at 39.37 64.77 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 67.31 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 66.04 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 66.04 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "8f585da8-7a2b-516f-ac56-3d59819dcdbe"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS6Rb") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YLS7R"
 		(shape bidirectional)
-		(at 20 68.18 0)
+		(at 20.32 68.58 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "38b6495c-1566-5bb4-ab99-2438323263ad")
+		(uuid "9a3b2347-459a-5b7f-9643-5e1eb38c489a")
 	)
 	(wire
-		(pts (xy 20 68.18) (xy 32.7 68.18))
+		(pts (xy 20.32 68.58) (xy 33.02 68.58))
 		(stroke (width 0) (type default))
-		(uuid "d1bac4f1-520d-5158-b3d9-abac95e3f0c5")
-	)
-	(wire
-		(pts (xy 32.7 68.18) (xy 32.7 71.99))
-		(stroke (width 0) (type default))
-		(uuid "92ed1857-fb9a-5734-ad0d-794868f91c23")
+		(uuid "73e98a29-66a7-5170-bbd1-5f7314dee9fb")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 68.18 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 68.58 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "60f064fa-12c5-5714-ac14-252e9ae2bfd8")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "0186bce6-05fa-585a-9e51-6108e976f892")
 		(property
 			"Reference"
-			"Rt_YLS7R"
-			(at 35.24 66.91 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YLS7R"
+			(at 36.83 67.31 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 69.45 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 69.85 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 68.18 0)
+			(at 35.56 68.58 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 68.18 0)
+			(at 35.56 68.58 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "7eaf59a2-f7a1-5fc0-b82b-c2bf2188d2e7"))
-		(pin "2" (uuid "0760e8e5-c2c8-5a17-8ed1-c271a1e0e993"))
+		(pin "1" (uuid "8c99117c-0241-5e80-95e0-34341334e409"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YLS7R") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS7R") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 64.37) (uuid "9f3f08d6-c79c-539f-8cfc-9aad6f5e734c"))
+	(wire
+		(pts (xy 33.02 68.58) (xy 35.56 68.58))
+		(stroke (width 0) (type default))
+		(uuid "afa0963f-26b2-52a7-93d0-e4b4853ff96e")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 68.58 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "3ce05e51-6d32-5868-8051-1d760360cd18")
+		(property
+			"Reference"
+			"TP_YLS7Rb"
+			(at 39.37 67.31 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 69.85 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 68.58 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 68.58 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "a700ec9a-3d81-5bb2-b8c0-7296deb7d56a"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YLS7Rb") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YA8"
 		(shape bidirectional)
-		(at 20 70.72 0)
+		(at 20.32 71.12 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "1b1b5b02-609f-5f56-8b24-30919a753741")
+		(uuid "1038d260-2630-5a6d-a034-23233d2e616b")
 	)
 	(wire
-		(pts (xy 20 70.72) (xy 32.7 70.72))
+		(pts (xy 20.32 71.12) (xy 33.02 71.12))
 		(stroke (width 0) (type default))
-		(uuid "4b6d1edf-5321-58be-bbc5-799a2fdd94c7")
-	)
-	(wire
-		(pts (xy 32.7 70.72) (xy 32.7 74.53))
-		(stroke (width 0) (type default))
-		(uuid "02c64c7e-a7ce-5dfc-a25e-645a2733addc")
+		(uuid "66739823-3f6c-53e3-a952-e85bea697115")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 70.72 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 71.12 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "77cd875b-7810-5c8b-bb36-3d7f2a1c0251")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "2dc369fe-f64c-51c7-859c-53740c5d3bdb")
 		(property
 			"Reference"
-			"Rt_YA8"
-			(at 35.24 69.45 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YA8"
+			(at 36.83 69.85 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 71.99 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 72.39 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 70.72 0)
+			(at 35.56 71.12 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 70.72 0)
+			(at 35.56 71.12 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "41c6b2e5-c949-558a-9575-f5ee39ecf16a"))
-		(pin "2" (uuid "792ff0ee-bbec-5868-8436-d303c88eca2e"))
+		(pin "1" (uuid "9075e232-6edf-5bac-b616-16e682f51196"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YA8") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YA8") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 66.91) (uuid "666004cf-9e22-5e91-9b72-c52ed81bdc49"))
+	(wire
+		(pts (xy 33.02 71.12) (xy 35.56 71.12))
+		(stroke (width 0) (type default))
+		(uuid "6142c3fc-4d84-5295-9783-aee48e7192bb")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 71.12 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "35673a61-5c5c-5acd-a9bd-d2d7d274abf6")
+		(property
+			"Reference"
+			"TP_YA8b"
+			(at 39.37 69.85 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 72.39 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 71.12 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 71.12 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "a597a1c4-b445-553d-9615-72ddfd9f1ec5"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YA8b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YB8"
 		(shape bidirectional)
-		(at 20 73.26 0)
+		(at 20.32 73.66 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "f76b076c-7f72-5c46-849f-e51f5e61f334")
+		(uuid "165941b3-7c82-52e8-9793-a3638c09b79f")
 	)
 	(wire
-		(pts (xy 20 73.26) (xy 32.7 73.26))
+		(pts (xy 20.32 73.66) (xy 33.02 73.66))
 		(stroke (width 0) (type default))
-		(uuid "039098bf-a610-53d4-b7cc-d019fb3d3af7")
-	)
-	(wire
-		(pts (xy 32.7 73.26) (xy 32.7 77.07))
-		(stroke (width 0) (type default))
-		(uuid "4313ba55-7ede-5448-8338-5c59f7209827")
+		(uuid "38f36800-1445-501d-90b4-e1ad41efb3e5")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 73.26 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 73.66 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "6bcc22c9-ed05-5462-ac4e-44c4abdaeb2b")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "cd989104-a55e-5971-9d31-55f83f77d697")
 		(property
 			"Reference"
-			"Rt_YB8"
-			(at 35.24 71.99 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YB8"
+			(at 36.83 72.39 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 74.53 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 74.93 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 73.26 0)
+			(at 35.56 73.66 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 73.26 0)
+			(at 35.56 73.66 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "5e9debd5-a973-57fb-bff5-bc3e7b74743d"))
-		(pin "2" (uuid "0da2c935-dd19-5e4e-aa88-b54bd7cba520"))
+		(pin "1" (uuid "3935091a-189b-5da1-922a-fc5c6032c00a"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YB8") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YB8") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 69.45) (uuid "5b9f3123-0f4d-5d3a-b87f-7b2d8471d5ad"))
+	(wire
+		(pts (xy 33.02 73.66) (xy 35.56 73.66))
+		(stroke (width 0) (type default))
+		(uuid "4cf17b4a-cb4d-5451-8747-4ee7999cebbe")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 73.66 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "aad69918-67f2-53e8-b62b-3be2192f3472")
+		(property
+			"Reference"
+			"TP_YB8b"
+			(at 39.37 72.39 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 74.93 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 73.66 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 73.66 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "7a863b4b-6159-55fc-9451-0263ce20243b"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YB8b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YA9"
 		(shape bidirectional)
-		(at 20 75.8 0)
+		(at 20.32 76.2 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "8bf1a7f6-f443-5df3-8f94-e46f60ff6116")
+		(uuid "b9df933e-d859-5036-b703-185be93bc74d")
 	)
 	(wire
-		(pts (xy 20 75.8) (xy 32.7 75.8))
+		(pts (xy 20.32 76.2) (xy 33.02 76.2))
 		(stroke (width 0) (type default))
-		(uuid "69bc8910-3eb5-52ee-ad0c-1623786fabe3")
-	)
-	(wire
-		(pts (xy 32.7 75.8) (xy 32.7 79.61))
-		(stroke (width 0) (type default))
-		(uuid "2ade808a-3212-5093-afb9-9b4deccdc9ba")
+		(uuid "d14dd09a-8cc8-5052-9fe9-bca089c3f407")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 75.8 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 76.2 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "7695d5a6-c8de-552f-b555-830f40a93b0e")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "f750f0c5-bc3b-5f30-8101-fab56cfad8d6")
 		(property
 			"Reference"
-			"Rt_YA9"
-			(at 35.24 74.53 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YA9"
+			(at 36.83 74.93 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 77.07 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 77.47 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 75.8 0)
+			(at 35.56 76.2 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 75.8 0)
+			(at 35.56 76.2 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "aca1205d-6615-5914-9ed6-3786b709775e"))
-		(pin "2" (uuid "83c81eed-a9f6-5580-8b03-3917f3f1150a"))
+		(pin "1" (uuid "82bcb4d9-6ee3-5f10-bb43-256ad6ee65b5"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YA9") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YA9") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 71.99) (uuid "f7a5a4dd-7f48-5861-82c9-4e4f5cde832b"))
+	(wire
+		(pts (xy 33.02 76.2) (xy 35.56 76.2))
+		(stroke (width 0) (type default))
+		(uuid "75fdbec6-42b7-5f2d-9245-b695a637d939")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 76.2 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "86cf1428-64ac-50b3-91fb-1ac845502813")
+		(property
+			"Reference"
+			"TP_YA9b"
+			(at 39.37 74.93 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 77.47 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 76.2 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 76.2 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "99dcf0a4-e3ab-5d26-9a81-abee20b75aca"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YA9b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YB9"
 		(shape bidirectional)
-		(at 20 78.34 0)
+		(at 20.32 78.74 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "23ce2bf3-74fd-53ab-a806-c13a65493650")
+		(uuid "ef3cc111-cca1-59af-a104-cc8c072dc6c7")
 	)
 	(wire
-		(pts (xy 20 78.34) (xy 32.7 78.34))
+		(pts (xy 20.32 78.74) (xy 33.02 78.74))
 		(stroke (width 0) (type default))
-		(uuid "a18f541c-ae4e-55cf-b168-49571dc5cb89")
-	)
-	(wire
-		(pts (xy 32.7 78.34) (xy 32.7 82.15))
-		(stroke (width 0) (type default))
-		(uuid "005549dc-8c81-52f2-a9da-ea282519b129")
+		(uuid "01e61619-63ba-5fd3-bc93-89523b371d54")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 78.34 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 78.74 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3cf37e8c-c7f4-51dc-9cf3-983cee8afd8a")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "4f7007a9-40f6-5a0b-b6e1-19b2c8e0f9c9")
 		(property
 			"Reference"
-			"Rt_YB9"
-			(at 35.24 77.07 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YB9"
+			(at 36.83 77.47 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 79.61 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 80.01 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 78.34 0)
+			(at 35.56 78.74 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 78.34 0)
+			(at 35.56 78.74 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "89b15f82-9a96-55ce-83eb-575cd48aad0d"))
-		(pin "2" (uuid "738b6c95-401c-508a-b8b2-93587576634f"))
+		(pin "1" (uuid "6d100445-4bd3-5410-91bf-8c1e1ad38fef"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YB9") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YB9") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 74.53) (uuid "1607d1d6-b83e-5272-9dce-7a549c81dcff"))
+	(wire
+		(pts (xy 33.02 78.74) (xy 35.56 78.74))
+		(stroke (width 0) (type default))
+		(uuid "927c03e7-a4c8-5be0-b642-f4855d703fdd")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 78.74 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "a0295664-de06-54b2-84e6-722a6160792c")
+		(property
+			"Reference"
+			"TP_YB9b"
+			(at 39.37 77.47 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 80.01 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 78.74 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 78.74 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "4b6380ab-841e-5a1e-be08-2800d163cb54"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YB9b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YA10"
 		(shape bidirectional)
-		(at 20 80.88 0)
+		(at 20.32 81.28 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "d2c36e0f-b841-5ac7-820d-c88f57abd7c0")
+		(uuid "fb9ca547-a0d4-5232-977b-abf1e794cfa6")
 	)
 	(wire
-		(pts (xy 20 80.88) (xy 32.7 80.88))
+		(pts (xy 20.32 81.28) (xy 33.02 81.28))
 		(stroke (width 0) (type default))
-		(uuid "09b461d7-5ba4-5985-ab6b-ff7410582c9e")
-	)
-	(wire
-		(pts (xy 32.7 80.88) (xy 32.7 84.69))
-		(stroke (width 0) (type default))
-		(uuid "2604fecb-20ad-51e8-8e83-81453f9f5d33")
+		(uuid "4ac4ba23-79a1-5efc-8657-590271e09019")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 80.88 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 81.28 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "80877785-d4d3-58c6-84b2-7cd8042d3003")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "2c48eeb3-2a22-5c16-92d5-0b70957d37fe")
 		(property
 			"Reference"
-			"Rt_YA10"
-			(at 35.24 79.61 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YA10"
+			(at 36.83 80.01 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 82.15 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 82.55 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 80.88 0)
+			(at 35.56 81.28 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 80.88 0)
+			(at 35.56 81.28 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "69c9e8ca-5b11-55e0-80f0-37f3d6b5680f"))
-		(pin "2" (uuid "ebccc26d-9681-5f54-9af9-ed1965da332e"))
+		(pin "1" (uuid "2ff9c904-0dbf-5bd9-820d-386bb5eada53"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YA10") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YA10") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 77.07) (uuid "a52188e1-8efb-515f-a422-b90e91725b01"))
+	(wire
+		(pts (xy 33.02 81.28) (xy 35.56 81.28))
+		(stroke (width 0) (type default))
+		(uuid "8df051e1-6532-543b-a8fd-24d4a5871813")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 81.28 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "5bb0df87-ef6f-5727-8cfd-a102f1e719d0")
+		(property
+			"Reference"
+			"TP_YA10b"
+			(at 39.37 80.01 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 82.55 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 81.28 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 81.28 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "aec4301f-0d4d-527f-b379-f180f6df27b9"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YA10b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YB10"
 		(shape bidirectional)
-		(at 20 83.42 0)
+		(at 20.32 83.82 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "2739c5cb-7245-5239-95a3-42f5954b3bd7")
+		(uuid "af7b21f2-7c83-514d-af55-4b1076b839f9")
 	)
 	(wire
-		(pts (xy 20 83.42) (xy 32.7 83.42))
+		(pts (xy 20.32 83.82) (xy 33.02 83.82))
 		(stroke (width 0) (type default))
-		(uuid "62d586f6-1e4a-5915-8dc2-a5093d08c99d")
-	)
-	(wire
-		(pts (xy 32.7 83.42) (xy 32.7 87.23))
-		(stroke (width 0) (type default))
-		(uuid "62ee6643-0579-5227-abf1-f116acb646c8")
+		(uuid "d0fb313a-92fe-5ea2-8771-fdc335bd0da1")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 83.42 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 83.82 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "889334f1-e931-5433-83a0-ce6c867b1df5")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "070fd229-a39a-5da1-81ea-b31ff08b02f4")
 		(property
 			"Reference"
-			"Rt_YB10"
-			(at 35.24 82.15 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YB10"
+			(at 36.83 82.55 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 84.69 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 85.09 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 83.42 0)
+			(at 35.56 83.82 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 83.42 0)
+			(at 35.56 83.82 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "a7e649b3-e998-5d89-9ea0-a7918d7e499c"))
-		(pin "2" (uuid "4cf3a0a8-33d3-55f5-8e05-7322abedd065"))
+		(pin "1" (uuid "36f65391-686a-5c88-b49b-8c44b179d476"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YB10") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YB10") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 79.61) (uuid "43b75196-f058-538a-b810-04738af3a21d"))
+	(wire
+		(pts (xy 33.02 83.82) (xy 35.56 83.82))
+		(stroke (width 0) (type default))
+		(uuid "0c6f356b-03a3-5044-8573-29f904da89c8")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 83.82 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "9b2865f7-f39c-5491-b047-35f0a1dfefdf")
+		(property
+			"Reference"
+			"TP_YB10b"
+			(at 39.37 82.55 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 85.09 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 83.82 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 83.82 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "e99fef58-95b1-5f13-8637-26d0cbad5d92"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YB10b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YA11"
 		(shape bidirectional)
-		(at 20 85.96 0)
+		(at 20.32 86.36 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "f804fcdf-ec2c-5eb4-82b9-af013efddf7f")
+		(uuid "f2b57aeb-0fb3-5e96-8d08-cedc20c853d6")
 	)
 	(wire
-		(pts (xy 20 85.96) (xy 32.7 85.96))
+		(pts (xy 20.32 86.36) (xy 33.02 86.36))
 		(stroke (width 0) (type default))
-		(uuid "135430b3-db02-5cf5-b340-36aed06af6d6")
-	)
-	(wire
-		(pts (xy 32.7 85.96) (xy 32.7 89.77))
-		(stroke (width 0) (type default))
-		(uuid "6162cec4-a75a-511a-8654-056a511c38fb")
+		(uuid "0cbb2372-0761-5105-9d41-e10115f137d3")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 85.96 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 86.36 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "6def0b8e-54a7-5735-b81e-8c7311b7faef")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "1b991215-7813-5b20-a535-cb2912567805")
 		(property
 			"Reference"
-			"Rt_YA11"
-			(at 35.24 84.69 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YA11"
+			(at 36.83 85.09 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 87.23 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 87.63 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 85.96 0)
+			(at 35.56 86.36 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 85.96 0)
+			(at 35.56 86.36 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "5251e1cf-dad2-5dd0-a9ac-d68082cfdbfd"))
-		(pin "2" (uuid "f0f1954b-0c28-5a08-8dfb-03d2767826cb"))
+		(pin "1" (uuid "c8c73dae-5c2f-5f95-95dd-7e08e26f90cd"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YA11") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YA11") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 82.15) (uuid "83232ac9-592c-556a-ad93-e635d198facf"))
+	(wire
+		(pts (xy 33.02 86.36) (xy 35.56 86.36))
+		(stroke (width 0) (type default))
+		(uuid "cf786d8f-1437-5a91-8512-ccd127c0d3ae")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 86.36 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "adcc1fc6-9930-5a0a-b876-63fd3077ac67")
+		(property
+			"Reference"
+			"TP_YA11b"
+			(at 39.37 85.09 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 87.63 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 86.36 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 86.36 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "931759df-0084-52c7-84df-e4fee681f2a1"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YA11b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YB11"
 		(shape bidirectional)
-		(at 20 88.5 0)
+		(at 20.32 88.9 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "4090066b-3fc3-507f-9bfe-30251de39337")
+		(uuid "654295ed-54eb-54e3-8ec8-d82b86dc6e95")
 	)
 	(wire
-		(pts (xy 20 88.5) (xy 32.7 88.5))
+		(pts (xy 20.32 88.9) (xy 33.02 88.9))
 		(stroke (width 0) (type default))
-		(uuid "c81f4e3a-be0d-5d15-ac81-19af14ca4a97")
-	)
-	(wire
-		(pts (xy 32.7 88.5) (xy 32.7 92.31))
-		(stroke (width 0) (type default))
-		(uuid "64074cfe-d5b6-562e-a8c9-37635ffdb224")
+		(uuid "76ad4a26-cf06-50e8-bb5b-edfbab0c33f0")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 88.5 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 88.9 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "d4b5cfcb-878f-5f26-899c-433af5554d12")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "612ef05a-4ebe-5df5-994e-aa2eac8a870e")
 		(property
 			"Reference"
-			"Rt_YB11"
-			(at 35.24 87.23 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YB11"
+			(at 36.83 87.63 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 89.77 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 90.17 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 88.5 0)
+			(at 35.56 88.9 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 88.5 0)
+			(at 35.56 88.9 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "4b8abf5c-14ce-5782-9a7a-0d06a1a5f499"))
-		(pin "2" (uuid "7d8ba2a0-0497-500b-96c5-dd49f7341c51"))
+		(pin "1" (uuid "7260b88b-6449-5a8c-816f-3a107b070481"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YB11") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YB11") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 84.69) (uuid "136e51a0-8c51-5d33-ba4f-c635b601c344"))
+	(wire
+		(pts (xy 33.02 88.9) (xy 35.56 88.9))
+		(stroke (width 0) (type default))
+		(uuid "b1fd135e-8d3e-533f-828c-fc93b37e5f37")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 88.9 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "acf961ed-629a-5082-9d07-eea8f0017265")
+		(property
+			"Reference"
+			"TP_YB11b"
+			(at 39.37 87.63 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 90.17 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 88.9 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 88.9 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "a3eb9644-8967-5b04-abbc-99e4911fc8d7"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YB11b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YA12"
 		(shape bidirectional)
-		(at 20 91.04 0)
+		(at 20.32 91.44 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "061338c9-46d8-55d0-b92a-23f9835fa95d")
+		(uuid "bae61781-cc9c-5976-b212-496bbef621cf")
 	)
 	(wire
-		(pts (xy 20 91.04) (xy 32.7 91.04))
+		(pts (xy 20.32 91.44) (xy 33.02 91.44))
 		(stroke (width 0) (type default))
-		(uuid "ed13282e-dc35-50d9-8df9-2f4a9d06e96e")
-	)
-	(wire
-		(pts (xy 32.7 91.04) (xy 32.7 94.85))
-		(stroke (width 0) (type default))
-		(uuid "45c95ea6-018c-5065-b990-717eef9adf84")
+		(uuid "8eca3e77-c2da-5ad6-91fa-da57bd295366")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 91.04 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 91.44 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "b09618e0-1365-5ab9-b13d-21ebd9106221")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "24b7fe67-b7ce-5233-a44c-cd35e0c5321e")
 		(property
 			"Reference"
-			"Rt_YA12"
-			(at 35.24 89.77 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YA12"
+			(at 36.83 90.17 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 92.31 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 92.71 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 91.04 0)
+			(at 35.56 91.44 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 91.04 0)
+			(at 35.56 91.44 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "a1f91618-b61b-5106-b25e-927103d4901b"))
-		(pin "2" (uuid "6bb77028-96b2-5427-ae0e-de72354a516b"))
+		(pin "1" (uuid "f2e8c358-a325-5de7-94ba-209105d04eee"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YA12") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YA12") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 87.23) (uuid "cb912c9b-a2fe-59ee-b21a-662d31476798"))
+	(wire
+		(pts (xy 33.02 91.44) (xy 35.56 91.44))
+		(stroke (width 0) (type default))
+		(uuid "599fba3c-0bca-5881-a441-4280ecd75b46")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 91.44 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "4ccce834-7f11-55e5-b84c-777f1ee3d4d5")
+		(property
+			"Reference"
+			"TP_YA12b"
+			(at 39.37 90.17 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 92.71 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 91.44 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 91.44 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "c5845b34-ef43-566f-9140-a3c2cdf57bde"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YA12b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YB12"
 		(shape bidirectional)
-		(at 20 93.58 0)
+		(at 20.32 93.98 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "5ce068a2-487c-59bf-88a1-b93391b5b809")
+		(uuid "a700617c-0586-51d8-a1ba-04f9d9103a8d")
 	)
 	(wire
-		(pts (xy 20 93.58) (xy 32.7 93.58))
+		(pts (xy 20.32 93.98) (xy 33.02 93.98))
 		(stroke (width 0) (type default))
-		(uuid "83d451d3-fc3a-5b2a-bbf0-2871925b11f4")
-	)
-	(wire
-		(pts (xy 32.7 93.58) (xy 32.7 97.39))
-		(stroke (width 0) (type default))
-		(uuid "98525f8b-927a-51e5-a1b7-b4bcc2c0f8b1")
+		(uuid "02292bfb-cb28-5046-82b8-1c1c179ac36a")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 93.58 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 93.98 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "aaede312-2f65-5b28-bd66-feb045b02df2")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "6f8c449e-49fc-533a-b9a2-3a5e7edc6061")
 		(property
 			"Reference"
-			"Rt_YB12"
-			(at 35.24 92.31 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YB12"
+			(at 36.83 92.71 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 94.85 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 95.25 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 93.58 0)
+			(at 35.56 93.98 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 93.58 0)
+			(at 35.56 93.98 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "fbc2f0ee-17b9-5de8-94ba-b839111847ec"))
-		(pin "2" (uuid "7e5b848e-c906-54d9-9116-5dc32090c299"))
+		(pin "1" (uuid "649fdfad-021a-5940-8b69-79c86afc5abf"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YB12") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YB12") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 89.77) (uuid "22a31fa7-2163-5778-ab20-7c5196775d49"))
+	(wire
+		(pts (xy 33.02 93.98) (xy 35.56 93.98))
+		(stroke (width 0) (type default))
+		(uuid "3995d852-95a5-5a48-b725-a671727e5d93")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 93.98 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "23291585-6671-5c78-bef6-62aa17af078f")
+		(property
+			"Reference"
+			"TP_YB12b"
+			(at 39.37 92.71 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 95.25 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 93.98 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 93.98 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "04cdb4a9-bf93-5a6d-87a8-339c6b2e7a7a"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YB12b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YA13"
 		(shape bidirectional)
-		(at 20 96.12 0)
+		(at 20.32 96.52 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "64bcbe9b-9839-5175-b291-404ab7595d2f")
+		(uuid "1dc38691-9165-52ed-bb85-8b15361948bb")
 	)
 	(wire
-		(pts (xy 20 96.12) (xy 32.7 96.12))
+		(pts (xy 20.32 96.52) (xy 33.02 96.52))
 		(stroke (width 0) (type default))
-		(uuid "b90373cf-d21d-54f0-aef3-d1fdf8d0b42e")
-	)
-	(wire
-		(pts (xy 32.7 96.12) (xy 32.7 99.93))
-		(stroke (width 0) (type default))
-		(uuid "cff9bf4d-ee83-5e56-a9e0-d37cd19f7762")
+		(uuid "541813c9-482f-5601-b6fc-ec59667f6bd4")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 96.12 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 96.52 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0c3777e3-ab92-53a7-b4e0-baee66fe882d")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "b347f1d8-101b-5fc9-923a-599f67fc44fc")
 		(property
 			"Reference"
-			"Rt_YA13"
-			(at 35.24 94.85 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YA13"
+			(at 36.83 95.25 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 97.39 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 97.79 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 96.12 0)
+			(at 35.56 96.52 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 96.12 0)
+			(at 35.56 96.52 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "ce2610bc-9cf2-5704-a03a-3005d0ff4f36"))
-		(pin "2" (uuid "5bf8d179-6ac3-57bf-a965-e570ed35be0f"))
+		(pin "1" (uuid "13b4b382-9601-566b-926b-1c8edcb99576"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YA13") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YA13") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 92.31) (uuid "257ea0ce-38e5-5714-9763-e1ad2c59c60f"))
+	(wire
+		(pts (xy 33.02 96.52) (xy 35.56 96.52))
+		(stroke (width 0) (type default))
+		(uuid "026e02e7-9592-5f35-ab6e-cdb634be762f")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 96.52 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "ccaba45a-7e15-5e1e-bf58-8c57452c80cf")
+		(property
+			"Reference"
+			"TP_YA13b"
+			(at 39.37 95.25 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 97.79 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 96.52 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 96.52 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "c2a8b6fc-0cfe-5e43-80f6-b14e7e8fe14a"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YA13b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YB13"
 		(shape bidirectional)
-		(at 20 98.66 0)
+		(at 20.32 99.06 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "90b31e37-3f94-5773-811d-df32df00d363")
+		(uuid "8be7e2fd-d758-5415-8663-e59a1e7ae7de")
 	)
 	(wire
-		(pts (xy 20 98.66) (xy 32.7 98.66))
+		(pts (xy 20.32 99.06) (xy 33.02 99.06))
 		(stroke (width 0) (type default))
-		(uuid "2809762c-3734-5bd5-8972-e3cef48e8f16")
-	)
-	(wire
-		(pts (xy 32.7 98.66) (xy 32.7 102.47))
-		(stroke (width 0) (type default))
-		(uuid "94f2bed2-94b5-5262-ab70-67ae1d203f72")
+		(uuid "82283af0-4845-58af-8013-9dc96d1331c6")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 98.66 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 99.06 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "a02fe51e-273e-5414-b995-60c6283a0660")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "fe62f815-e981-576c-9386-0f3b761c3d0e")
 		(property
 			"Reference"
-			"Rt_YB13"
-			(at 35.24 97.39 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YB13"
+			(at 36.83 97.79 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 99.93 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 100.33 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 98.66 0)
+			(at 35.56 99.06 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 98.66 0)
+			(at 35.56 99.06 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "62c53280-923b-5a9b-8448-d64000ce502a"))
-		(pin "2" (uuid "1705e70f-6a95-59a5-944b-84a5a45c0cd5"))
+		(pin "1" (uuid "43060d36-921b-5564-bf33-5d6ced65999d"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YB13") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YB13") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 94.85) (uuid "0fa3d353-8297-5abe-84bf-d8c51be2bd90"))
+	(wire
+		(pts (xy 33.02 99.06) (xy 35.56 99.06))
+		(stroke (width 0) (type default))
+		(uuid "8c6d59ee-716e-572f-a420-405fda0c3a1e")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 99.06 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "bbccfa75-edea-54c2-b95e-8353071c8364")
+		(property
+			"Reference"
+			"TP_YB13b"
+			(at 39.37 97.79 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 100.33 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 99.06 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 99.06 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "538f1413-165f-5f10-9a37-3471b37d707c"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YB13b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YA14"
 		(shape bidirectional)
-		(at 20 101.2 0)
+		(at 20.32 101.6 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "71dcbdd9-a302-53ac-9694-bfea835ebd66")
+		(uuid "3102dad8-aa5d-5e61-a8de-8d347892c283")
 	)
 	(wire
-		(pts (xy 20 101.2) (xy 32.7 101.2))
+		(pts (xy 20.32 101.6) (xy 33.02 101.6))
 		(stroke (width 0) (type default))
-		(uuid "910aef49-e6f2-5545-b53a-595aaf3935c5")
-	)
-	(wire
-		(pts (xy 32.7 101.2) (xy 32.7 105.01))
-		(stroke (width 0) (type default))
-		(uuid "3c85aad3-dcf6-5829-a8b8-4b5fea0689a6")
+		(uuid "58454b4a-e87b-5950-9ba5-9d7e59de5ecb")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 101.2 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 101.6 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c02c4cbe-178d-55f8-95cf-55f19937654f")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "924900c0-98fa-5283-af7d-dc898184ad46")
 		(property
 			"Reference"
-			"Rt_YA14"
-			(at 35.24 99.93 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YA14"
+			(at 36.83 100.33 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 102.47 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 102.87 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 101.2 0)
+			(at 35.56 101.6 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 101.2 0)
+			(at 35.56 101.6 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "baac2bdf-3852-5513-9dbc-ff695d408ca1"))
-		(pin "2" (uuid "3a593a3d-1c1f-54ed-a548-588cb048de43"))
+		(pin "1" (uuid "577dbbf6-c03c-5322-99dc-e9bd0ff48de3"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YA14") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YA14") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 97.39) (uuid "d424bf1f-e5a5-5fb2-9a3b-655e22258e25"))
+	(wire
+		(pts (xy 33.02 101.6) (xy 35.56 101.6))
+		(stroke (width 0) (type default))
+		(uuid "45f31354-1652-52d6-a4f4-c37fc81798e5")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 101.6 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "aa1d4e33-70bf-5fd4-9747-4ef3a8998672")
+		(property
+			"Reference"
+			"TP_YA14b"
+			(at 39.37 100.33 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 102.87 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 101.6 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 101.6 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "f579e29b-9400-538d-b036-939768771ae5"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YA14b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YB14"
 		(shape bidirectional)
-		(at 20 103.74 0)
+		(at 20.32 104.14 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "87f66d87-5f77-5f06-abc6-d277c1545f43")
+		(uuid "37c4a5ea-9391-542b-8740-49c4069ffe29")
 	)
 	(wire
-		(pts (xy 20 103.74) (xy 32.7 103.74))
+		(pts (xy 20.32 104.14) (xy 33.02 104.14))
 		(stroke (width 0) (type default))
-		(uuid "14dd6c4c-9584-5bd3-8515-40ce92e3a395")
-	)
-	(wire
-		(pts (xy 32.7 103.74) (xy 32.7 107.55))
-		(stroke (width 0) (type default))
-		(uuid "c7b1ea8d-254a-56c9-91c3-94ac525547e5")
+		(uuid "359a74d9-c552-5b57-a2c8-bc315e7f27b9")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 103.74 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 104.14 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "8276ef7e-a9ef-56f6-ac78-4ae9be9202ac")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "0fa562dc-2d72-54be-a601-af6e7e3c8dff")
 		(property
 			"Reference"
-			"Rt_YB14"
-			(at 35.24 102.47 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YB14"
+			(at 36.83 102.87 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 105.01 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 105.41 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 103.74 0)
+			(at 35.56 104.14 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 103.74 0)
+			(at 35.56 104.14 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "2509dee8-98d8-5309-bed6-7179b077cf21"))
-		(pin "2" (uuid "f8cffe63-c52d-5546-810e-b28a7e219fba"))
+		(pin "1" (uuid "69be94dd-1a1b-5044-bf07-581fe2b62b7b"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YB14") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YB14") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 99.93) (uuid "413dd3c8-72ab-5361-9cc4-932507dff647"))
+	(wire
+		(pts (xy 33.02 104.14) (xy 35.56 104.14))
+		(stroke (width 0) (type default))
+		(uuid "7ada1e6d-c3f3-5e57-b424-3e3ea1541fbd")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 104.14 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "9d91b0b3-442a-5e69-972c-925a2d23acde")
+		(property
+			"Reference"
+			"TP_YB14b"
+			(at 39.37 102.87 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 105.41 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 104.14 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 104.14 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "c8c556b2-27be-5eff-9cb7-b4eaae36dad0"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YB14b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YA15"
 		(shape bidirectional)
-		(at 20 106.28 0)
+		(at 20.32 106.68 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "17caaa3b-68d3-5c1c-813a-5856b60ad8a9")
+		(uuid "a2a7feaa-6aba-504b-8d37-f434419fcf25")
 	)
 	(wire
-		(pts (xy 20 106.28) (xy 32.7 106.28))
+		(pts (xy 20.32 106.68) (xy 33.02 106.68))
 		(stroke (width 0) (type default))
-		(uuid "3a34fb2f-8e3e-5a27-bb09-a1028133a8d5")
-	)
-	(wire
-		(pts (xy 32.7 106.28) (xy 32.7 110.09))
-		(stroke (width 0) (type default))
-		(uuid "997430f2-fd68-56de-a2f3-a6e1f2d045db")
+		(uuid "d7228b25-efc7-5915-84a5-aecd4aac12ea")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 106.28 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 106.68 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "8ebb5d4d-fc64-5356-b100-faf942cd4caa")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "0b6b12e0-af0f-550e-a912-095a3bbd7a89")
 		(property
 			"Reference"
-			"Rt_YA15"
-			(at 35.24 105.01 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YA15"
+			(at 36.83 105.41 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 107.55 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 107.95 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 106.28 0)
+			(at 35.56 106.68 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 106.28 0)
+			(at 35.56 106.68 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "7e139e89-5fc6-52fd-ae3d-6211b9122432"))
-		(pin "2" (uuid "3abb67d5-670c-58c0-9a1d-737f84c7045d"))
+		(pin "1" (uuid "bc94fa7c-49a6-5810-8343-165cdd8bc642"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YA15") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YA15") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 102.47) (uuid "b5fe9943-6cf6-5d73-b8d0-001c55a68b01"))
+	(wire
+		(pts (xy 33.02 106.68) (xy 35.56 106.68))
+		(stroke (width 0) (type default))
+		(uuid "230cc507-ed26-5fe0-80b4-fa32fbd31494")
+	)
+	(symbol
+		(lib_id "CMR:Stub")
+		(at 38.1 106.68 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "9813a2bc-6331-5561-9347-18568c6ece09")
+		(property
+			"Reference"
+			"TP_YA15b"
+			(at 39.37 105.41 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 107.95 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 106.68 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 106.68 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "8491099f-2aa6-52c9-9292-535f27f2031a"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YA15b") (unit 1))
+			)
+		)
+	)
 	(hierarchical_label
 		"YB15"
 		(shape bidirectional)
-		(at 20 108.82 0)
+		(at 20.32 109.22 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "8536a04f-f652-5fc7-96cc-04140780bc65")
+		(uuid "b885e2d5-189c-5f42-bb14-0e8f058a63ba")
 	)
 	(wire
-		(pts (xy 20 108.82) (xy 32.7 108.82))
+		(pts (xy 20.32 109.22) (xy 33.02 109.22))
 		(stroke (width 0) (type default))
-		(uuid "b8ec64c8-cbf5-54f7-a3a5-57a2aa6a8829")
-	)
-	(wire
-		(pts (xy 32.7 108.82) (xy 32.7 112.63))
-		(stroke (width 0) (type default))
-		(uuid "c23c644c-4e06-5d38-8c9e-0ed54d6d802c")
+		(uuid "fbda8f0e-d153-5406-a971-f58985083150")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 32.7 108.82 0)
+		(lib_id "CMR:Stub")
+		(at 35.56 109.22 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ca2beb4a-6b97-52cc-aa1f-5b2aa1c6e9b6")
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "39eb21ff-7d88-50b0-a3a8-0ed49b586d4c")
 		(property
 			"Reference"
-			"Rt_YB15"
-			(at 35.24 107.55 0)
-			(effects (font (size 1.27 1.27)))
+			"TP_YB15"
+			(at 36.83 107.95 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Value"
-			"DNP_10k"
-			(at 35.24 110.09 0)
-			(effects (font (size 1.27 1.27)))
+			"Stub"
+			(at 36.83 110.49 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Footprint"
 			""
-			(at 32.7 108.82 0)
+			(at 35.56 109.22 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 32.7 108.82 0)
+			(at 35.56 109.22 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
-		(pin "1" (uuid "a2df9f2c-c9b0-5a61-ba1e-a1543d47b1ae"))
-		(pin "2" (uuid "8beabd83-9582-5ee1-b492-b853d43f3d7f"))
+		(pin "1" (uuid "91908267-1ae9-5143-b931-845795df298f"))
 		(instances
 			(project
 				""
-				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "Rt_YB15") (unit 1))
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YB15") (unit 1))
 			)
 		)
 	)
-	(no_connect (at 32.7 105.01) (uuid "22551f6f-0d36-550a-987b-37a36099c314"))
+	(wire
+		(pts (xy 33.02 109.22) (xy 35.56 109.22))
+		(stroke (width 0) (type default))
+		(uuid "c821df8a-d0a9-5a42-9bb1-5dacc12da5c0")
+	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 25 0)
+		(lib_id "CMR:Stub")
+		(at 38.1 109.22 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(uuid "9a2a83b4-aab5-50a5-95a7-1117923f819d")
+		(property
+			"Reference"
+			"TP_YB15b"
+			(at 39.37 107.95 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Value"
+			"Stub"
+			(at 39.37 110.49 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Footprint"
+			""
+			(at 38.1 109.22 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property
+			"Datasheet"
+			"~"
+			(at 38.1 109.22 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "4b7b8235-6c9a-5b31-99fa-11067de8d369"))
+		(instances
+			(project
+				""
+				(path "/d6adcbfc-3e38-5fe7-88a9-bfeed6c6f034" (reference "TP_YB15b") (unit 1))
+			)
+		)
+	)
+	(symbol
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 25.4 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2212,25 +3591,25 @@
 		(property
 			"Reference"
 			"DY1_0"
-			(at 120 22.46 0)
+			(at 119.38 22.86 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 27.54 0)
+			(at 119.38 27.94 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 25 0)
+			(at 119.38 25.4 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 25 0)
+			(at 119.38 25.4 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "2b18b0ea-22d9-5c3c-934f-c673a00e3af5"))
@@ -2245,30 +3624,30 @@
 	(global_label
 		"YHS1"
 		(shape bidirectional)
-		(at 125.08 25 0)
+		(at 124.46 25.4 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "fb7675f4-eab2-5d09-9beb-18e704ddddf2")
+		(uuid "a31d07d1-4dff-5cdb-913a-41baa12b42a0")
 	)
 	(global_label
 		"YB8"
 		(shape bidirectional)
-		(at 114.92 25 180)
+		(at 114.3 25.4 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "4952d913-9a92-5cdc-a6a7-1035a47d6664")
+		(uuid "1c61aa66-e5b6-5f7d-890a-d395e93e768a")
 	)
 	(wire
-		(pts (xy 123.81 25) (xy 125.08 25))
+		(pts (xy 123.19 25.4) (xy 124.46 25.4))
 		(stroke (width 0) (type default))
 		(uuid "853ebfe9-a95b-522a-b925-1bc59814e9e1")
 	)
 	(wire
-		(pts (xy 116.19 25) (xy 114.92 25))
+		(pts (xy 115.57 25.4) (xy 114.3 25.4))
 		(stroke (width 0) (type default))
 		(uuid "03c9010b-2ff9-51b2-a514-c7bcba58835d")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 32.62 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 33.02 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2278,25 +3657,25 @@
 		(property
 			"Reference"
 			"DY1_1"
-			(at 120 30.08 0)
+			(at 119.38 30.48 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 35.16 0)
+			(at 119.38 35.56 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 32.62 0)
+			(at 119.38 33.02 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 32.62 0)
+			(at 119.38 33.02 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "bb2c4ea3-e4ea-5206-8e7c-05955d54cc58"))
@@ -2311,30 +3690,30 @@
 	(global_label
 		"YA8"
 		(shape bidirectional)
-		(at 125.08 32.62 0)
+		(at 124.46 33.02 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "a099a53b-59d4-5ee6-9197-971ea87a9e46")
+		(uuid "cc92e222-3783-5801-b4de-efa9f21655fe")
 	)
 	(global_label
 		"YLS0"
 		(shape bidirectional)
-		(at 114.92 32.62 180)
+		(at 114.3 33.02 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "aa5f749e-94a4-50af-90ca-3f7ecf5d0c97")
+		(uuid "986adacb-13c0-5747-b137-a803e66dbf5c")
 	)
 	(wire
-		(pts (xy 123.81 32.62) (xy 125.08 32.62))
+		(pts (xy 123.19 33.02) (xy 124.46 33.02))
 		(stroke (width 0) (type default))
 		(uuid "b64aca03-8965-5524-9ade-5509d978dbf6")
 	)
 	(wire
-		(pts (xy 116.19 32.62) (xy 114.92 32.62))
+		(pts (xy 115.57 33.02) (xy 114.3 33.02))
 		(stroke (width 0) (type default))
 		(uuid "00ac0f3a-a071-5cb0-b282-d05c7e299ef6")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 40.24 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 40.64 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2344,25 +3723,25 @@
 		(property
 			"Reference"
 			"DY1_2"
-			(at 120 37.7 0)
+			(at 119.38 38.1 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 42.78 0)
+			(at 119.38 43.18 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 40.24 0)
+			(at 119.38 40.64 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 40.24 0)
+			(at 119.38 40.64 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "2c150c0c-02a5-5157-9a39-2876bdcfdb7b"))
@@ -2377,30 +3756,30 @@
 	(global_label
 		"YHS1R"
 		(shape bidirectional)
-		(at 125.08 40.24 0)
+		(at 124.46 40.64 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "c85f0030-4deb-5ad3-a083-b860f443f4dd")
+		(uuid "b69d7b26-6bc9-58c3-8633-0cb40b1f62ef")
 	)
 	(global_label
 		"YA8"
 		(shape bidirectional)
-		(at 114.92 40.24 180)
+		(at 114.3 40.64 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "2eae707d-ef48-5cdb-9653-3f473ce7ca0a")
+		(uuid "0e692377-0e69-59c6-a02a-ebcbb93e9c76")
 	)
 	(wire
-		(pts (xy 123.81 40.24) (xy 125.08 40.24))
+		(pts (xy 123.19 40.64) (xy 124.46 40.64))
 		(stroke (width 0) (type default))
 		(uuid "fbf3a8b1-3733-59f4-8c8b-7a62b25d0a23")
 	)
 	(wire
-		(pts (xy 116.19 40.24) (xy 114.92 40.24))
+		(pts (xy 115.57 40.64) (xy 114.3 40.64))
 		(stroke (width 0) (type default))
 		(uuid "6193184f-17de-5cd9-8152-aee480774593")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 47.86 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 48.26 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2410,25 +3789,25 @@
 		(property
 			"Reference"
 			"DY1_3"
-			(at 120 45.32 0)
+			(at 119.38 45.72 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 50.4 0)
+			(at 119.38 50.8 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 47.86 0)
+			(at 119.38 48.26 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 47.86 0)
+			(at 119.38 48.26 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "399f2813-e83c-50e4-854a-9976532f4997"))
@@ -2443,30 +3822,30 @@
 	(global_label
 		"YB8"
 		(shape bidirectional)
-		(at 125.08 47.86 0)
+		(at 124.46 48.26 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "1f8918b7-4a59-5bb2-8697-168a84d5e8ab")
+		(uuid "b3ef13a5-fdf1-5b1d-b9c4-44aaf6506b60")
 	)
 	(global_label
 		"YLS0R"
 		(shape bidirectional)
-		(at 114.92 47.86 180)
+		(at 114.3 48.26 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "c2ccc096-69a2-50c5-96c0-d57f785979a2")
+		(uuid "a801ba5c-f7e5-5dff-bb5b-6b6c849ad1bb")
 	)
 	(wire
-		(pts (xy 123.81 47.86) (xy 125.08 47.86))
+		(pts (xy 123.19 48.26) (xy 124.46 48.26))
 		(stroke (width 0) (type default))
 		(uuid "cdb80dae-3fc8-5311-bd86-6e3f2eb46c2b")
 	)
 	(wire
-		(pts (xy 116.19 47.86) (xy 114.92 47.86))
+		(pts (xy 115.57 48.26) (xy 114.3 48.26))
 		(stroke (width 0) (type default))
 		(uuid "8b2302f3-e6cf-5b44-b2b2-1a4fe601970f")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 55.48 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 55.88 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2476,25 +3855,25 @@
 		(property
 			"Reference"
 			"DY1_4"
-			(at 120 52.94 0)
+			(at 119.38 53.34 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 58.02 0)
+			(at 119.38 58.42 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 55.48 0)
+			(at 119.38 55.88 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 55.48 0)
+			(at 119.38 55.88 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "abf03a40-0c02-5f30-a333-c1782f70bd2e"))
@@ -2509,30 +3888,30 @@
 	(global_label
 		"YHS1"
 		(shape bidirectional)
-		(at 125.08 55.48 0)
+		(at 124.46 55.88 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "f19e9773-a050-5475-ba6a-b21aa4d74440")
+		(uuid "f03c9012-5799-5b38-b4d9-df44b3d7d292")
 	)
 	(global_label
 		"YB9"
 		(shape bidirectional)
-		(at 114.92 55.48 180)
+		(at 114.3 55.88 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "5416e86d-3ee3-5432-a537-4d07ddd2d2b1")
+		(uuid "88b34f9f-d5e3-597c-9763-65b573706220")
 	)
 	(wire
-		(pts (xy 123.81 55.48) (xy 125.08 55.48))
+		(pts (xy 123.19 55.88) (xy 124.46 55.88))
 		(stroke (width 0) (type default))
 		(uuid "3afd8db4-f785-5735-bb53-2e3502d738d4")
 	)
 	(wire
-		(pts (xy 116.19 55.48) (xy 114.92 55.48))
+		(pts (xy 115.57 55.88) (xy 114.3 55.88))
 		(stroke (width 0) (type default))
 		(uuid "1c9edb5b-52bb-51dd-af3b-00cfd1a7887e")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 63.1 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 63.5 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2542,25 +3921,25 @@
 		(property
 			"Reference"
 			"DY1_5"
-			(at 120 60.56 0)
+			(at 119.38 60.96 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 65.64 0)
+			(at 119.38 66.04 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 63.1 0)
+			(at 119.38 63.5 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 63.1 0)
+			(at 119.38 63.5 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "b66af11a-2185-5f9f-9bf3-7d15c2f7f84b"))
@@ -2575,30 +3954,30 @@
 	(global_label
 		"YA9"
 		(shape bidirectional)
-		(at 125.08 63.1 0)
+		(at 124.46 63.5 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "7d76f88c-6534-582f-b280-0e59f5eb15cf")
+		(uuid "874b2145-e4df-5676-8767-b54896f74766")
 	)
 	(global_label
 		"YLS1"
 		(shape bidirectional)
-		(at 114.92 63.1 180)
+		(at 114.3 63.5 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "883bc164-587b-5fc0-ab3c-dd35114d7284")
+		(uuid "756fbb76-2f9e-50b5-aa1f-7e62f6c9f49c")
 	)
 	(wire
-		(pts (xy 123.81 63.1) (xy 125.08 63.1))
+		(pts (xy 123.19 63.5) (xy 124.46 63.5))
 		(stroke (width 0) (type default))
 		(uuid "0c7e8019-e524-5bb7-9ece-a24e21fe4da5")
 	)
 	(wire
-		(pts (xy 116.19 63.1) (xy 114.92 63.1))
+		(pts (xy 115.57 63.5) (xy 114.3 63.5))
 		(stroke (width 0) (type default))
 		(uuid "76f8939c-111d-54bc-beb4-6bd602dd9050")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 70.72 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 71.12 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2608,25 +3987,25 @@
 		(property
 			"Reference"
 			"DY1_6"
-			(at 120 68.18 0)
+			(at 119.38 68.58 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 73.26 0)
+			(at 119.38 73.66 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 70.72 0)
+			(at 119.38 71.12 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 70.72 0)
+			(at 119.38 71.12 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "5fc31049-1bca-5ac2-b338-1562ec7ae348"))
@@ -2641,30 +4020,30 @@
 	(global_label
 		"YHS1R"
 		(shape bidirectional)
-		(at 125.08 70.72 0)
+		(at 124.46 71.12 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "bf4d02a7-5206-5551-b61a-5a9a51ae0f09")
+		(uuid "e1b31b3b-1b8d-5548-8893-0669681a671a")
 	)
 	(global_label
 		"YA9"
 		(shape bidirectional)
-		(at 114.92 70.72 180)
+		(at 114.3 71.12 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "b0491ff0-8cb7-5fdd-a221-57f5e53377fb")
+		(uuid "fb831a80-b9f3-56b1-9d13-924f12c9432f")
 	)
 	(wire
-		(pts (xy 123.81 70.72) (xy 125.08 70.72))
+		(pts (xy 123.19 71.12) (xy 124.46 71.12))
 		(stroke (width 0) (type default))
 		(uuid "aee40d69-35fd-5e0c-9f65-3a0b357d8546")
 	)
 	(wire
-		(pts (xy 116.19 70.72) (xy 114.92 70.72))
+		(pts (xy 115.57 71.12) (xy 114.3 71.12))
 		(stroke (width 0) (type default))
 		(uuid "98cede05-2410-584d-8b17-2dc14fd8a600")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 78.34 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 78.74 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2674,25 +4053,25 @@
 		(property
 			"Reference"
 			"DY1_7"
-			(at 120 75.8 0)
+			(at 119.38 76.2 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 80.88 0)
+			(at 119.38 81.28 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 78.34 0)
+			(at 119.38 78.74 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 78.34 0)
+			(at 119.38 78.74 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "04b7ec3f-638a-5e3e-ad66-398d7415faae"))
@@ -2707,30 +4086,30 @@
 	(global_label
 		"YB9"
 		(shape bidirectional)
-		(at 125.08 78.34 0)
+		(at 124.46 78.74 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "065dca7d-b3d3-58a2-8142-ae7c7855ecbe")
+		(uuid "4dfd6b6b-6e88-50a4-91c4-e2e47d5f00ba")
 	)
 	(global_label
 		"YLS1R"
 		(shape bidirectional)
-		(at 114.92 78.34 180)
+		(at 114.3 78.74 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "2432a937-cd71-57cb-83ad-d4d66c453433")
+		(uuid "b35580b9-cee8-5d99-bc16-e3915178fde9")
 	)
 	(wire
-		(pts (xy 123.81 78.34) (xy 125.08 78.34))
+		(pts (xy 123.19 78.74) (xy 124.46 78.74))
 		(stroke (width 0) (type default))
 		(uuid "dfd3c359-080b-5932-b713-63d4da88f14b")
 	)
 	(wire
-		(pts (xy 116.19 78.34) (xy 114.92 78.34))
+		(pts (xy 115.57 78.74) (xy 114.3 78.74))
 		(stroke (width 0) (type default))
 		(uuid "b7516200-3642-57a2-839c-a02a9cde0d3a")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 85.96 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2740,25 +4119,25 @@
 		(property
 			"Reference"
 			"DY1_8"
-			(at 120 83.42 0)
+			(at 119.38 83.82 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 88.5 0)
+			(at 119.38 88.9 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 85.96 0)
+			(at 119.38 86.36 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 85.96 0)
+			(at 119.38 86.36 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "a259d716-2041-5515-af9a-c00e3ccea132"))
@@ -2773,30 +4152,30 @@
 	(global_label
 		"YHS1"
 		(shape bidirectional)
-		(at 125.08 85.96 0)
+		(at 124.46 86.36 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "6d77e05c-f8f0-51d5-963f-71e757cabf00")
+		(uuid "2585f197-5f0c-5ca3-aa44-664c9c9d9828")
 	)
 	(global_label
 		"YB10"
 		(shape bidirectional)
-		(at 114.92 85.96 180)
+		(at 114.3 86.36 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "6f555eb2-1188-5114-b5aa-260ee62cc1c8")
+		(uuid "efce467e-d7c5-54d2-818e-ab1d60afaf58")
 	)
 	(wire
-		(pts (xy 123.81 85.96) (xy 125.08 85.96))
+		(pts (xy 123.19 86.36) (xy 124.46 86.36))
 		(stroke (width 0) (type default))
 		(uuid "1c8a8d26-01b3-5907-8a18-ad4101d46692")
 	)
 	(wire
-		(pts (xy 116.19 85.96) (xy 114.92 85.96))
+		(pts (xy 115.57 86.36) (xy 114.3 86.36))
 		(stroke (width 0) (type default))
 		(uuid "d8d849a5-eeff-5e81-a15a-338dfa5a6660")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 93.58 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 93.98 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2806,25 +4185,25 @@
 		(property
 			"Reference"
 			"DY1_9"
-			(at 120 91.04 0)
+			(at 119.38 91.44 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 96.12 0)
+			(at 119.38 96.52 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 93.58 0)
+			(at 119.38 93.98 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 93.58 0)
+			(at 119.38 93.98 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "6ac7dfa2-046c-5a0e-bf4d-dac564d549b0"))
@@ -2839,30 +4218,30 @@
 	(global_label
 		"YA10"
 		(shape bidirectional)
-		(at 125.08 93.58 0)
+		(at 124.46 93.98 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "8c32a8c7-5d79-5ca3-ad62-b6633aff01dc")
+		(uuid "80b3b6e2-767f-5adc-af58-9716fd69fdf1")
 	)
 	(global_label
 		"YLS2"
 		(shape bidirectional)
-		(at 114.92 93.58 180)
+		(at 114.3 93.98 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "7eddf837-33d7-5b33-868a-d0ccd788cad5")
+		(uuid "c63b6291-8ac4-5758-b507-7db65641d385")
 	)
 	(wire
-		(pts (xy 123.81 93.58) (xy 125.08 93.58))
+		(pts (xy 123.19 93.98) (xy 124.46 93.98))
 		(stroke (width 0) (type default))
 		(uuid "70c925f3-a965-566b-9f65-b6319287edec")
 	)
 	(wire
-		(pts (xy 116.19 93.58) (xy 114.92 93.58))
+		(pts (xy 115.57 93.98) (xy 114.3 93.98))
 		(stroke (width 0) (type default))
 		(uuid "19fc1d50-8331-5e42-b219-29ec8605f033")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 101.2 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 101.6 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2872,25 +4251,25 @@
 		(property
 			"Reference"
 			"DY1_10"
-			(at 120 98.66 0)
+			(at 119.38 99.06 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 103.74 0)
+			(at 119.38 104.14 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 101.2 0)
+			(at 119.38 101.6 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 101.2 0)
+			(at 119.38 101.6 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "b4a14cf5-a80b-59f3-932d-81335daee173"))
@@ -2905,30 +4284,30 @@
 	(global_label
 		"YHS1R"
 		(shape bidirectional)
-		(at 125.08 101.2 0)
+		(at 124.46 101.6 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "31449c3c-7bec-5f0c-a67c-358386830601")
+		(uuid "3b9575c3-de15-5a09-847d-a3988a8c6aa8")
 	)
 	(global_label
 		"YA10"
 		(shape bidirectional)
-		(at 114.92 101.2 180)
+		(at 114.3 101.6 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "5ca1777d-4e66-538f-8fb8-55f07043d4f8")
+		(uuid "d6ab6b23-902f-5e62-b799-6573b298d98c")
 	)
 	(wire
-		(pts (xy 123.81 101.2) (xy 125.08 101.2))
+		(pts (xy 123.19 101.6) (xy 124.46 101.6))
 		(stroke (width 0) (type default))
 		(uuid "2c729e8b-39ac-5b31-bff1-63eedd0518bb")
 	)
 	(wire
-		(pts (xy 116.19 101.2) (xy 114.92 101.2))
+		(pts (xy 115.57 101.6) (xy 114.3 101.6))
 		(stroke (width 0) (type default))
 		(uuid "324ac7f8-078f-56ed-b1aa-711b246bd374")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 108.82 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 109.22 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2938,25 +4317,25 @@
 		(property
 			"Reference"
 			"DY1_11"
-			(at 120 106.28 0)
+			(at 119.38 106.68 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 111.36 0)
+			(at 119.38 111.76 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 108.82 0)
+			(at 119.38 109.22 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 108.82 0)
+			(at 119.38 109.22 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "3966b176-1fa9-5128-b1af-fd0ecf37aee6"))
@@ -2971,30 +4350,30 @@
 	(global_label
 		"YB10"
 		(shape bidirectional)
-		(at 125.08 108.82 0)
+		(at 124.46 109.22 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "34b7858f-a02f-5944-943c-8efba8508191")
+		(uuid "d5fd1241-fcbb-540b-ae65-44654c80b04e")
 	)
 	(global_label
 		"YLS2R"
 		(shape bidirectional)
-		(at 114.92 108.82 180)
+		(at 114.3 109.22 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "be0ae4da-c988-55d3-ac4a-c979a2996b39")
+		(uuid "899200f7-536a-5309-af34-df2579f7731b")
 	)
 	(wire
-		(pts (xy 123.81 108.82) (xy 125.08 108.82))
+		(pts (xy 123.19 109.22) (xy 124.46 109.22))
 		(stroke (width 0) (type default))
 		(uuid "dcc4d939-8f21-5595-aa0b-bd3f128cc9d9")
 	)
 	(wire
-		(pts (xy 116.19 108.82) (xy 114.92 108.82))
+		(pts (xy 115.57 109.22) (xy 114.3 109.22))
 		(stroke (width 0) (type default))
 		(uuid "0a3aee17-2a14-5dc1-bf53-d9d42dd3fe7f")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 116.44 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 116.84 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3004,25 +4383,25 @@
 		(property
 			"Reference"
 			"DY1_12"
-			(at 120 113.9 0)
+			(at 119.38 114.3 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 118.98 0)
+			(at 119.38 119.38 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 116.44 0)
+			(at 119.38 116.84 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 116.44 0)
+			(at 119.38 116.84 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "8783ab9d-c05d-572c-887c-15b490444c5b"))
@@ -3037,30 +4416,30 @@
 	(global_label
 		"YHS1"
 		(shape bidirectional)
-		(at 125.08 116.44 0)
+		(at 124.46 116.84 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "9f6ad188-ff9d-55ad-b307-eeec34691caf")
+		(uuid "4aab4815-dd1c-595f-ae1b-0b278bf400cd")
 	)
 	(global_label
 		"YB11"
 		(shape bidirectional)
-		(at 114.92 116.44 180)
+		(at 114.3 116.84 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "4663d520-6d8b-585c-bd44-a3f1087e914f")
+		(uuid "c4c41995-042d-5902-80d6-97f8d8ee2fca")
 	)
 	(wire
-		(pts (xy 123.81 116.44) (xy 125.08 116.44))
+		(pts (xy 123.19 116.84) (xy 124.46 116.84))
 		(stroke (width 0) (type default))
 		(uuid "069b0871-6c6f-5aab-9e68-f354533d25e5")
 	)
 	(wire
-		(pts (xy 116.19 116.44) (xy 114.92 116.44))
+		(pts (xy 115.57 116.84) (xy 114.3 116.84))
 		(stroke (width 0) (type default))
 		(uuid "a4d548c0-1ded-5168-8dd9-739fd3a6e427")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 124.06 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 124.46 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3070,25 +4449,25 @@
 		(property
 			"Reference"
 			"DY1_13"
-			(at 120 121.52 0)
+			(at 119.38 121.92 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 126.6 0)
+			(at 119.38 127 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 124.06 0)
+			(at 119.38 124.46 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 124.06 0)
+			(at 119.38 124.46 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "e4f51b1d-d299-5a09-9bbb-71ec6e81cfb4"))
@@ -3103,30 +4482,30 @@
 	(global_label
 		"YA11"
 		(shape bidirectional)
-		(at 125.08 124.06 0)
+		(at 124.46 124.46 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "868e3e4d-9cc2-5da4-a633-f9273c8903e6")
+		(uuid "23284a9f-a405-5d1d-830f-08ac698a68e9")
 	)
 	(global_label
 		"YLS3"
 		(shape bidirectional)
-		(at 114.92 124.06 180)
+		(at 114.3 124.46 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "5fbf9bb6-eb4c-5b21-bb8a-78b2be650e2c")
+		(uuid "51dad67c-d020-58e0-bf12-a9d55d3ab87b")
 	)
 	(wire
-		(pts (xy 123.81 124.06) (xy 125.08 124.06))
+		(pts (xy 123.19 124.46) (xy 124.46 124.46))
 		(stroke (width 0) (type default))
 		(uuid "683ca4df-f9d8-59e1-972d-a2d67ec5f327")
 	)
 	(wire
-		(pts (xy 116.19 124.06) (xy 114.92 124.06))
+		(pts (xy 115.57 124.46) (xy 114.3 124.46))
 		(stroke (width 0) (type default))
 		(uuid "305232b7-56b8-549d-b34e-9389bdbd9759")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 131.68 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 132.08 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3136,25 +4515,25 @@
 		(property
 			"Reference"
 			"DY1_14"
-			(at 120 129.14 0)
+			(at 119.38 129.54 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 134.22 0)
+			(at 119.38 134.62 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 131.68 0)
+			(at 119.38 132.08 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 131.68 0)
+			(at 119.38 132.08 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "78724684-b8bf-5038-ae2a-b2391f17f7ac"))
@@ -3169,30 +4548,30 @@
 	(global_label
 		"YHS1R"
 		(shape bidirectional)
-		(at 125.08 131.68 0)
+		(at 124.46 132.08 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "15a0b08a-6b8f-573f-8520-68ec685dcb53")
+		(uuid "fba6bda9-3cf1-56a3-8ae7-8aaf808407ab")
 	)
 	(global_label
 		"YA11"
 		(shape bidirectional)
-		(at 114.92 131.68 180)
+		(at 114.3 132.08 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "a11985f5-c454-5ebc-be84-998299b941d4")
+		(uuid "c4dbbecb-fd86-5b6c-91e3-3b216cbe0210")
 	)
 	(wire
-		(pts (xy 123.81 131.68) (xy 125.08 131.68))
+		(pts (xy 123.19 132.08) (xy 124.46 132.08))
 		(stroke (width 0) (type default))
 		(uuid "b253a638-22a3-576d-b485-0f0d9874d999")
 	)
 	(wire
-		(pts (xy 116.19 131.68) (xy 114.92 131.68))
+		(pts (xy 115.57 132.08) (xy 114.3 132.08))
 		(stroke (width 0) (type default))
 		(uuid "4aaf4966-d68e-59e3-a914-3652d9df5baf")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 139.3 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 139.7 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3202,25 +4581,25 @@
 		(property
 			"Reference"
 			"DY1_15"
-			(at 120 136.76 0)
+			(at 119.38 137.16 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 141.84 0)
+			(at 119.38 142.24 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 139.3 0)
+			(at 119.38 139.7 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 139.3 0)
+			(at 119.38 139.7 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "466b6272-12a9-5c91-9978-8ca7fb9d619d"))
@@ -3235,30 +4614,30 @@
 	(global_label
 		"YB11"
 		(shape bidirectional)
-		(at 125.08 139.3 0)
+		(at 124.46 139.7 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "6554d33c-7500-5c9e-a08a-434d93e96f40")
+		(uuid "ec6a9d8c-132c-5817-8734-50ed4f6970cd")
 	)
 	(global_label
 		"YLS3R"
 		(shape bidirectional)
-		(at 114.92 139.3 180)
+		(at 114.3 139.7 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "79070f18-8d1c-56c9-814e-6e88b7a66928")
+		(uuid "eb3b4645-37e1-5028-8074-4d46e1c7cd83")
 	)
 	(wire
-		(pts (xy 123.81 139.3) (xy 125.08 139.3))
+		(pts (xy 123.19 139.7) (xy 124.46 139.7))
 		(stroke (width 0) (type default))
 		(uuid "c22a6b37-e584-5044-b8c8-9c32fd982b59")
 	)
 	(wire
-		(pts (xy 116.19 139.3) (xy 114.92 139.3))
+		(pts (xy 115.57 139.7) (xy 114.3 139.7))
 		(stroke (width 0) (type default))
 		(uuid "4822e15f-5f5b-53aa-9c1b-6d28a59f6114")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 146.92 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 147.32 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3268,25 +4647,25 @@
 		(property
 			"Reference"
 			"DY1_16"
-			(at 120 144.38 0)
+			(at 119.38 144.78 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 149.46 0)
+			(at 119.38 149.86 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 146.92 0)
+			(at 119.38 147.32 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 146.92 0)
+			(at 119.38 147.32 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "593046c1-732a-5bf9-885b-57823b51ec48"))
@@ -3301,30 +4680,30 @@
 	(global_label
 		"YHS1"
 		(shape bidirectional)
-		(at 125.08 146.92 0)
+		(at 124.46 147.32 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "53993db8-eb50-5189-ac2e-ff9a1b754c0b")
+		(uuid "856c3524-11eb-56b3-b63d-14ed8844d595")
 	)
 	(global_label
 		"YB12"
 		(shape bidirectional)
-		(at 114.92 146.92 180)
+		(at 114.3 147.32 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "51e5adc5-de2b-55d5-b68a-cfbd8b0c4e70")
+		(uuid "b6807836-cae1-52e8-8376-732e4c24dae5")
 	)
 	(wire
-		(pts (xy 123.81 146.92) (xy 125.08 146.92))
+		(pts (xy 123.19 147.32) (xy 124.46 147.32))
 		(stroke (width 0) (type default))
 		(uuid "c55a9ebd-3b8b-58f7-b9d7-d1c58b6d1e5d")
 	)
 	(wire
-		(pts (xy 116.19 146.92) (xy 114.92 146.92))
+		(pts (xy 115.57 147.32) (xy 114.3 147.32))
 		(stroke (width 0) (type default))
 		(uuid "daeeaae6-5dda-5125-9e25-52bf05b2680a")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 154.54 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 154.94 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3334,25 +4713,25 @@
 		(property
 			"Reference"
 			"DY1_17"
-			(at 120 152 0)
+			(at 119.38 152.4 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 157.08 0)
+			(at 119.38 157.48 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 154.54 0)
+			(at 119.38 154.94 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 154.54 0)
+			(at 119.38 154.94 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "e12001f4-3bac-5648-ba07-44591f2376aa"))
@@ -3367,30 +4746,30 @@
 	(global_label
 		"YA12"
 		(shape bidirectional)
-		(at 125.08 154.54 0)
+		(at 124.46 154.94 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "1f287ee6-768e-5985-bdd8-fd734435399b")
+		(uuid "9006797a-3252-54cf-b3f6-41478ee712b8")
 	)
 	(global_label
 		"YLS4"
 		(shape bidirectional)
-		(at 114.92 154.54 180)
+		(at 114.3 154.94 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "72ab8a62-ccda-5d50-8cc6-4e5beb7deb68")
+		(uuid "fc821f9f-8265-5e52-8caf-280e9cd73a27")
 	)
 	(wire
-		(pts (xy 123.81 154.54) (xy 125.08 154.54))
+		(pts (xy 123.19 154.94) (xy 124.46 154.94))
 		(stroke (width 0) (type default))
 		(uuid "c8a27c23-1824-5587-8d98-fc1d77630955")
 	)
 	(wire
-		(pts (xy 116.19 154.54) (xy 114.92 154.54))
+		(pts (xy 115.57 154.94) (xy 114.3 154.94))
 		(stroke (width 0) (type default))
 		(uuid "59eb4cc6-f027-5513-952e-e7f2ce041584")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 162.16 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 162.56 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3400,25 +4779,25 @@
 		(property
 			"Reference"
 			"DY1_18"
-			(at 120 159.62 0)
+			(at 119.38 160.02 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 164.7 0)
+			(at 119.38 165.1 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 162.16 0)
+			(at 119.38 162.56 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 162.16 0)
+			(at 119.38 162.56 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "21da0a1f-1dfc-590b-a5d3-483974134b2d"))
@@ -3433,30 +4812,30 @@
 	(global_label
 		"YHS1R"
 		(shape bidirectional)
-		(at 125.08 162.16 0)
+		(at 124.46 162.56 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "74b4bee3-c85c-5f92-ba47-85d4f5328113")
+		(uuid "74246a3f-1c8b-58e2-975c-9c8487dd3da7")
 	)
 	(global_label
 		"YA12"
 		(shape bidirectional)
-		(at 114.92 162.16 180)
+		(at 114.3 162.56 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "4cd511b2-2d79-5614-9f0b-d9a189fdf11d")
+		(uuid "970c940d-0644-50fe-b0d5-578af2de91fb")
 	)
 	(wire
-		(pts (xy 123.81 162.16) (xy 125.08 162.16))
+		(pts (xy 123.19 162.56) (xy 124.46 162.56))
 		(stroke (width 0) (type default))
 		(uuid "760249cb-0629-5e2f-988a-e77564472d17")
 	)
 	(wire
-		(pts (xy 116.19 162.16) (xy 114.92 162.16))
+		(pts (xy 115.57 162.56) (xy 114.3 162.56))
 		(stroke (width 0) (type default))
 		(uuid "ead661fd-a5c9-554f-ace4-1ce3df660c12")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 169.78 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 170.18 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3466,25 +4845,25 @@
 		(property
 			"Reference"
 			"DY1_19"
-			(at 120 167.24 0)
+			(at 119.38 167.64 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 172.32 0)
+			(at 119.38 172.72 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 169.78 0)
+			(at 119.38 170.18 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 169.78 0)
+			(at 119.38 170.18 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "3d540e48-c50a-53c1-915d-a03d24fbe6bb"))
@@ -3499,30 +4878,30 @@
 	(global_label
 		"YB12"
 		(shape bidirectional)
-		(at 125.08 169.78 0)
+		(at 124.46 170.18 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "2a593673-2928-5e04-8b55-9d7b61279370")
+		(uuid "449c525b-03ed-5ceb-8784-6a52d3a2ac46")
 	)
 	(global_label
 		"YLS4R"
 		(shape bidirectional)
-		(at 114.92 169.78 180)
+		(at 114.3 170.18 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "79a20230-9a4c-5b7e-9bd5-db4551158130")
+		(uuid "73ef5c60-23fc-5e91-8c2f-0ddb1628d8a8")
 	)
 	(wire
-		(pts (xy 123.81 169.78) (xy 125.08 169.78))
+		(pts (xy 123.19 170.18) (xy 124.46 170.18))
 		(stroke (width 0) (type default))
 		(uuid "115d0ca7-2f6c-5add-be84-aa88c941d78a")
 	)
 	(wire
-		(pts (xy 116.19 169.78) (xy 114.92 169.78))
+		(pts (xy 115.57 170.18) (xy 114.3 170.18))
 		(stroke (width 0) (type default))
 		(uuid "a730dad2-0d48-5dcd-b19a-74b07c15a91c")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 120 177.4 0)
+		(lib_id "CMR:D_Schottky")
+		(at 119.38 177.8 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3532,25 +4911,25 @@
 		(property
 			"Reference"
 			"DY1_20"
-			(at 120 174.86 0)
+			(at 119.38 175.26 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 120 179.94 0)
+			(at 119.38 180.34 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 120 177.4 0)
+			(at 119.38 177.8 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 120 177.4 0)
+			(at 119.38 177.8 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "61f31423-d12a-5b0a-aff8-83063c6f62ef"))
@@ -3565,30 +4944,30 @@
 	(global_label
 		"YHS1"
 		(shape bidirectional)
-		(at 125.08 177.4 0)
+		(at 124.46 177.8 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "1418775d-30f7-5131-ba30-e7579985737e")
+		(uuid "414e1369-f7a4-5347-b84d-26317b26450a")
 	)
 	(global_label
 		"YB13"
 		(shape bidirectional)
-		(at 114.92 177.4 180)
+		(at 114.3 177.8 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "035e2433-19f5-5d63-9cc6-af4a7c73301f")
+		(uuid "6640f7f1-4495-5947-b868-cbc53b198203")
 	)
 	(wire
-		(pts (xy 123.81 177.4) (xy 125.08 177.4))
+		(pts (xy 123.19 177.8) (xy 124.46 177.8))
 		(stroke (width 0) (type default))
 		(uuid "99fdd925-4708-5b3d-ba80-62a861380a05")
 	)
 	(wire
-		(pts (xy 116.19 177.4) (xy 114.92 177.4))
+		(pts (xy 115.57 177.8) (xy 114.3 177.8))
 		(stroke (width 0) (type default))
 		(uuid "b0005ba8-b384-582a-ae18-192796fabe19")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 160 25 0)
+		(lib_id "CMR:D_Schottky")
+		(at 160.02 25.4 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3598,25 +4977,25 @@
 		(property
 			"Reference"
 			"DY1_21"
-			(at 160 22.46 0)
+			(at 160.02 22.86 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 160 27.54 0)
+			(at 160.02 27.94 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 160 25 0)
+			(at 160.02 25.4 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 160 25 0)
+			(at 160.02 25.4 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "7d36dac4-b0ec-57ef-973c-1cbd0fb3dc35"))
@@ -3631,30 +5010,30 @@
 	(global_label
 		"YA13"
 		(shape bidirectional)
-		(at 165.08 25 0)
+		(at 165.1 25.4 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "0035f5b1-a416-5c0e-87f2-eb576007b804")
+		(uuid "a88f37ae-5be9-568f-b662-5809e61df21c")
 	)
 	(global_label
 		"YLS5"
 		(shape bidirectional)
-		(at 154.92 25 180)
+		(at 154.94 25.4 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "58083111-739d-559c-b5ef-811619e4582e")
+		(uuid "3349ddeb-3a3a-516a-a84e-6ac26c44e5e8")
 	)
 	(wire
-		(pts (xy 163.81 25) (xy 165.08 25))
+		(pts (xy 163.83 25.4) (xy 165.1 25.4))
 		(stroke (width 0) (type default))
 		(uuid "41294225-649a-59ce-8889-152bb7e314a6")
 	)
 	(wire
-		(pts (xy 156.19 25) (xy 154.92 25))
+		(pts (xy 156.21 25.4) (xy 154.94 25.4))
 		(stroke (width 0) (type default))
 		(uuid "f0866a9d-d552-5001-98d4-7089c191921f")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 160 32.62 0)
+		(lib_id "CMR:D_Schottky")
+		(at 160.02 33.02 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3664,25 +5043,25 @@
 		(property
 			"Reference"
 			"DY1_22"
-			(at 160 30.08 0)
+			(at 160.02 30.48 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 160 35.16 0)
+			(at 160.02 35.56 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 160 32.62 0)
+			(at 160.02 33.02 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 160 32.62 0)
+			(at 160.02 33.02 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "095dc661-e2ea-5950-9d0f-6c3881c4046a"))
@@ -3697,30 +5076,30 @@
 	(global_label
 		"YHS1R"
 		(shape bidirectional)
-		(at 165.08 32.62 0)
+		(at 165.1 33.02 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "5c066bad-cdc4-559c-9974-c6031f3bc95a")
+		(uuid "33924040-1ca3-51fa-bc58-bc156e42086f")
 	)
 	(global_label
 		"YA13"
 		(shape bidirectional)
-		(at 154.92 32.62 180)
+		(at 154.94 33.02 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "5bb11934-a2d8-584d-a60a-ed578c920dfe")
+		(uuid "26252e84-71d9-5747-8874-de7ca8d4be3a")
 	)
 	(wire
-		(pts (xy 163.81 32.62) (xy 165.08 32.62))
+		(pts (xy 163.83 33.02) (xy 165.1 33.02))
 		(stroke (width 0) (type default))
 		(uuid "a3415d5d-0703-5ff0-a662-307775b2c824")
 	)
 	(wire
-		(pts (xy 156.19 32.62) (xy 154.92 32.62))
+		(pts (xy 156.21 33.02) (xy 154.94 33.02))
 		(stroke (width 0) (type default))
 		(uuid "12be1988-2a14-5f87-bab0-b3e9f41949aa")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 160 40.24 0)
+		(lib_id "CMR:D_Schottky")
+		(at 160.02 40.64 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3730,25 +5109,25 @@
 		(property
 			"Reference"
 			"DY1_23"
-			(at 160 37.7 0)
+			(at 160.02 38.1 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 160 42.78 0)
+			(at 160.02 43.18 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 160 40.24 0)
+			(at 160.02 40.64 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 160 40.24 0)
+			(at 160.02 40.64 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "5508bfae-3314-5c1f-af7d-48555c7d8410"))
@@ -3763,30 +5142,30 @@
 	(global_label
 		"YB13"
 		(shape bidirectional)
-		(at 165.08 40.24 0)
+		(at 165.1 40.64 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "c9988b41-8ccd-5c14-a2ae-337248ef2114")
+		(uuid "b7b13d21-5dc0-5dee-80a5-dc3064cf05cb")
 	)
 	(global_label
 		"YLS5R"
 		(shape bidirectional)
-		(at 154.92 40.24 180)
+		(at 154.94 40.64 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "05b32e9d-dc68-5f92-bb93-7d14f8723150")
+		(uuid "e96b1fac-5601-5659-970f-a983a7560116")
 	)
 	(wire
-		(pts (xy 163.81 40.24) (xy 165.08 40.24))
+		(pts (xy 163.83 40.64) (xy 165.1 40.64))
 		(stroke (width 0) (type default))
 		(uuid "fdd63bdb-2fda-52f9-8057-78829c5586b0")
 	)
 	(wire
-		(pts (xy 156.19 40.24) (xy 154.92 40.24))
+		(pts (xy 156.21 40.64) (xy 154.94 40.64))
 		(stroke (width 0) (type default))
 		(uuid "7793bd03-b164-586b-981f-a1cbfd0fa0da")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 160 47.86 0)
+		(lib_id "CMR:D_Schottky")
+		(at 160.02 48.26 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3796,25 +5175,25 @@
 		(property
 			"Reference"
 			"DY1_24"
-			(at 160 45.32 0)
+			(at 160.02 45.72 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 160 50.4 0)
+			(at 160.02 50.8 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 160 47.86 0)
+			(at 160.02 48.26 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 160 47.86 0)
+			(at 160.02 48.26 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "1b2929bb-11b5-5d4f-b730-e88de8bba536"))
@@ -3829,30 +5208,30 @@
 	(global_label
 		"YHS1"
 		(shape bidirectional)
-		(at 165.08 47.86 0)
+		(at 165.1 48.26 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "3a7716dd-f5be-5ab4-8613-fabd483a2c03")
+		(uuid "774b8424-8761-5195-9633-b545eaf73cc3")
 	)
 	(global_label
 		"YB14"
 		(shape bidirectional)
-		(at 154.92 47.86 180)
+		(at 154.94 48.26 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "06bbad8d-2749-5562-8c50-5ed5f46f6d48")
+		(uuid "e4e8395b-ab16-596b-9902-1147f5312b21")
 	)
 	(wire
-		(pts (xy 163.81 47.86) (xy 165.08 47.86))
+		(pts (xy 163.83 48.26) (xy 165.1 48.26))
 		(stroke (width 0) (type default))
 		(uuid "f5dfb212-464d-50fe-85eb-546248831598")
 	)
 	(wire
-		(pts (xy 156.19 47.86) (xy 154.92 47.86))
+		(pts (xy 156.21 48.26) (xy 154.94 48.26))
 		(stroke (width 0) (type default))
 		(uuid "fc84bc79-97fd-5102-a5b9-9857b69ffad0")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 160 55.48 0)
+		(lib_id "CMR:D_Schottky")
+		(at 160.02 55.88 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3862,25 +5241,25 @@
 		(property
 			"Reference"
 			"DY1_25"
-			(at 160 52.94 0)
+			(at 160.02 53.34 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 160 58.02 0)
+			(at 160.02 58.42 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 160 55.48 0)
+			(at 160.02 55.88 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 160 55.48 0)
+			(at 160.02 55.88 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "34cd0a16-dd1a-5d62-9203-6d4a742a872e"))
@@ -3895,30 +5274,30 @@
 	(global_label
 		"YA14"
 		(shape bidirectional)
-		(at 165.08 55.48 0)
+		(at 165.1 55.88 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "206f8417-d5c7-508a-b471-34674a42d3d8")
+		(uuid "64c95106-b4f9-5686-8edd-bca5089624a4")
 	)
 	(global_label
 		"YLS6"
 		(shape bidirectional)
-		(at 154.92 55.48 180)
+		(at 154.94 55.88 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "cf8c0afa-ada3-596d-aef1-9119fb297e18")
+		(uuid "eba59055-134d-5180-ad2b-f128f1c0f5ec")
 	)
 	(wire
-		(pts (xy 163.81 55.48) (xy 165.08 55.48))
+		(pts (xy 163.83 55.88) (xy 165.1 55.88))
 		(stroke (width 0) (type default))
 		(uuid "51d9bef1-3669-5666-b3be-a1940f2784ec")
 	)
 	(wire
-		(pts (xy 156.19 55.48) (xy 154.92 55.48))
+		(pts (xy 156.21 55.88) (xy 154.94 55.88))
 		(stroke (width 0) (type default))
 		(uuid "15777a5d-fc23-54fd-90fc-8186e333d0a6")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 160 63.1 0)
+		(lib_id "CMR:D_Schottky")
+		(at 160.02 63.5 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3928,25 +5307,25 @@
 		(property
 			"Reference"
 			"DY1_26"
-			(at 160 60.56 0)
+			(at 160.02 60.96 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 160 65.64 0)
+			(at 160.02 66.04 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 160 63.1 0)
+			(at 160.02 63.5 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 160 63.1 0)
+			(at 160.02 63.5 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "7575e92b-7101-5534-ab17-98ddabac8bc3"))
@@ -3961,30 +5340,30 @@
 	(global_label
 		"YHS1R"
 		(shape bidirectional)
-		(at 165.08 63.1 0)
+		(at 165.1 63.5 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "5a74ff3b-b432-5806-aac4-cb16b9bdf191")
+		(uuid "c239db67-2c5b-5c08-91b3-a3bc0f2c2816")
 	)
 	(global_label
 		"YA14"
 		(shape bidirectional)
-		(at 154.92 63.1 180)
+		(at 154.94 63.5 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "abdd768b-a872-5f14-9526-3de70ec014aa")
+		(uuid "c2b4aa35-8089-5a19-91c6-64530311a751")
 	)
 	(wire
-		(pts (xy 163.81 63.1) (xy 165.08 63.1))
+		(pts (xy 163.83 63.5) (xy 165.1 63.5))
 		(stroke (width 0) (type default))
 		(uuid "4c2c3a9f-8a9e-5b54-ae53-6496110567c7")
 	)
 	(wire
-		(pts (xy 156.19 63.1) (xy 154.92 63.1))
+		(pts (xy 156.21 63.5) (xy 154.94 63.5))
 		(stroke (width 0) (type default))
 		(uuid "8ef1cd58-8013-532a-ac95-d6bdb24f196c")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 160 70.72 0)
+		(lib_id "CMR:D_Schottky")
+		(at 160.02 71.12 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3994,25 +5373,25 @@
 		(property
 			"Reference"
 			"DY1_27"
-			(at 160 68.18 0)
+			(at 160.02 68.58 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 160 73.26 0)
+			(at 160.02 73.66 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 160 70.72 0)
+			(at 160.02 71.12 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 160 70.72 0)
+			(at 160.02 71.12 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "a452f93e-6ad7-5c12-b714-a8cdeda2b78b"))
@@ -4027,30 +5406,30 @@
 	(global_label
 		"YB14"
 		(shape bidirectional)
-		(at 165.08 70.72 0)
+		(at 165.1 71.12 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "a44edb8a-485c-5f99-9bf2-4df472c126d1")
+		(uuid "7b9cf80e-4890-5acf-a198-1a9746eb856a")
 	)
 	(global_label
 		"YLS6R"
 		(shape bidirectional)
-		(at 154.92 70.72 180)
+		(at 154.94 71.12 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "5dbfb97d-e1c9-5a46-940a-e0eb15716d4a")
+		(uuid "7dfbd3a6-1fb2-5b34-bc48-d24b319e116f")
 	)
 	(wire
-		(pts (xy 163.81 70.72) (xy 165.08 70.72))
+		(pts (xy 163.83 71.12) (xy 165.1 71.12))
 		(stroke (width 0) (type default))
 		(uuid "2adbe083-c386-59af-8838-6359c3da3380")
 	)
 	(wire
-		(pts (xy 156.19 70.72) (xy 154.92 70.72))
+		(pts (xy 156.21 71.12) (xy 154.94 71.12))
 		(stroke (width 0) (type default))
 		(uuid "5fb67475-5f06-55e2-a6c4-d5a34b3cab62")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 160 78.34 0)
+		(lib_id "CMR:D_Schottky")
+		(at 160.02 78.74 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4060,25 +5439,25 @@
 		(property
 			"Reference"
 			"DY1_28"
-			(at 160 75.8 0)
+			(at 160.02 76.2 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 160 80.88 0)
+			(at 160.02 81.28 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 160 78.34 0)
+			(at 160.02 78.74 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 160 78.34 0)
+			(at 160.02 78.74 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "242e2a8f-cb01-5c3d-8ea1-c9e8dd3702d1"))
@@ -4093,30 +5472,30 @@
 	(global_label
 		"YHS1"
 		(shape bidirectional)
-		(at 165.08 78.34 0)
+		(at 165.1 78.74 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "8a1ec619-6c72-5405-b317-3f947c636e71")
+		(uuid "5bee91d7-1d99-5426-aa2d-b83528f5422b")
 	)
 	(global_label
 		"YB15"
 		(shape bidirectional)
-		(at 154.92 78.34 180)
+		(at 154.94 78.74 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "9d2e729f-0788-5844-99b6-fba3e8b9469c")
+		(uuid "3d4a21a3-1907-5a6b-8272-d4be04885d3f")
 	)
 	(wire
-		(pts (xy 163.81 78.34) (xy 165.08 78.34))
+		(pts (xy 163.83 78.74) (xy 165.1 78.74))
 		(stroke (width 0) (type default))
 		(uuid "09539410-42fe-5249-9956-c74965b8fb2d")
 	)
 	(wire
-		(pts (xy 156.19 78.34) (xy 154.92 78.34))
+		(pts (xy 156.21 78.74) (xy 154.94 78.74))
 		(stroke (width 0) (type default))
 		(uuid "20f18978-3bbf-5a0b-9758-6b5d99ec1162")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 160 85.96 0)
+		(lib_id "CMR:D_Schottky")
+		(at 160.02 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4126,25 +5505,25 @@
 		(property
 			"Reference"
 			"DY1_29"
-			(at 160 83.42 0)
+			(at 160.02 83.82 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 160 88.5 0)
+			(at 160.02 88.9 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 160 85.96 0)
+			(at 160.02 86.36 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 160 85.96 0)
+			(at 160.02 86.36 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "3c48fc52-9cd9-54ba-bb23-e1f0bab7d9e8"))
@@ -4159,30 +5538,30 @@
 	(global_label
 		"YA15"
 		(shape bidirectional)
-		(at 165.08 85.96 0)
+		(at 165.1 86.36 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "f37b7569-9a87-5c38-98ed-427f340bf57f")
+		(uuid "852d82d0-6d51-5c71-be28-93332450d0bf")
 	)
 	(global_label
 		"YLS7"
 		(shape bidirectional)
-		(at 154.92 85.96 180)
+		(at 154.94 86.36 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "d4741dc4-8480-5f71-86d8-d523d741182d")
+		(uuid "0566b1eb-f4e8-59dc-b50c-5f77974fc28c")
 	)
 	(wire
-		(pts (xy 163.81 85.96) (xy 165.08 85.96))
+		(pts (xy 163.83 86.36) (xy 165.1 86.36))
 		(stroke (width 0) (type default))
 		(uuid "a3a8a3af-dc67-578a-b729-969193428fba")
 	)
 	(wire
-		(pts (xy 156.19 85.96) (xy 154.92 85.96))
+		(pts (xy 156.21 86.36) (xy 154.94 86.36))
 		(stroke (width 0) (type default))
 		(uuid "06ae77c7-4af4-5d9f-865b-0195cd7bd5bc")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 160 93.58 0)
+		(lib_id "CMR:D_Schottky")
+		(at 160.02 93.98 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4192,25 +5571,25 @@
 		(property
 			"Reference"
 			"DY1_30"
-			(at 160 91.04 0)
+			(at 160.02 91.44 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 160 96.12 0)
+			(at 160.02 96.52 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 160 93.58 0)
+			(at 160.02 93.98 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 160 93.58 0)
+			(at 160.02 93.98 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "7c1c12ce-22f7-5963-af63-054de6d98308"))
@@ -4225,30 +5604,30 @@
 	(global_label
 		"YHS1R"
 		(shape bidirectional)
-		(at 165.08 93.58 0)
+		(at 165.1 93.98 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "6001616e-4087-5b76-a344-1efb8c02ee07")
+		(uuid "de836d79-d5e0-5ebc-a7ee-5706d8e1d45d")
 	)
 	(global_label
 		"YA15"
 		(shape bidirectional)
-		(at 154.92 93.58 180)
+		(at 154.94 93.98 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "a5465282-d076-5806-8963-5c54a0a6d853")
+		(uuid "9f19ffa3-c2d0-51d8-ba8c-4c661f8f0a55")
 	)
 	(wire
-		(pts (xy 163.81 93.58) (xy 165.08 93.58))
+		(pts (xy 163.83 93.98) (xy 165.1 93.98))
 		(stroke (width 0) (type default))
 		(uuid "7d351fad-3760-5c0c-baec-501f35b8f23f")
 	)
 	(wire
-		(pts (xy 156.19 93.58) (xy 154.92 93.58))
+		(pts (xy 156.21 93.98) (xy 154.94 93.98))
 		(stroke (width 0) (type default))
 		(uuid "fd540a60-d26a-5f2a-872d-e8df72879197")
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 160 101.2 0)
+		(lib_id "CMR:D_Schottky")
+		(at 160.02 101.6 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4258,25 +5637,25 @@
 		(property
 			"Reference"
 			"DY1_31"
-			(at 160 98.66 0)
+			(at 160.02 99.06 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Value"
 			"SS14"
-			(at 160 103.74 0)
+			(at 160.02 104.14 0)
 			(effects (font (size 1.27 1.27)))
 		)
 		(property
 			"Footprint"
 			"Diode_SMD:D_SMA"
-			(at 160 101.2 0)
+			(at 160.02 101.6 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(property
 			"Datasheet"
 			"~"
-			(at 160 101.2 0)
+			(at 160.02 101.6 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)
 		(pin "1" (uuid "947eb622-352c-59b4-86f5-cdcc1fd1c2f7"))
@@ -4291,24 +5670,24 @@
 	(global_label
 		"YB15"
 		(shape bidirectional)
-		(at 165.08 101.2 0)
+		(at 165.1 101.6 0)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "f9f9f734-68dd-5ecd-9b17-401b8b01e402")
+		(uuid "23b08b99-03d0-51b2-bfc4-28c450febba7")
 	)
 	(global_label
 		"YLS7R"
 		(shape bidirectional)
-		(at 154.92 101.2 180)
+		(at 154.94 101.6 180)
 		(effects (font (size 1.27 1.27)) (justify left))
-		(uuid "f9f35a6b-97c7-5e4b-8a78-fdba263c4dc7")
+		(uuid "7e42ee3c-0f71-51e7-aea2-53203c858250")
 	)
 	(wire
-		(pts (xy 163.81 101.2) (xy 165.08 101.2))
+		(pts (xy 163.83 101.6) (xy 165.1 101.6))
 		(stroke (width 0) (type default))
 		(uuid "e17b77d3-bfb0-5afb-9e9f-aa784bfa5406")
 	)
 	(wire
-		(pts (xy 156.19 101.2) (xy 154.92 101.2))
+		(pts (xy 156.21 101.6) (xy 154.94 101.6))
 		(stroke (width 0) (type default))
 		(uuid "67833e59-0baa-5653-8860-77a45f79aa00")
 	)

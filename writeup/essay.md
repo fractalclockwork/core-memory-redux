@@ -20,7 +20,7 @@ The method is a box around the agent. Each kind of fact has one owner. Plane geo
 
 When two owners seem to conflict, the work stops and a person decides. Chat is a scratchpad. A scale claim is allowed to appear in one place, the coverage matrix, and only after a run has earned the cell. That is how an agent is kept from inventing a third architecture in the middle of a task: the next sentence has to land in a document that already has a job, or it does not land.
 
-The practical shape of a task is therefore small. Read the map, open the owner for the fact at hand, change that fact or the simulation that checks it, and leave the other documents alone. The coverage matrix, as of this record, says a single core and the 2×2 driver path have passed in SPICE, and the ideal plant has passed at 8×8 and 64×64. Schematic sheets and a bench have no passing cell. Those sentences are the matrix’s, in [docs/coverage_matrix.md](../docs/coverage_matrix.md).
+The practical shape of a task is therefore small. Read the map, open the owner for the fact at hand, change that fact or the simulation that checks it, and leave the other documents alone. The coverage matrix, as of this record, says a single core and the 2×2 driver path have passed in SPICE, and the ideal plant has passed at 8×8 and 64×64. The generated schematic has passed at 2×2 and at 64×64. The two board designs have passed ERC and DRC at the 8×8 bring-up quantity. The 64×64 board harness and the bench column are still empty. Those sentences are the matrix’s, in [docs/coverage_matrix.md](../docs/coverage_matrix.md).
 
 ## Simulation in the loop
 
@@ -32,8 +32,9 @@ flowchart LR
   L1[L1 2x2 cycle]
   L2[L2 address path at n equals 2]
   L3[L3 ideal core at N]
-  L0 --> L1 --> L2
-  L1 --> L3
+  L4[L4 octal fabric and boards]
+  L0 --> L1 --> L2 --> L4
+  L1 --> L3 --> L4
 ```
 
 L0 asks whether the physics we are willing to trust can hold a half-select, tell a stored one from a stored zero on a destructive read, and accept a write-back. It is one core, a Chan-threshold subcircuit, and it stays small: at most sixteen instances, and never the proof at n=64.
@@ -44,7 +45,7 @@ L2 asks the same cycle with the address pins in the path: decode, the forward an
 
 L3 asks whether a whole matrix can be walked. The core there is a threshold law: full-select flips, half-select holds, a destructive read of a one emits a fixed sense pulse. Each line carries a lumped resistance, inductance, and capacitance, and the plant waits out that settle before it treats the bit as valid. Stimuli are a synthetic stand-in for the PIO sequence. Patterns are a full diagonal and a random sparse set, at 8 and at 64, plus a few hundred continuous cycles at 64. Chan stays behind, on L0.
 
-L4, the tiled schematic fabric, and the bench bring-up are later. The rules for the ladder, and the reason the 256 drive ends are not the unit of simulation, are in [docs/system_design_spec.md](../docs/system_design_spec.md).
+L4 asks whether that same driver can be drawn as sheets and as two boards without making the 256 drive ends into 256 pins. It is KiCad, emitted from the weave, and checked by `kicad-cli` 10.0.6. The bench is still later. The rules for the ladder, and the reason the 256 drive ends are not the unit of simulation or of a hierarchical sheet, are in [docs/system_design_spec.md](../docs/system_design_spec.md) and [docs/hierarchy_abi.md](../docs/hierarchy_abi.md).
 
 Each layer is a pytest module. A thin wrapper, `scripts/run_gate.py`, runs one gate by name. A green run is what turns a coverage cell from a plan into a pass. The essay does not add a new test. It replays the ones that already exist and draws them.
 
@@ -114,11 +115,31 @@ The long bar is the full diagonal at 64, because that walk touches all 4,096 cor
 
 ![Wall-clock time of the ideal-core patterns on hellway, 4 October 2026.](figures/l3_runtimes.png)
 
+## The fabric, then the boards
+
+### Octal tiles
+
+The 256 drive ends remain a physical fact of the plane. They are not the pin list of a sheet. A monolithic steer sheet would carry on the order of 320 pins, and the root would then instance those ends twice. L4 emits octal tiles instead: 34 pins each, one axis and one group of eight lines. The 64×64 fabric has sixteen of those tiles and 512 steering diodes. The 2×2 bring-up fabric has two tiles, X and Y at group 0, and 16 diodes. Both projects put four decode calls on the root. The fold stays local to the magnetic sheet: `YA66` and `YB65` join as `SENSE_FOLD`, and the fabric manifest records the sense nets as disjoint from the drive tiles.
+
+KiCad 10.0.6 electrical rules on both projects, stamped 17:52 on 4 October 2026, returned empty error lists. The gate is **GATE-L4-FABRIC**. A topological fix goes back through the weave AST and the emitter; the sheets under `kicad/bringup_2x2/` and `kicad/driver_64x64/` are generated. Pin budgets live in [docs/hierarchy_abi.md](../docs/hierarchy_abi.md). Geometry lives in [`generators/mce_array.py`](../generators/mce_array.py).
+
+### Two copper designs
+
+The fabric is one drawing of the whole driver. The thing that can be repeated on a bench is two boards. One host, `ccs_sense`, holds the three current sources, the sense path, the fold, the write-back latch, and the bus that fans address and `VDRIVE` out. The axis board is the same copper for X and for Y. Straps pick the axis and the group address. Bring-up is one host and two axis boards, both at group 0, which is an 8×8. The full plane is that same host and sixteen axis boards, eight X and eight Y. The roster is written down. The coverage cell for a uniquely addressed 1+16 harness is still a stub. Packaging is [docs/board_icd.md](../docs/board_icd.md); quantities are [docs/component_selection.md](../docs/component_selection.md) §6.
+
+What the 8×8 PCB cell actually cleared, on the same KiCad at 18:54 that day: empty ERC error lists, and DRC with no violations and no unconnected items, on both `pcb_ccs_sense` and `pcb_axis_octal`. The gate counts errors. ERC ignored a global label that appears once, four-way junctions, SPICE model issues, and footprint-filter mismatch. DRC ignored missing courtyards, footprint-filter and footprint-type mismatch, and two track-geometry checks that do not apply to a board with no tracks. Warnings were not promoted. Empty error lists are what the matrix calls pass.
+
+The schematics carry the bill the selection note names. On the host: TL431, a 3296W trimpot, OPA192, and IRLZ44N, three times, plus BAT54S, TLV3501, and the 74AHC74 latch. On each axis board: two 74AHC138, two 74AHC238, TBD62783 and TBD62083 in forward and reverse, and 32 SS14s. Sense nets `YA65`, `YB66`, `YA66`, and `YB65` stay on the host. They do not appear on the axis sheet. Bring-up therefore totals 64 steering diodes and four of each DMOS array; the full roster totals 512 diodes and 32 of each array, which is the same diode count the 64×64 fabric already emits.
+
+The copper on the board is the headers. Each net is given a single pad, so the check stays clean without an autorouter. The schematic Pico header still lists address, enables, and power. The PCB footprint keeps `SENSE_STROBE`, `DOUT`, and `PIO_STROBE`. The sense connector keeps the four fold ends; `AGND` returns on the bus. The BOM footprints are placed — three CCS strips and the sense parts on a 220×120 mm host, decode, DMOS, and a 32-diode grid on a 160×140 mm axis board — and the files contain no tracks. The stack in those files is two layers. The packaging contract still prefers four layers, and smaller outlines, at most 120×80 mm for the host and 100×80 mm for an axis board. Those size and stack targets belong to the board ICD. This layout has not met them. A clean DRC here means the placed connectors do not fight themselves.
+
 ## The edge of the record
 
-The tree this essay describes has the contracts, the L0–L2 SPICE decks, and the L3 ideal plant. KiCad sheets, a geometry generator, and firmware are later phases. The coverage matrix still has empty schematic cells and an empty bench column. Bring-up, when it happens, starts at 2×2.
+The tree this essay describes has the contracts, the L0–L2 SPICE decks, the L3 ideal plant, the generated octal fabric, and two board projects whose 8×8 ERC/DRC cell is green. Firmware is not in the tree. The bench column is empty. The 64×64 PCB cell stays a stub until the sixteen uniquely strapped axis boards are a gated harness, not only a roster in [docs/board_icd.md](../docs/board_icd.md) §7.
 
-Still open, and owned by the design-choices note rather than by this prose: the exact \(I_c\), the drive-rail voltage, inhibit polarity against the read, and how the RP2040 is packaged. The 600 mA used in every figure above is the harness assumption, recorded so the plots can be read, and it is not a frozen setpoint.
+Still open, and owned by the design-choices note rather than by this prose: the exact \(I_c\), the drive-rail voltage, inhibit polarity against the read, how the RP2040 is packaged, the CCS MOSFET alternate, and whether diagnostic LEDs are required. The 600 mA used in every figure above is the harness assumption, recorded so the plots can be read, and it is not a frozen setpoint.
+
+The next emitter job is the copper between those footprints, a stack that matches the four-layer preference, and outlines inside the size targets. Bring-up, when it happens, starts at 2×2, on three boards.
 
 To draw the figures again:
 

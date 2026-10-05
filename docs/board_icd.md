@@ -4,7 +4,7 @@
 **Owns:** board split, connector pinouts, 8×8 bring-up wiring, 2×8 axis replication for 64×64  
 **Does not own:** plane physical ICD, BOM MPNs, gate criteria — see [AUTHORITY.md](AUTHORITY.md)
 
-Electrical ABI stays [naming.md](naming.md) / [hierarchy_abi.md](hierarchy_abi.md) **REQ-HIER-OCTAL**. Tune knobs: [design_choices.md](design_choices.md). Generated KiCad: [`kicad/pcb_ccs_sense/`](../kicad/pcb_ccs_sense/), [`kicad/pcb_axis_octal/`](../kicad/pcb_axis_octal/) from [`generators/`](../generators/).
+Electrical ABI stays [naming.md](naming.md) / [hierarchy_abi.md](hierarchy_abi.md) **REQ-HIER-OCTAL**. Bus net grammar bridge: [naming.md](naming.md) §4.1. Tune knobs: [design_choices.md](design_choices.md). BOM MPNs + multi-board quantities: [component_selection.md](component_selection.md) §6 / [`bom_multiboard.csv`](bom_multiboard.csv). Generated KiCad: [`kicad/pcb_ccs_sense/`](../kicad/pcb_ccs_sense/), [`kicad/pcb_axis_octal/`](../kicad/pcb_axis_octal/) from [`generators/`](../generators/).
 
 ## 1. Architecture
 
@@ -32,19 +32,19 @@ Scale-out is **replication with unique address straps**, not a new axis PCB. The
                     │  CCS_X / CCS_Y / CCS_INH            │
                     │  sense + fold + write-back (DOUT)    │
                     └──────────────┬──────────────────────┘
-                                   │ J_BUS (star or daisy)
+                                   │ J_BUS (star @ 64×64; daisy OK @ 8×8)
           ┌────────────────────────┼────────────────────────┐
           ▼                        ▼                        ▼
-   axis_octal X g=0 … g=7    axis_octal Y g=0 … g=7    (16 boards @ 64×64)
+   axis_octal X g=0 … g=7    axis_octal Y g=0 … g=7    (16 boards = 2×8)
           │                        │
           └──────────► ferrite plane XA/XB / YA/YB + YA65/YB66
 ```
 
-Bring-up uses only the `g=0` pair (three boards total). Full array repeats that pair across `g=1..7`.
+Bring-up uses only the `g=0` pair (three boards total). Full array is **1 + 2×8 = 17** boards — roster and harness in §7.
 
 ## 2. Stackup / mechanics
 
-- **Layers:** 4-layer preferred (Sig / GND / PWR / Sig); 2-layer acceptable for first CCS prototype if CCS MOSFET has copper pour + heatsink.
+- **Layers:** **4-layer preferred** for the full-array host and all axis boards (Sig / GND / PWR / Sig). 2-layer remains acceptable only as an early **CCS prototype** exception if the CCS MOSFET has copper pour + heatsink.
 - **Axis board size target:** ≤ 100×80 mm (octal connectors + DMOS SOIC-18s).
 - **CCS board size target:** ≤ 120×80 mm (three linear CCS + sense + Pico header + bus host).
 - **Connectors:** 2.54 mm pin headers unless noted; high-current CCS/`VDRIVE` use ≥ 3.5 mm screw terminal or 0.1" doubled pins paralleled.
@@ -121,9 +121,9 @@ Harness or short jumpers complete Pico GPIO→bus and AGND returns as needed on 
 | `JP_G[2:0]` | Group address `g=0..7` — which HS bank this board owns |
 
 Lines driven: \(L = 8\cdot g + k\) for \(k=0..7\).  
-Full 64×64 needs every `(axis, g)` pair once: **2×8 = 16** boards, each with a unique strap.
+Full 64×64 needs every `(axis, g)` pair once: **2×8 = 16** boards, each with a unique strap (§7 roster).
 
-Preferred select method: **hard-strap `JP_G`**; bus carries full `ADDR_NH*` / `ADDR_NL*`. A board enables its decode only when the bus HS address matches its strap (on-board compare) or, equivalently, when firmware later fans out per-group `DEC_EN`. Bring-up (`g=0` only) may share a single `DEC_EN`.
+**Normative group select:** hard-strap `JP_G[2:0]`; bus carries full `ADDR_NH*` / `ADDR_NL*`. The board enables its decode only when bus HS address matches the strap (on-board compare). Bring-up (`g=0` only) may share a single `DEC_EN`. Per-group firmware `DEC_EN` fan-out is a deferred alternate, not a second normative path.
 
 ### 5.2 Contents
 
@@ -148,13 +148,78 @@ Matches hierarchy_abi octal tile: **34** switch/plane pins conceptually (`HS`, `
 7. Wire `J_PLANE_SENSE` → plane YA/YB 65/66.
 8. Apply `VDRIVE`, `+3V3`; set trimpots mid (~300 mA half-select default).
 
-## 7. Scale-out wiring (64×64 = 1 host + 2×8 axis)
+## 7. Scale-out layout (64×64 = 1 host + 2×8 axis)
 
-1. Keep the **same** `ccs_sense` host — still the sole ADDR / `VDRIVE` / CCS / sense / write-back board.
-2. Populate **eight** X and **eight** Y `axis_octal` copies with `JP_G=0..7` (unique per axis).
-3. Star or daisy `J_BUS` to all sixteen; CCS returns remain X→`CCS_X`, Y→`CCS_Y`.
-4. Wire each board’s `J_PLANE` to plane lines \(8g .. 8g+7\) for its axis.
-5. No axis-PCB redesign; coverage PCB cell for 64×64 stays `stub` until this harness is an explicit gated claim ([coverage_matrix.md](coverage_matrix.md)).
+Full array is **17 PCBs**: **1** × `ccs_sense` + **16** × `axis_octal` (`1 + 2×8`). Same two copper designs as bring-up; only straps and harness change. No axis-PCB redesign.
+
+This section **describes** the 1+16 packaging contract. Coverage **PCB @ 64×64 stays `stub`** until a uniquely addressed 2×8 harness is an explicit gated claim ([coverage_matrix.md](coverage_matrix.md)). Bench / exact \(I_c\) / \(V_{drive}\) remain non-normative ([design_choices.md](design_choices.md)).
+
+### 7.1 Board roster (straps + CCS return + plane lines)
+
+| Board ID | Design | `JP_AXIS` | `JP_G` | `CCS_RET_AXIS` → | Plane lines \(L=8g..8g+7\) |
+|----------|--------|-----------|-------:|------------------|---------------------------|
+| `HOST` | `ccs_sense` | — | — | (sources `CCS_X` / `CCS_Y` / `CCS_INH`) | Sense via `J_PLANE_SENSE` only |
+| `X_g0` | `axis_octal` | X | 0 | `CCS_X` | `XA/XB0..7` |
+| `X_g1` | `axis_octal` | X | 1 | `CCS_X` | `XA/XB8..15` |
+| `X_g2` | `axis_octal` | X | 2 | `CCS_X` | `XA/XB16..23` |
+| `X_g3` | `axis_octal` | X | 3 | `CCS_X` | `XA/XB24..31` |
+| `X_g4` | `axis_octal` | X | 4 | `CCS_X` | `XA/XB32..39` |
+| `X_g5` | `axis_octal` | X | 5 | `CCS_X` | `XA/XB40..47` |
+| `X_g6` | `axis_octal` | X | 6 | `CCS_X` | `XA/XB48..55` |
+| `X_g7` | `axis_octal` | X | 7 | `CCS_X` | `XA/XB56..63` |
+| `Y_g0` | `axis_octal` | Y | 0 | `CCS_Y` | `YA/YB0..7` |
+| `Y_g1` | `axis_octal` | Y | 1 | `CCS_Y` | `YA/YB8..15` |
+| `Y_g2` | `axis_octal` | Y | 2 | `CCS_Y` | `YA/YB16..23` |
+| `Y_g3` | `axis_octal` | Y | 3 | `CCS_Y` | `YA/YB24..31` |
+| `Y_g4` | `axis_octal` | Y | 4 | `CCS_Y` | `YA/YB32..39` |
+| `Y_g5` | `axis_octal` | Y | 5 | `CCS_Y` | `YA/YB40..47` |
+| `Y_g6` | `axis_octal` | Y | 6 | `CCS_Y` | `YA/YB48..55` |
+| `Y_g7` | `axis_octal` | Y | 7 | `CCS_Y` | `YA/YB56..63` |
+
+Every `(axis, g)` pair appears once. `AXIS_ID0/1` stay optional and are **not** required for this roster.
+
+### 7.2 Harness topology (`J_BUS`)
+
+- **Full array (normative recommend):** **star** from host `J_BUS` to all sixteen axis receptacles (short equal-ish stubs). Keeps address/`VDRIVE` returns predictable under sixteen loads.
+- **Bring-up (8×8):** star or short daisy between host and the two `g=0` boards is acceptable (§6).
+- Keep high-current `VDRIVE` / `AGND_PWR` pairs short; treat long daisy chains as guidance to avoid, not a new electrical REQ.
+
+CCS return harness: every X board pin 14 → host `CCS_X`; every Y board pin 14 → host `CCS_Y`. `CCS_INH` stays on the host sense/inhibit path (not on axis `J_BUS` pin 14).
+
+### 7.3 Plane connector map
+
+For each axis board with group `g` and local index \(k=0..7\):
+
+| `J_PLANE` pin | Net on board | Plane net (X) | Plane net (Y) |
+|---------------|--------------|---------------|---------------|
+| A\(k\) | `A[k]` | `XA{L}` | `YA{L}` |
+| B\(k\) | `B[k]` | `XB{L}` | `YB{L}` |
+
+where \(L = 8\cdot g + k\). Sense/fold ends stay host-only: `J_PLANE_SENSE` → `YA65`, `YB66`, `YA66`, `YB65` (plus AGND return via bus/harness). They never appear on `axis_octal`.
+
+```text
+                    ┌─────────────────────────────────────┐
+                    │  ccs_sense (HOST ×1)                │
+  Pico / PIO ──────►│  ADDR, EN, VDRIVE, +3V3             │
+                    │  CCS_X / CCS_Y / CCS_INH            │
+                    │  sense + fold + write-back (DOUT)    │
+                    └──────────────┬──────────────────────┘
+                                   │ J_BUS (star @ 64×64)
+          ┌────────────────────────┼────────────────────────┐
+          ▼                        ▼                        ▼
+   X_g0 … X_g7 (8 boards)   Y_g0 … Y_g7 (8 boards)   = 16 axis
+          │                        │
+          └──────────► ferrite plane XA/XB / YA/YB 0..63
+                       + YA65/YB66 via HOST J_PLANE_SENSE
+```
+
+### 7.4 Assembly checklist
+
+1. Keep the **same** `ccs_sense` host — sole ADDR / `VDRIVE` / CCS / sense / write-back board.
+2. Populate and strap all sixteen axis boards per §7.1 (unique `(JP_AXIS, JP_G)`).
+3. Star `J_BUS` from host to all sixteen; wire CCS returns X→`CCS_X`, Y→`CCS_Y`.
+4. Wire each `J_PLANE` to the plane line range in the roster.
+5. Wire `J_PLANE_SENSE` once from host to plane YA/YB 65/66.
 
 ## 8. Generation
 

@@ -39,7 +39,7 @@ Instead:
 
 ## Prototype 2×2 before scaling lines
 
-Bring-up and L1/L2 prove a full READ → STROBE → INHIBIT → WRITE cycle on the **2×2** before trusting n×n SIL. Drive hierarchy targets 8-channel DMOS arrays; decode is one hierarchical page per axis (74AHC138 HS + 74AHC238 LS). KiCad paths are future targets—this repo is docs-bootstrap until generators and sheets exist. Scale gates: [system_design_spec.md](system_design_spec.md), [coverage_matrix.md](coverage_matrix.md).
+Bring-up and L1/L2 prove a full READ → STROBE → INHIBIT → WRITE cycle on the **2×2** before trusting n×n SIL. Drive hierarchy targets 8-channel DMOS arrays; decode is one hierarchical page per axis (74AHC138 HS + 74AHC238 LS). Fabric and multi-board KiCad are generated from AST/emitters ([AUTHORITY.md](AUTHORITY.md) Layer D); scale gates: [system_design_spec.md](system_design_spec.md), [coverage_matrix.md](coverage_matrix.md).
 
 ## Soft mid-bias and input clamps on sense
 
@@ -90,7 +90,7 @@ READ → strobe → inhibit → WRITE needs fixed delays on the order of hundred
 
 ## Multi-board packaging (one host + 2×8 axis)
 
-**One** `ccs_sense` host distributes address / `VDRIVE` / enables and owns CCS, sense/inhibit/fold, and write-back (`DOUT`). **Axis-octal** boards are identical copies: bring-up uses 1×X + 1×Y at `g=0` (three boards → 8×8); full 64×64 repeats to **2×8 = 16** axis boards with unique `JP_G` straps. Connector contract: [board_icd.md](board_icd.md). Electrical ABI unchanged ([hierarchy_abi.md](hierarchy_abi.md) **REQ-HIER-OCTAL**).
+**One** `ccs_sense` host distributes address / `VDRIVE` / enables and owns CCS, sense/inhibit/fold, and write-back (`DOUT`). **Axis-octal** boards are identical copies: bring-up uses 1×X + 1×Y at `g=0` (three boards → 8×8); full 64×64 repeats to **2×8 = 16** axis boards with unique `JP_G` straps. Full roster / harness: [board_icd.md](board_icd.md) §7. Electrical ABI unchanged ([hierarchy_abi.md](hierarchy_abi.md) **REQ-HIER-OCTAL**).
 
 ## Decisions still open
 

@@ -1,0 +1,27 @@
+MPN,Role,Package,Board,Qty_per_board,Bringup_1ccs_2axis,Full_1ccs_16axis,Notes
+TL431,CCS Vref,SOT-23,ccs_sense,3,3,3,One per CCS_X/Y/INH
+3296W-10k,CCS trimpot,3296W,ccs_sense,3,3,3,RTRIM_X/Y/INH
+OPA192,CCS error amp,SOIC-8,ccs_sense,3,3,3,
+IRLZ44N,CCS throttle MOSFET,TO-220/DPAK,ccs_sense,3,3,3,Alternate AOD4184
+1R0-1pct-2W,CCS sense resistor,2512,ccs_sense,3,3,3,
+BAT54S,Sense clamp,SOT-23,ccs_sense,1,1,1,
+TLV3501,Sense comparator,SOT-23-5,ccs_sense,1,1,1,
+74AHC74,Write-back latch,SOIC-14,ccs_sense,1,1,1,DOUT
+R-1k,Sense isolation,0805,ccs_sense,2,2,2,
+R-10k,SENSE_FOLD bias,0805,ccs_sense,1,1,1,
+PinHeader-1x16,J_BUS host,2.54mm TH,ccs_sense,1,1,1,
+PinHeader-1x04,J_PLANE_SENSE,2.54mm TH,ccs_sense,1,1,1,
+PinHeader-1x03,J_PICO timing,2.54mm TH,ccs_sense,1,1,1,PCB subset; ADDR on J_BUS
+PinHeader-1x01,J_CCS_X/Y/INH,2.54mm TH,ccs_sense,3,3,3,
+Raspberry-Pi-Pico-H,PIO timing,,ccs_sense,1,1,1,Packaging open
+Keystone-5000,Test points,loop TH,ccs_sense,3,3,3,STROBE/DOUT/Isense
+74AHC138,HS decode FWD+REV,SOIC-16,axis_octal,2,4,32,Per axis board
+74AHC238,LS decode FWD+REV,SOIC-16,axis_octal,2,4,32,Per axis board
+TBD62783,HS DMOS FWD+REV,SOIC-18,axis_octal,2,4,32,1/8 channels used per group
+TBD62083,LS DMOS FWD+REV,SOIC-18,axis_octal,2,4,32,8/8 channels used
+SS14,Steer Schottky,SMA,axis_octal,32,64,512,4 diodes x 8 lines
+R-10k,Fail-safe EN pulls,0805,axis_octal,3,6,48,FWD/REV pull-up + DEC pull-down
+PinHeader-1x16,J_BUS,2.54mm TH,axis_octal,1,2,16,
+PinHeader-1x16,J_PLANE,2.54mm TH,axis_octal,1,2,16,A/B 0..7
+PinHeader-1x02,JP_AXIS,2.54mm TH,axis_octal,1,2,16,
+PinHeader-1x03,JP_G,2.54mm TH,axis_octal,1,2,16,g=0..7 strap

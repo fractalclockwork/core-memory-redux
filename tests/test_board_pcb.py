@@ -44,20 +44,58 @@ def test_axis_steer_pin_budget():
 
 def test_ccs_trims_and_sense_not_on_axis(tmp_path: Path):
     axis = emit_board("axis", kicad_root=tmp_path)
-    sch = (axis / "axis_octal.kicad_sch").read_text(encoding="utf-8")
+    sch = (axis / "pcb_axis_octal.kicad_sch").read_text(encoding="utf-8")
     for net in SENSE_NETS:
         assert net not in sch, f"sense net {net} must not appear on axis board"
     for trim in CCS_TRIM_REFS:
         assert trim not in sch
 
     ccs = emit_board("ccs", kicad_root=tmp_path)
-    csch = (ccs / "ccs_sense.kicad_sch").read_text(encoding="utf-8")
+    csch = (ccs / "pcb_ccs_sense.kicad_sch").read_text(encoding="utf-8")
     for trim in CCS_TRIM_REFS:
         assert trim in csch
     assert "SENSE_FOLD" in csch
     assert "Rfold" in csch
     for net in ("YA65", "YB66", "YA66", "YB65"):
         assert net in csch
+
+
+def test_bom_parts_placed_on_sch_and_pcb(tmp_path: Path):
+    ccs = emit_board("ccs", kicad_root=tmp_path)
+    axis = emit_board("axis", kicad_root=tmp_path)
+    csch = (ccs / "pcb_ccs_sense.kicad_sch").read_text(encoding="utf-8")
+    asch = (axis / "pcb_axis_octal.kicad_sch").read_text(encoding="utf-8")
+    cpcb = (ccs / "pcb_ccs_sense.kicad_pcb").read_text(encoding="utf-8")
+    apcb = (axis / "pcb_axis_octal.kicad_pcb").read_text(encoding="utf-8")
+
+    for token in (
+        "TL431",
+        "OPA192",
+        "IRLZ44N",
+        "BAT54S",
+        "TLV3501",
+        "74AHC74",
+        "RTRIM_X",
+        "U_OA_X",
+        "J_PICO_HDR",
+    ):
+        assert token in csch, token
+        assert token in cpcb or token.replace("U_OA_X", "OPA192") in cpcb
+
+    for token in (
+        "74AHC138",
+        "74AHC238",
+        "TBD62783",
+        "TBD62083",
+        "U_HS_FWD",
+        "U_DMOS_LS_FWD",
+        "SS14",
+    ):
+        assert token in asch, token
+    assert apcb.count("Diode_SMD:D_SMA") == 32
+    assert "SOIC-18W" in apcb
+    assert "TO-220-3_Vertical" in cpcb
+    assert "Potentiometer_Bourns_3296W" in cpcb
 
 
 def test_emit_board_manifests(tmp_path: Path):
@@ -93,7 +131,7 @@ def test_pcb_one_pad_per_net(tmp_path: Path):
 
 @pytest.mark.parametrize(
     "project,stem",
-    [("pcb_ccs_sense", "ccs_sense"), ("pcb_axis_octal", "axis_octal")],
+    [("pcb_ccs_sense", "pcb_ccs_sense"), ("pcb_axis_octal", "pcb_axis_octal")],
 )
 def test_board_erc_drc(project: str, stem: str):
     board = "ccs" if project == "pcb_ccs_sense" else "axis"

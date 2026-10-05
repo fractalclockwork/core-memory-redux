@@ -87,12 +87,13 @@ Plane hookup: `XA*`/`XB*`/`YA*`/`YB*` 0…63 through steer tiles to buses. Sense
 * **Center tap:** `YA66`═`YB65`, 10 kΩ→AGND. The plane does not join the loops.
 * **Outer ends:** `YA65` / `YB66` for differential READ and series inhibit.
 
-The real plane’s geographic sense split may still need tracing; the checkerboard rule above is the schematic stand-in until the weave AST is frozen.
+The real plane’s geographic sense split may still need tracing; the checkerboard rule above is the schematic stand-in. Weave AST geometry SSOT: [`generators/mce_array.py`](../generators/mce_array.py).
 
-## Not implemented yet (redux)
+## Still deferred (not SSOT status)
 
-- KiCad / SPICE / firmware trees in this repository
-- Octal steer tile generators ([hierarchy_abi.md](hierarchy_abi.md))
-- RP2040 PIO program / SIL
-- Decoder / DOUT LEDs
+This sketch must not override owners. Remaining gaps vs the gated tree:
+
+- RP2040 PIO firmware (L3 SIL uses *synthetic* PIO stimuli today)
+- Decoder / DOUT LEDs (optional; [design_choices.md](design_choices.md))
 - Bench calibration of \(I_c\), inhibit polarity, weave L/DCR
+- 64×64 PCB harness claim (1+16 layout is documented in [board_icd.md](board_icd.md) §7; coverage PCB cell stays `stub`)

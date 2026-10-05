@@ -1,0 +1,147 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-04T17:52:43",
+    "ignored_checks": [
+        {
+            "description": "Global label only appears once in the schematic",
+            "key": "single_global_label"
+        },
+        {
+            "description": "Four connection points are joined together",
+            "key": "four_way_junction"
+        },
+        {
+            "description": "SPICE model issue",
+            "key": "simulation_model_issue"
+        },
+        {
+            "description": "Assigned footprint doesn't match footprint filters",
+            "key": "footprint_filter"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.6",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3",
+            "violations": []
+        },
+        {
+            "path": "/magnetic_plane/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/429197c0-5649-52d0-a20a-53d9c7787696",
+            "violations": []
+        },
+        {
+            "path": "/dmos_ls_array/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/7d3f1ea6-6ebb-58e8-9172-430cded2386a",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_X_g0/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/6bb91898-b8c4-5f7e-8aad-996ca59cbc85",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_X_g6/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/649c5743-e25b-5c06-9daf-1d3b77337db6",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_Y_g4/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/c1971fbb-784f-5226-ad9b-89b3fbe6e2cc",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_X_g1/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/788c85ed-bc42-5096-b49e-56bd62cb87a3",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_X_g7/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/23ebc548-09d0-57d7-9566-bb3db271b8d3",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_Y_g5/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/ff0b0296-ba4a-534e-92ab-07d38fdec51d",
+            "violations": []
+        },
+        {
+            "path": "/sense_front_end/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/ca531758-4c87-5a30-8839-7db4f455b59c",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_X_g2/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/97c1d0be-d877-57ed-9925-a7c8fa47c608",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_Y_g0/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/cf44cf88-66ab-56f9-be8b-6573a921bd57",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_Y_g6/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/76e4c041-2cfa-59f4-8eba-981e4abaa7f9",
+            "violations": []
+        },
+        {
+            "path": "/ccs_channel/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/c9384543-34dd-5cdd-bab3-5895936e59c1",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_X_g3/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/4ca6088c-c3c3-5d63-bdeb-ef10933c6d42",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_Y_g1/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/005e0082-714e-5550-911d-0675faf28a18",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_Y_g7/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/a5ac3ec5-a972-525a-a98d-05cec814c7f8",
+            "violations": []
+        },
+        {
+            "path": "/decode_block/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/b4752c73-3fc4-5ead-988e-ad5e6d722eeb",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_X_g4/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/d04503c3-8ea8-5568-9fd0-2742ca2bedc6",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_Y_g2/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/221ac6e5-3df8-556d-b14e-e6e3811248ce",
+            "violations": []
+        },
+        {
+            "path": "/dmos_hs_array/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/7bfaaf97-bf66-56cc-b80e-5b896071993e",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_X_g5/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/ec5aae54-36ac-588a-8038-cdc8675a3242",
+            "violations": []
+        },
+        {
+            "path": "/steer_octal_Y_g3/",
+            "uuid_path": "/73e4d6eb-6c20-5608-aab2-d8d9662b3cc3/b028ee5f-5d7b-5abd-9916-0a7ac549a501",
+            "violations": []
+        }
+    ],
+    "source": "driver.kicad_sch"
+}

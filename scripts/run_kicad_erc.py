@@ -21,6 +21,9 @@ def _env() -> dict[str, str]:
     env = os.environ.copy()
     CONFIG_HOME.mkdir(parents=True, exist_ok=True)
     env["XDG_CONFIG_HOME"] = str(CONFIG_HOME)
+    # KiCad 10 lib tables still expand KICAD7_* path vars on some hosts.
+    env.setdefault("KICAD7_SYMBOL_DIR", "/usr/share/kicad/symbols")
+    env.setdefault("KICAD7_FOOTPRINT_DIR", "/usr/share/kicad/footprints")
     return env
 
 

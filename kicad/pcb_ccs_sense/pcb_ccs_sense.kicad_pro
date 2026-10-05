@@ -24,6 +24,9 @@
       "version": 0
     }
   },
+  "pcbnew": {
+    "page_layout_descr_file": ""
+  },
   "schematic": {
     "meta": {
       "version": 1
@@ -33,7 +36,7 @@
   },
   "sheets": [
     [
-      "1d78920a-a8d3-5903-8a3f-5d5add2b737c",
+      "2d128da6-4e2b-5b03-bb8c-488612fc0967",
       "Root"
     ]
   ],

@@ -46,7 +46,7 @@
     "PIO_STROBE"
   ],
   "role": "CCS + sense + power/bus distribution",
-  "root_sch": "ccs_sense.kicad_sch",
+  "root_sch": "pcb_ccs_sense.kicad_sch",
   "sense_nets": [
     "SENSE_FOLD",
     "YA65",

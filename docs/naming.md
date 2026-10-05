@@ -56,10 +56,27 @@ Examples: `XA0`, `XB0`, `YA17`, `YB63`. Physical contact number = \(n+1\).
 | Class | Nets |
 |-------|------|
 | Enables | `FWD_EN_n`, `REV_EN_n`, `INH_EN_n`, `DEC_EN` |
-| Analog / power | `VDRIVE`, `CCS_X`, `CCS_Y`, `CCS_INH`, `SENSE_P`, `SENSE_N`, `AGND`, `+3V3`, `+5V` |
+| Analog / power | `VDRIVE`, `CCS_X`, `CCS_Y`, `CCS_INH`, `AGND`, `+3V3` |
 | Sense / fold (not Drive/Decode hierarchy) | `YA65`, `YB65`, `YA66`, `YB66`, `SENSE_FOLD` |
 
 Fold model: two independent loops `YA65`↔`YA66` and `YB65`↔`YB66`. The plane does not join them. Schematic center-tap node is **`SENSE_FOLD`**: `YA66` tied to `YB65`, soft ground 10 kΩ→AGND. Outer ends: `YA65` / `YB66`. See [theory_of_operation.md](theory_of_operation.md).
+
+Historical aliases (do not invent new uses): `SENSE_P` / `SENSE_N` mean the differential outer ends **`YA65` / `YB66`**. `+5V` is not part of the multi-board host/`J_BUS` rail set (`+3V3` + `VDRIVE` only).
+
+### 4.1 PCB / control-bus layer
+
+Multi-board packaging nets ([board_icd.md](board_icd.md)); pin tables stay there — this section only names the grammar bridge.
+
+| Board / bus net | Role | Fabric / ICD alias |
+|-----------------|------|--------------------|
+| `ADDR_NH0..2` | HS / group address on `J_BUS` | Same bits as hierarchical `ADDR_NH[2:0]` (parent `ADDR_XH*` / `ADDR_YH*`) |
+| `ADDR_NL0..2` | LS address on `J_BUS` | Same bits as hierarchical `ADDR_NL[2:0]` (parent `ADDR_XL*` / `ADDR_YL*`) |
+| `CCS_RET_AXIS` | Axis board CCS return (harness → `CCS_X` or `CCS_Y`) | Not a fabric hierarchical pin |
+| `DOUT` | Write-back latch output (host only) | Host sense path |
+| `SENSE_STROBE` / `PIO_STROBE` | Strobe into sense latch (host / Pico) | Timing aperture |
+| `INH_POL_SEL` / `JP_INH_POL` | Inhibit polarity board select (host) | [design_choices.md](design_choices.md) |
+| `AXIS_ID0/1` | Optional ID straps | Not required for 1+16 roster |
+| `JP_AXIS`, `JP_G[2:0]` | Axis and group straps on each `axis_octal` | Select method: [board_icd.md](board_icd.md) §5.1 |
 
 ## 5. Hierarchical block ABI (reusable sheets)
 
@@ -124,17 +141,17 @@ flowchart LR
 3. **Scale with buses** — root uses KiCad buses such as `X_HS[0..7]_n`, `X_LS[0..7]_en`, and `XA[0..63]` so the top sheet stays thick vectors, not hundreds of stubs.
 4. **PCB multiplier** — route one DMOS/steer tile cleanly, then **Replicate Layout** for the remaining groups. Hierarchy makes instance membership unambiguous for the plugin.
 
-## 7. Scale roadmap (target)
+## 7. Scale roadmap (as-gated)
 
-Written as **target** for this rewrite—not as-built status.
+Aligned with [coverage_matrix.md](coverage_matrix.md) and [AUTHORITY.md](AUTHORITY.md) Layer D — not a future-only sketch.
 
 | Step | Schematic | SPICE / SIL | PCB |
 |------|-----------|-------------|-----|
-| Near-term | 4× `decode_block`, DMOS 8-ch arrays, octal steer tiles (or temporary small-N fixture) | L0–L2 on 2×2; L3 ideal n×n | Single tile layout |
-| Next | Buses on root; drop any monolithic steer experiment | PIO SIL on ideal plant | Replicate tiles |
-| Later | Full generated fabric from AST | Bench-calibrated L0/L3 | Full layout |
+| Done | 4× `decode_block`, DMOS 8-ch arrays, octal steer tiles; fabric AST → KiCad (`bringup_2x2`, `driver_64x64`) | L0–L2 on 2×2; L3 ideal n×n | Single-board emit: `pcb_ccs_sense` + `pcb_axis_octal` (8×8 bring-up ERC/DRC) |
+| Next | Buses on root (already preferred ABI) | PIO firmware on ideal plant (still deferred) | Replicate layout; gate 1+16 harness before 64×64 PCB claim |
+| Later | — | Bench-calibrated L0/L3 | Full 1+16 harness + fab |
 
-Layer contracts: [system_design_spec.md](system_design_spec.md). Coverage: [coverage_matrix.md](coverage_matrix.md).
+Layer contracts: [system_design_spec.md](system_design_spec.md). Multi-board roster: [board_icd.md](board_icd.md) §7.
 
 ## 8. What never enters the Drive/Decode chain
 

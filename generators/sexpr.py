@@ -63,6 +63,26 @@ _BARE_ATOMS = frozenset(
         "Dwgs.User",
         "Cmts.User",
         "Margin",
+        # fp_text types (must be bare; quoted breaks pcbnew load)
+        "reference",
+        "value",
+        "hide",
+        "locked",
+        # stock symbol fill / pin style tokens
+        "background",
+        "outline",
+        "italic",
+        "bold",
+        "open_emitter",
+        "open_collector",
+        "unspecified",
+        "free",
+        "inverted_clock",
+        "input_low",
+        "clock_low",
+        "output_low",
+        "edge_clock_high",
+        "non_logic",
     }
 )
 
@@ -117,3 +137,68 @@ def render(node: Any, indent: int = 0) -> str:
 def write_sexpr(path: Path, root: list) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(render(root) + "\n", encoding="utf-8")
+
+
+def parse_sexpr(text: str) -> Any:
+    """Minimal KiCad sexpr parser → nested lists (atoms as str/int/float)."""
+    tokens: list[str] = []
+    i, n = 0, len(text)
+    while i < n:
+        c = text[i]
+        if c in " \t\r\n":
+            i += 1
+            continue
+        if c in "()":
+            tokens.append(c)
+            i += 1
+            continue
+        if c == '"':
+            j = i + 1
+            buf: list[str] = []
+            while j < n:
+                if text[j] == "\\" and j + 1 < n:
+                    buf.append(text[j + 1])
+                    j += 2
+                    continue
+                if text[j] == '"':
+                    break
+                buf.append(text[j])
+                j += 1
+            tokens.append('"' + "".join(buf) + '"')
+            i = j + 1
+            continue
+        j = i
+        while j < n and text[j] not in " \t\r\n()":
+            j += 1
+        tokens.append(text[i:j])
+        i = j
+
+    def atom_token(tok: str) -> Any:
+        if tok.startswith('"') and tok.endswith('"'):
+            return tok[1:-1]
+        if tok in ("yes", "true"):
+            return True
+        if tok in ("no", "false"):
+            return False
+        try:
+            if "." in tok or "e" in tok.lower():
+                return float(tok)
+            return int(tok)
+        except ValueError:
+            return tok
+
+    def read(idx: int) -> tuple[Any, int]:
+        tok = tokens[idx]
+        if tok == "(":
+            out: list[Any] = []
+            idx += 1
+            while tokens[idx] != ")":
+                val, idx = read(idx)
+                out.append(val)
+            return out, idx + 1
+        if tok == ")":
+            raise ValueError("unexpected )")
+        return atom_token(tok), idx + 1
+
+    tree, _ = read(0)
+    return tree

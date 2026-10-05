@@ -22,7 +22,7 @@ This is a rewrite of [`fractalclockwork/core-memory`](https://github.com/fractal
 
 ## Record
 
-[writeup/essay.md](writeup/essay.md) is a narrative snapshot of the method and the L0–L3 runs, written as ordinary prose. It is not part of the SSOT. If it disagrees with an owner doc or the coverage matrix, those win.
+[writeup/essay.md](writeup/essay.md) is a narrative snapshot of the method, the L0–L3 runs, and the L4 fabric and boards, written as ordinary prose. It is not part of the SSOT. If it disagrees with an owner doc or the coverage matrix, those win.
 
 ## Target architecture (snapshot)
 
@@ -32,6 +32,7 @@ Non-authoritative summary — edit owners, not this list:
 - **Drive path (DMOS):** [docs/component_selection.md](docs/component_selection.md) (`REQ-DRV-DMOS`)
 - **Naming / decode call model:** [docs/naming.md](docs/naming.md) (`REQ-NAME-GATE`)
 - **L4 fabric / pin budgets:** [docs/hierarchy_abi.md](docs/hierarchy_abi.md) (`REQ-HIER-OCTAL`)
+- **Multi-board PCB (1 + 2×8):** [docs/board_icd.md](docs/board_icd.md) §7
 - **Anti-explosion / L0–L4:** [docs/system_design_spec.md](docs/system_design_spec.md) (`REQ-SCALE-ANTIX`, `GATE-L*`)
 - **Scale validation claims:** [docs/coverage_matrix.md](docs/coverage_matrix.md) only
 
@@ -39,7 +40,7 @@ Non-authoritative summary — edit owners, not this list:
 
 **Open technical decisions** (`open`): [docs/design_choices.md](docs/design_choices.md) — exact \(I_c\) / \(I_c/2\); \(V_{drive}\); inhibit polarity vs READ; Pico packaging; CCS MOSFET alternate; diagnostic LEDs.
 
-**Deferred:** datasheet/appnote PDF tree; fab/harness of full 2×8 axis boards for 64×64; MCU firmware / real PIO bridging.
+**Deferred:** datasheet/appnote PDF tree; gated 64×64 PCB harness (1+16 layout described in [board_icd.md](docs/board_icd.md) §7); MCU firmware / real PIO bridging.
 
 ## Phased implementation / simulation / validation loop
 
@@ -76,7 +77,7 @@ Detail and gate IDs: [docs/system_design_spec.md](docs/system_design_spec.md). L
 
 ## Dev-host tooling
 
-Ubuntu apt packages and the `uv` Python environment: [docs/dev_host_setup.md](docs/dev_host_setup.md). Host stack: Python (`uv`), ngspice / PySpice; KiCad optional later. RP2040 SDK is deferred (not current host setup).
+Ubuntu apt packages and the `uv` Python environment: [docs/dev_host_setup.md](docs/dev_host_setup.md). Host stack: Python (`uv`), ngspice / PySpice, and KiCad 10.0.6 (`kicad-cli`) for L4 fabric ERC and multi-board ERC/DRC. RP2040 SDK is deferred (not current host setup).
 
 ## Upstream and non-goals
 
