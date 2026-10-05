@@ -8,12 +8,12 @@ Scale claims in this repository require an explicit row: which surfaces are vali
 
 Legend: `—` not claimed; `stub` planned; `pass` gated green; `fail` known red. Gate IDs: **GATE-L0-PHYSICS**, **GATE-L1-CYCLE**, **GATE-L2-E2E**, **GATE-L3-SIL**, **GATE-L4-FABRIC**.
 
-| Scale \(N\) | Schematic | SPICE (L0/L1/L2) | SIL (L3) | Bench |
-|-------------|:---------:|:----------------:|:--------:|:-----:|
-| 1 (single core) | — | pass (**GATE-L0-PHYSICS**) | — | — |
-| 2×2 | stub | pass (**GATE-L1-CYCLE**, **GATE-L2-E2E**) | — | stub |
-| 8×8 | — | — | pass (**GATE-L3-SIL**) | — |
-| 64×64 | stub (L4 tiled) | — (no Chan at n=64) | pass (**GATE-L3-SIL**) | — |
+| Scale \(N\) | Schematic | PCB | SPICE (L0/L1/L2) | SIL (L3) | Bench |
+|-------------|:---------:|:---:|:----------------:|:--------:|:-----:|
+| 1 (single core) | — | — | pass (**GATE-L0-PHYSICS**) | — | — |
+| 2×2 | pass (**GATE-L4-FABRIC** bring-up) | — | pass (**GATE-L1-CYCLE**, **GATE-L2-E2E**) | — | stub |
+| 8×8 | — | pass (1× ccs_sense host + 2× axis_octal ERC/DRC) | — | pass (**GATE-L3-SIL**) | stub |
+| 64×64 | pass (**GATE-L4-FABRIC**) | stub (same host + 2×8 uniquely addressed axis boards; not claimed) | — (no Chan at n=64) | pass (**GATE-L3-SIL**) | — |
 
 L0 evidence: `uv run pytest tests/test_l0_physics.py` (or `uv run python scripts/run_gate.py GATE-L0-PHYSICS`); model [`spice/models/chan_core.lib`](../spice/models/chan_core.lib), deck [`spice/l0/single_core.cir`](../spice/l0/single_core.cir).
 
@@ -23,9 +23,14 @@ L2 evidence: `uv run pytest tests/test_l2_e2e.py` (or `uv run python scripts/run
 
 L3 evidence: `uv run pytest tests/test_l3_sil.py` (or `uv run python scripts/run_gate.py GATE-L3-SIL`); behavioral `ideal_core` + line R/L/C plant [`spice/py/l3_plant.py`](../spice/py/l3_plant.py); synthetic PIO harness [`spice/py/l3_harness.py`](../spice/py/l3_harness.py); diagonal + random sparse at n=8 and n=64 (no Chan).
 
+L4 evidence: `uv run pytest tests/test_l4_fabric.py` (or `uv run python scripts/run_gate.py GATE-L4-FABRIC`); AST [`generators/mce_array.py`](../generators/mce_array.py); emit [`generators/emit_kicad.py`](../generators/emit_kicad.py) → [`kicad/bringup_2x2/`](../kicad/bringup_2x2/), [`kicad/driver_64x64/`](../kicad/driver_64x64/); ERC via `kicad-cli` 10.0.6 (`scripts/run_kicad_erc.py`).
+
+Multi-board PCB: [`docs/board_icd.md`](board_icd.md) — **one** host distributes ADDR/`VDRIVE` and owns CCS/sense/write-back; axis-octal repeats (**2** @ 8×8 bring-up, **2×8** @ 64×64 with unique `g`). Emit `uv run python -m generators.cli --board ccs|axis` → [`kicad/pcb_ccs_sense/`](../kicad/pcb_ccs_sense/), [`kicad/pcb_axis_octal/`](../kicad/pcb_axis_octal/); `uv run pytest tests/test_board_pcb.py` / `scripts/run_kicad_board.py`. Bench stays `stub` until fab. Do **not** claim 64×64 PCB `pass` until the 2×8 harness is gated.
+
 Surfaces mean:
 
 * **Schematic** — generated or hand-reviewed KiCad at that N (L4 prefers octal tiles / buses; see [hierarchy_abi.md](hierarchy_abi.md)).
+* **PCB** — multi-board layouts (CCS+sense + axis-octal) with `kicad-cli` ERC/DRC error-clean; see [board_icd.md](board_icd.md).
 * **SPICE** — L0 physics, L1 oracle, and/or L2 driver BOM decks at that N (L1/L2 stay at 2×2).
 * **SIL** — L3 ideal plant + PIO/decode stimuli.
 * **Bench** — physical measurements on the plane or fixture.

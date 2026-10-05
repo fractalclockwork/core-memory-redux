@@ -19,4 +19,4 @@ writeup = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["spice/py"]
+pythonpath = ["spice/py", "."]

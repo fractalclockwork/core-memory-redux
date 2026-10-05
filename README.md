@@ -16,9 +16,9 @@ This is a rewrite of [`fractalclockwork/core-memory`](https://github.com/fractal
 
 ## Status
 
-**Docs + L0–L2 SPICE + L3 ideal SIL (Phase 4).** Design contracts live under [`docs/`](docs/). L0–L2 SPICE, L3 `ideal_core` SIL, and gate tests live under [`spice/`](spice/) / [`tests/`](tests/) (`GATE-L0-PHYSICS` … `GATE-L3-SIL` → [coverage_matrix.md](docs/coverage_matrix.md)). No KiCad, generators, or firmware yet. Claims outside the coverage matrix are *normative target* / `baseline`, not as-built hardware.
+**Docs + L0–L3 sim/SIL + L4 fabric KiCad + multi-board PCB (Phase 5+).** Design contracts live under [`docs/`](docs/). Gates `GATE-L0-PHYSICS` … `GATE-L4-FABRIC` → [coverage_matrix.md](docs/coverage_matrix.md). Generators: [`generators/`](generators/) → [`kicad/`](kicad/) (KiCad **10.0.6**), including `pcb_ccs_sense` + `pcb_axis_octal` ([board_icd.md](docs/board_icd.md)). No firmware / bench fab yet. Claims outside the coverage matrix are *normative target* / `baseline`, not as-built hardware.
 
-**SSOT:** layered authority — one owner per fact category ([docs/AUTHORITY.md](docs/AUTHORITY.md)). Normative definition: [docs/system_design_spec.md](docs/system_design_spec.md) §1. Machine geometry SSOT (weave AST) is planned, not present.
+**SSOT:** layered authority — one owner per fact category ([docs/AUTHORITY.md](docs/AUTHORITY.md)). Normative definition: [docs/system_design_spec.md](docs/system_design_spec.md) §1. Weave/fabric geometry SSOT: [`generators/mce_array.py`](generators/mce_array.py).
 
 ## Record
 
@@ -39,7 +39,7 @@ Non-authoritative summary — edit owners, not this list:
 
 **Open technical decisions** (`open`): [docs/design_choices.md](docs/design_choices.md) — exact \(I_c\) / \(I_c/2\); \(V_{drive}\); inhibit polarity vs READ; Pico packaging; CCS MOSFET alternate; diagnostic LEDs.
 
-**Deferred:** datasheet/appnote PDF tree; full evidence pack; generators; KiCad; MCU firmware / real PIO bridging.
+**Deferred:** datasheet/appnote PDF tree; fab/harness of full 2×8 axis boards for 64×64; MCU firmware / real PIO bridging.
 
 ## Phased implementation / simulation / validation loop
 
@@ -52,7 +52,7 @@ Detail and gate IDs: [docs/system_design_spec.md](docs/system_design_spec.md). L
 | **2** | L1 — 2×2 oracle array | `GATE-L1-CYCLE` — [coverage pass](docs/coverage_matrix.md); `uv run python scripts/run_gate.py GATE-L1-CYCLE` |
 | **3** | L2 — driver fidelity | `GATE-L2-E2E` — [coverage pass](docs/coverage_matrix.md); `uv run python scripts/run_gate.py GATE-L2-E2E` |
 | **4** | L3 — ideal \(N \times N\) SIL | `GATE-L3-SIL` — [coverage pass](docs/coverage_matrix.md); `uv run python scripts/run_gate.py GATE-L3-SIL` |
-| **5** | L4 — hardware fabric | `GATE-L4-FABRIC`; octal tiles + buses |
+| **5** | L4 — hardware fabric | `GATE-L4-FABRIC` — [coverage pass](docs/coverage_matrix.md); `uv run python scripts/run_gate.py GATE-L4-FABRIC` |
 | **6** | Bench bring-up | 2×2 first; characterize \(I_c\) |
 
 ## Documentation map
@@ -67,7 +67,8 @@ Detail and gate IDs: [docs/system_design_spec.md](docs/system_design_spec.md). L
 | [docs/component_selection.md](docs/component_selection.md) | BOM (DMOS pivot) | `baseline` |
 | [docs/naming.md](docs/naming.md) | Net grammar, hierarchy-as-call | `baseline` |
 | [docs/hierarchy_abi.md](docs/hierarchy_abi.md) | Steer/magnetic pin budgets | `baseline` |
-| [docs/coverage_matrix.md](docs/coverage_matrix.md) | Scale × surface claims | `baseline` (L0–L2 SPICE + L3 SIL `pass`) |
+| [docs/board_icd.md](docs/board_icd.md) | Multi-board CCS + axis-octal connectors | `baseline` |
+| [docs/coverage_matrix.md](docs/coverage_matrix.md) | Scale × surface claims | `baseline` (L0–L4 + 8×8 PCB `pass`) |
 | [docs/implementation_summary.md](docs/implementation_summary.md) | Block architecture sketch | `sketch` |
 | [docs/theory_of_operation.md](docs/theory_of_operation.md) | Teaching summary | `sketch` |
 | [docs/references.md](docs/references.md) | Citation placeholders | `sketch` |

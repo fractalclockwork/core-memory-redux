@@ -15,6 +15,7 @@ GATE_TESTS = {
     "GATE-L1-CYCLE": ["tests/test_l1_cycle.py"],
     "GATE-L2-E2E": ["tests/test_l2_e2e.py"],
     "GATE-L3-SIL": ["tests/test_l3_sil.py"],
+    "GATE-L4-FABRIC": ["tests/test_l4_fabric.py"],
 }
 
 

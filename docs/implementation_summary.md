@@ -3,7 +3,7 @@
 **Status:** `sketch` (non-authoritative)  
 **Must not override** owners in [AUTHORITY.md](AUTHORITY.md).
 
-Intended hierarchical fabric for the driver once generators and KiCad exist. **Not present state**—this repository is docs-bootstrap; there is no `kicad/` tree here yet.
+Intended hierarchical fabric sketch. Generated KiCad lives under [`kicad/`](../kicad/) from [`generators/`](../generators/) (**GATE-L4-FABRIC**); this file remains non-authoritative.
 
 Normative contracts: [system_design_spec.md](system_design_spec.md). Naming / ABI: [naming.md](naming.md). Pin budgets: [hierarchy_abi.md](hierarchy_abi.md). BOM: [component_selection.md](component_selection.md). Coverage: [coverage_matrix.md](coverage_matrix.md).
 

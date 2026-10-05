@@ -1,0 +1,38 @@
+{
+  "decode_calls": 4,
+  "diodes": 16,
+  "fold": {
+    "SOFT_BIAS": "R_SENSE_FOLD_10k",
+    "YA65": "YA65",
+    "YA66": "SENSE_FOLD",
+    "YB65": "SENSE_FOLD",
+    "YB66": "YB66"
+  },
+  "groups": [
+    0
+  ],
+  "n": 2,
+  "octal_pin_count": 34,
+  "octal_tiles": 2,
+  "project": "bringup_2x2",
+  "root": "driver.kicad_sch",
+  "sense_disjoint": true,
+  "sheets": [
+    "ccs_channel",
+    "decode_block",
+    "dmos_hs_array",
+    "dmos_ls_array",
+    "magnetic_plane",
+    "sense_front_end",
+    "steer_octal_X_g0",
+    "steer_octal_Y_g0"
+  ],
+  "tune_points": [
+    "CCS_X_TRIM",
+    "CCS_Y_TRIM",
+    "CCS_INH_TRIM",
+    "VDRIVE",
+    "INH_POL_SEL",
+    "PIO_STROBE"
+  ]
+}

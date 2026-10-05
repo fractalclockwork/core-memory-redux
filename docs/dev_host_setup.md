@@ -4,7 +4,7 @@
 **Owns:** Ubuntu apt + `uv` install steps for the planned SIL/generator host  
 **Does not own:** ICD, BOM, timing, or fabric ABI — see [AUTHORITY.md](AUTHORITY.md)
 
-This repository is **docs-bootstrap**: generators, KiCad trees, and SPICE decks are not in-tree yet. The steps below install the **host baseline** so that work can start without inventing ad-hoc environments.
+The steps below install the **host baseline** for L0–L3 sim/SIL and L4 schematic fabric (`kicad-cli` ERC). Design contracts stay under [`docs/`](./); do not invent ad-hoc environments.
 
 **Target OS:** Ubuntu 22.04 / 24.04 (package names below match both unless noted).
 
@@ -63,22 +63,74 @@ on stderr; PySpice 1.5 treats any non-`Warning:` stderr as fatal
 `scripts/check_pyspice.py` ignores that informational line and verifies a
 real transient.
 
-`uv sync` creates `.venv` from [`pyproject.toml`](../pyproject.toml) and the committed `uv.lock`. L0–L3 sim/SIL modules live under `spice/`; generators and KiCad are **not present yet**.
+`uv sync` creates `.venv` from [`pyproject.toml`](../pyproject.toml) and the committed `uv.lock`. L0–L3 modules live under `spice/`; L4 fabric generators under `generators/` emit into `kicad/`.
 
-## 4. Optional later: KiCad
+## 4. KiCad 10.0.6 (required for GATE-L4-FABRIC)
 
-Not required for Phase 0–2 SIL. Install when starting L4 schematic fabric work:
+KiCad is **not** required for L0–L3 PySpice gates. It **is** required to emit/check L4 hierarchical schematics (`kicad-cli sch erc`).
+
+**Pinned host version:** **10.0.6** (current stable). Use the official [KiCad 10.0 releases PPA](https://launchpad.net/~kicad/+archive/ubuntu/kicad-10.0-releases) — do **not** rely on the Ubuntu universe package (often years behind on 22.04/24.04). Upstream install notes: [kicad.org/download/ubuntu](https://www.kicad.org/download/details/ubuntu/).
+
+### Install (official 10.0 PPA)
 
 ```bash
-sudo apt install -y kicad
+sudo add-apt-repository --yes ppa:kicad/kicad-10.0-releases
+sudo apt update
+sudo apt install --install-recommends -y kicad
 ```
 
-**NgSpice note:** KiCad may pull in `libngspice-kicad`, which can collide with `libngspice0` / `libngspice0-dev`. If PySpice then fails to find `libngspice.so`, create a symlink to the versioned library (paths may vary by arch):
+That installs the GUI (`kicad`), CLI (`kicad-cli`), and recommended libraries. Confirm the package version lands on 10.0.6:
 
 ```bash
+apt-cache policy kicad | head -20
+# Candidate should look like: 10.0.6~ubuntu24.04.1 (or ~ubuntu22.04.1)
+```
+
+If an older distro `kicad` was already installed, the PPA upgrade should replace it after `apt update` + install. Prefer removing leftover nightly/testing PPAs (`kicad-10.0-nightly`, etc.) so apt does not prefer a non-stable build.
+
+### Verify CLI
+
+```bash
+kicad-cli --version
+kicad-cli sch --help
+```
+
+Expect a **10.0.6** version string and a `sch` subcommand that lists `erc`.
+
+### ERC smoke (after generators have produced a project)
+
+```bash
+# From repo root, after: uv run python -m generators.cli --n 2
+kicad-cli sch erc --format report --output /tmp/bringup_erc.rpt \
+  kicad/bringup_2x2/driver.kicad_sch
+```
+
+Or run the gate wrapper (preferred):
+
+```bash
+uv run python scripts/run_gate.py GATE-L4-FABRIC
+# or: uv run python scripts/run_kicad_erc.py
+```
+
+### NgSpice / PySpice coexistence
+
+KiCad may pull in `libngspice-kicad`, which can collide with `libngspice0` / `libngspice0-dev`. If PySpice then fails to find `libngspice.so`, create a symlink to the versioned library (paths may vary by arch):
+
+```bash
+# amd64 example — adjust libdir for arm64 if needed
 sudo ln -sf /usr/lib/x86_64-linux-gnu/libngspice.so.0 \
   /usr/lib/x86_64-linux-gnu/libngspice.so
 ```
+
+Re-run `uv run python scripts/check_pyspice.py` after installing KiCad.
+
+### GUI (optional)
+
+```bash
+kicad   # or open kicad/bringup_2x2/*.kicad_pro from the file manager
+```
+
+Help → About is fine for a human sanity check; gates use `kicad-cli` only.
 
 ## 5. Explicitly not installed
 
@@ -94,4 +146,5 @@ sudo ln -sf /usr/lib/x86_64-linux-gnu/libngspice.so.0 \
 - [ ] `uv run python scripts/run_gate.py GATE-L1-CYCLE` (or `uv run pytest tests/test_l1_cycle.py`)
 - [ ] `uv run python scripts/run_gate.py GATE-L2-E2E` (or `uv run pytest tests/test_l2_e2e.py`)
 - [ ] `uv run python scripts/run_gate.py GATE-L3-SIL` (or `uv run pytest tests/test_l3_sil.py`)
-- [ ] (optional) `kicad-cli --version` or Help → About in the KiCad GUI
+- [ ] `kicad-cli --version` shows **10.0.6** (required for L4; from `ppa:kicad/kicad-10.0-releases`)
+- [ ] `uv run python scripts/run_gate.py GATE-L4-FABRIC` (or `uv run pytest tests/test_l4_fabric.py`)

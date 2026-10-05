@@ -1,0 +1,71 @@
+{
+  "board": "pcb_ccs_sense",
+  "bus_pins": [
+    "+3V3",
+    "AGND",
+    "VDRIVE",
+    "AGND_PWR",
+    "ADDR_NL0",
+    "ADDR_NL1",
+    "ADDR_NL2",
+    "ADDR_NH0",
+    "ADDR_NH1",
+    "ADDR_NH2",
+    "FWD_EN_n",
+    "REV_EN_n",
+    "DEC_EN",
+    "CCS_RET_AXIS",
+    "AXIS_ID0",
+    "AXIS_ID1"
+  ],
+  "ccs_trims": [
+    "RTRIM_X",
+    "RTRIM_Y",
+    "RTRIM_INH"
+  ],
+  "pcb": "pcb_ccs_sense.kicad_pcb",
+  "pico_pcb_pins": [
+    "SENSE_STROBE",
+    "DOUT",
+    "PIO_STROBE"
+  ],
+  "pico_pins": [
+    "+3V3",
+    "AGND",
+    "ADDR_NL0",
+    "ADDR_NL1",
+    "ADDR_NL2",
+    "ADDR_NH0",
+    "ADDR_NH1",
+    "ADDR_NH2",
+    "FWD_EN_n",
+    "REV_EN_n",
+    "DEC_EN",
+    "SENSE_STROBE",
+    "DOUT",
+    "PIO_STROBE"
+  ],
+  "role": "CCS + sense + power/bus distribution",
+  "root_sch": "ccs_sense.kicad_sch",
+  "sense_nets": [
+    "SENSE_FOLD",
+    "YA65",
+    "YA66",
+    "YB65",
+    "YB66"
+  ],
+  "sense_pcb_pins": [
+    "YA65",
+    "YB66",
+    "YA66",
+    "YB65"
+  ],
+  "sense_pins": [
+    "YA65",
+    "YB66",
+    "YA66",
+    "YB65",
+    "AGND"
+  ],
+  "stackup": "2-layer fab prototype; 4-layer preferred"
+}

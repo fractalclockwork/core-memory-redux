@@ -90,3 +90,7 @@ Fold `YA66`═`YB65` stays **local** on the magnetic sheet (`SENSE_FOLD`); it is
 ## What never enters Drive/Decode
 
 `YA65`, `YB65`, `YA66`, `YB66`, `SENSE_FOLD` — sense/fold only ([naming.md](naming.md) §8).
+
+## Multi-board packaging
+
+Physical split: **one** CCS/sense host (ADDR + `VDRIVE` distribution, CCS, sense, write-back) plus repeated **axis-octal** PCBs — bring-up 2 boards (`g=0`), full array **2×8** with unique group address. Connector pinouts: [board_icd.md](board_icd.md). Do not invent a second electrical pin list here.

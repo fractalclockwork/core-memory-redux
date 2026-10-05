@@ -42,6 +42,7 @@ Normative facts have **one editable home**. Downstream docs must **link** to the
 | Steer/magnetic pin budgets, octal tile ABI | [hierarchy_abi.md](hierarchy_abi.md) | Timing prose |
 | BOM MPNs and part rationale | [component_selection.md](component_selection.md) | ICD geometry |
 | Tradeoffs + open decisions | [design_choices.md](design_choices.md) | Frozen ICD |
+| Multi-board packaging (1× CCS host + 2×8 axis-octal) | [board_icd.md](board_icd.md) | Electrical ABI / pin budgets |
 | Scale × surface verification claims | [coverage_matrix.md](coverage_matrix.md) (+ future regression scripts) | Architecture invention |
 
 ## Derived / non-authoritative (Layer C)
@@ -55,15 +56,16 @@ Normative facts have **one editable home**. Downstream docs must **link** to the
 | [../README.md](../README.md) | Human front door; architecture snapshot defers to owners |
 | [../AGENTS.md](../AGENTS.md) | Agent entry; points here; does not define ICD |
 
-## Machine golden source (Layer D — planned)
+## Machine golden source (Layer D)
 
-Markdown contract owners are the baseline **until** generators exist. Then authority flips as follows (do not pretend these artifacts exist today):
+Markdown contract owners remain baseline for ICD / BOM / timing. **Weave / fabric geometry** SSOT for generated KiCad is now:
 
-1. **Weave / fabric geometry SSOT** → AST / generator script (planned `mce_array` or equivalent)
-2. Human ICD docs become generated from AST **or** must match AST under a diff gate
-3. **Verification SSOT** → [coverage_matrix.md](coverage_matrix.md) rows + regression exit codes (simulator as oracle for that layer)
+1. **Weave / fabric geometry SSOT** → [`generators/mce_array.py`](../generators/mce_array.py) (+ [`generators/emit_kicad.py`](../generators/emit_kicad.py) emitter). Do not hand-edit `kicad/**` sheets; regenerate with `uv run python -m generators.cli --n 2|64`.
+2. **Multi-board PCB SSOT** → [`generators/board_abi.py`](../generators/board_abi.py) + [`generators/emit_boards.py`](../generators/emit_boards.py) → `kicad/pcb_ccs_sense/`, `kicad/pcb_axis_octal/`; `uv run python -m generators.cli --board ccs|axis`. Packaging contract: [board_icd.md](board_icd.md).
+3. Human ICD docs stay owner for electrical contracts; geometry emitted from the AST must conform to [hierarchy_abi.md](hierarchy_abi.md) / [naming.md](naming.md).
+4. **Verification SSOT** → [coverage_matrix.md](coverage_matrix.md) rows + regression exit codes (simulator / `kicad-cli` ERC/DRC as oracle for that layer)
 
-Formal YAML/TLA+ conversion of the full ICD is out of scope until the AST pipeline exists; record the intent here only.
+Formal YAML/TLA+ conversion of the full ICD remains out of scope; geometry SSOT for fabric is the AST above.
 
 ## Agent navigation
 

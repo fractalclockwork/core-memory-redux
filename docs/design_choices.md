@@ -88,6 +88,10 @@ FWD vs REV steering uses duplicated decoder banks gated by `FWD_EN_n` / `REV_EN_
 
 READ → strobe → inhibit → WRITE needs fixed delays on the order of hundreds of nanoseconds. Main-CPU GPIO toggling under an OS or interrupt load introduces jitter that corrupts sense windows. PIO state machines give cycle-accurate multi-pin sequences while application code runs elsewhere. Another MCU with equivalent programmable I/O could substitute; the requirement is hardware sequencing, not the Pico brand.
 
+## Multi-board packaging (one host + 2×8 axis)
+
+**One** `ccs_sense` host distributes address / `VDRIVE` / enables and owns CCS, sense/inhibit/fold, and write-back (`DOUT`). **Axis-octal** boards are identical copies: bring-up uses 1×X + 1×Y at `g=0` (three boards → 8×8); full 64×64 repeats to **2×8 = 16** axis boards with unique `JP_G` straps. Connector contract: [board_icd.md](board_icd.md). Electrical ABI unchanged ([hierarchy_abi.md](hierarchy_abi.md) **REQ-HIER-OCTAL**).
+
 ## Decisions still open
 
 | Topic | Notes |

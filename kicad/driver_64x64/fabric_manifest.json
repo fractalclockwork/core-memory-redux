@@ -1,0 +1,59 @@
+{
+  "decode_calls": 4,
+  "diodes": 512,
+  "fold": {
+    "SOFT_BIAS": "R_SENSE_FOLD_10k",
+    "YA65": "YA65",
+    "YA66": "SENSE_FOLD",
+    "YB65": "SENSE_FOLD",
+    "YB66": "YB66"
+  },
+  "groups": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "n": 64,
+  "octal_pin_count": 34,
+  "octal_tiles": 16,
+  "project": "driver_64x64",
+  "root": "driver.kicad_sch",
+  "sense_disjoint": true,
+  "sheets": [
+    "ccs_channel",
+    "decode_block",
+    "dmos_hs_array",
+    "dmos_ls_array",
+    "magnetic_plane",
+    "sense_front_end",
+    "steer_octal_X_g0",
+    "steer_octal_X_g1",
+    "steer_octal_X_g2",
+    "steer_octal_X_g3",
+    "steer_octal_X_g4",
+    "steer_octal_X_g5",
+    "steer_octal_X_g6",
+    "steer_octal_X_g7",
+    "steer_octal_Y_g0",
+    "steer_octal_Y_g1",
+    "steer_octal_Y_g2",
+    "steer_octal_Y_g3",
+    "steer_octal_Y_g4",
+    "steer_octal_Y_g5",
+    "steer_octal_Y_g6",
+    "steer_octal_Y_g7"
+  ],
+  "tune_points": [
+    "CCS_X_TRIM",
+    "CCS_Y_TRIM",
+    "CCS_INH_TRIM",
+    "VDRIVE",
+    "INH_POL_SEL",
+    "PIO_STROBE"
+  ]
+}

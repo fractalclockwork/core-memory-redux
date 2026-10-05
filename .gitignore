@@ -5,3 +5,9 @@ __pycache__/
 spice/out/
 *.raw
 .pytest_cache/
+.kicad-config/
+kicad/**/erc.json
+kicad/**/drc.json
+kicad/**/*.erc
+kicad/**/*.kicad_prl
+kicad/**/.history/
